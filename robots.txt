@@ -1,0 +1,3 @@
+# Not launched. Remove this file on go-live day.
+User-agent: *
+Disallow: /
