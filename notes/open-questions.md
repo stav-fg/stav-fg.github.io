@@ -102,3 +102,33 @@ Found on 7 Sep while reading the source material. The brief is otherwise accurat
 31. **Asperii end date.** The brief lists the CV as saying 2020-2021 and LinkedIn as saying Sep
     2020 to Apr 2022. The live site agrees with the CV. LinkedIn is likely correct; the Nov 2021
     date refers to the clinic project ending, not the job.
+
+---
+
+## F. Asset quality, found 7 September while placing images.
+
+32. **Two of the three Aircraft Maintenance screens are filled with lorem ipsum** and
+    "Component Name" placeholders. The Reviews list and the grouped-by-category view both show
+    eight cards of `Lorem ipsum dolor sit consectetur adipiscing elit` and no real component
+    names. They are on her live Carbonmade site in that state today.
+
+    The third screen, the default plane-tasks view, is genuinely strong: real technician roster,
+    six progress dials, an interactive aircraft schematic with numbered assignment markers, and a
+    ten-step procedure rail. That one is used in the case study.
+
+    The category-grouping chips on the third screen are a real design idea worth showing, with
+    live counts per category. The cards beneath them are not.
+
+    **Fix:** re-export those two frames from the original Webiks Figma with plausible content in
+    them. If that file is gone, crop to the parts that are real, or drop them. Do not ship
+    lorem ipsum on a portfolio; it reads as an unfinished mockup rather than a shipped product.
+
+33. **The Carbonmade downloads needed refetching.** Requesting a square box from the image CDN
+    pads and upscales every asset into that square. Fetching the bare asset id with no size
+    suffix returns the true original. Six of the eleven "images" in each project were the same
+    background texture repeated, byte for byte. Real count is 18 images, not 37, and the
+    committed payload dropped from 20.3MB to 5.7MB.
+
+34. **Screens are timestamped May 2022** in their own UI ("May 22, 2022, 16:34:52"), on a project
+    that ran January to September 2018. Harmless, but if anyone reads the case study dates against
+    the screenshots it looks inconsistent. Worth a line in the caption or a re-export.
