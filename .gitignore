@@ -1,0 +1,28 @@
+
+.DS_Store
+node_modules/
+
+
+# ---------------------------------------------------------------------
+# ALL source material stays local and is never published.
+#
+# A <user>.github.io Pages repo must be public, so anything tracked here
+# is world-readable. source-material/ contains the handoff brief (which
+# names the anchor customer that was explicitly decided against naming),
+# the Portfolio Panel deck (unredacted clinic screenshots), her LinkedIn
+# export, the full-resolution Carbonmade originals, and the Salesforce
+# internal prototype repo.
+#
+# None of that belongs on a public URL under her name.
+# ---------------------------------------------------------------------
+source-material/
+
+# Working documents. Local only.
+#
+# notes/ carries internal Salesforce identifiers (hostnames, her internal
+# username) and candid strategic assessments never written for an audience.
+# drafts/ carries the CV working copy with contact details and open questions.
+# Neither belongs in a public repo. Move them to a private repo if they ever
+# need to be shared.
+notes/
+drafts/

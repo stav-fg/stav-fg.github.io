@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Founding a design function that was told no — Stav Fisher Gross</title>
+<meta name="description" content="Pitched a UX practice to an Air Force software unit, was refused, and built it anyway. Five years later it was a funded design wing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;620&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="shell">
+  <header class="site-head">
+    <a class="wordmark" href="/">Stav Fisher Gross</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/" aria-current="page">Work</a>
+      <a href="/about.html">About</a>
+      <a href="/cv.html">CV</a>
+    </nav>
+  </header>
+</div>
+
+<main id="main">
+<div class="shell">
+
+  <div class="case-head">
+    <p class="eyebrow">Case study 04</p>
+    <h1>Founding a design function that was told no</h1>
+    <p class="lead">
+      I put together a pitch deck for a UX practice, presented it to the head of an Air Force
+      software unit, and was turned down. I started doing it anyway, after hours, as a volunteer.
+      Five years later the unit had a funded design wing and I was running it.
+    </p>
+
+    <dl class="factbar">
+      <div><dt>Organisation</dt><dd>Israeli Air Force software unit</dd></div>
+      <div><dt>Dates</dt><dd>2012 to 2017</dd></div>
+      <div><dt>Role</dt><dd>First UX designer in the IAF, unofficially then officially. Later founded the UX wing.</dd></div>
+      <div><dt>Proof artifact</dt><dd>Aerial defense support software, 2013 to 2014</dd></div>
+    </dl>
+  </div>
+
+  <section>
+    <div class="prose">
+      <h2>The problem I noticed</h2>
+      <p>
+        I joined at 18 and spent three years across project management, training, standards and
+        knowledge management. From those seats I could see the same thing from several angles:
+        roughly a thousand developers in the unit, building a great deal of software, that
+        almost nobody fully used and nobody liked.
+      </p>
+      <p>
+        I taught myself user experience practice and tooling on my own time. At that point the
+        discipline read to most people in the unit as graphic design, and design was not
+        something a military software organisation was expected to care about.
+      </p>
+
+      <h2>The refusal, and what I did with it</h2>
+      <p>
+        I built the pitch, prepared thoroughly and delivered it well. The answer was no.
+      </p>
+      <p>
+        So I offered my services to individual teams as a volunteer, in my own time, under a
+        title I gave myself. Word spread. Demand grew faster than I expected, and within months
+        I was spending around eighty per cent of my time on product design work that was not
+        formally my job. The unit gave me the title of its first UX and UI designer unofficially.
+        Three years later it became official.
+      </p>
+
+      <blockquote class="pull">
+        The function existed for three years before anyone approved it. Demand made the case that
+        the pitch could not.
+      </blockquote>
+
+      <h2>The proof: aerial defense support software</h2>
+      <p>
+        The clearest single piece of evidence is a system I joined after it had already shipped.
+        The unit built and maintained the software used by aerial defense teams. It carried
+        operating principles inherited from older systems, which were not always intuitive and
+        left room for human error, and operator response times were too long for a system where
+        response time is the whole point.
+      </p>
+      <p>
+        Nobody had asked for a redesign, and there was neither the appetite nor the budget for
+        one. I offered to join and improve usability within the constraints that existed.
+      </p>
+
+      <h3>Who used it</h3>
+      <ul class="tight">
+        <li>
+          <strong>Operators</strong>, working shifts in a field command centre. They identify
+          incoming threats, judge the likely damage, warn civilians in the impact zone, and
+          launch interceptors when necessary.
+        </li>
+        <li>
+          <strong>Intelligence researchers</strong>, working from a base. They feed operators the
+          data behind real-time decisions, and analyse system performance afterwards to improve it.
+        </li>
+      </ul>
+
+      <h3>The constraints</h3>
+      <ul class="tight">
+        <li>Ten developers and two system architects, and I worked directly with them.</li>
+        <li>Legacy technology with very little flexibility.</li>
+        <li>No buy-in and no resources for a full redesign.</li>
+      </ul>
+
+      <h3>What was actually wrong</h3>
+      <p>
+        The interface paired a map with a list of sensor inputs. Estimated impact areas were
+        drawn on the map as ellipses, each threat tied to inputs from different sensors.
+      </p>
+      <ul class="tight">
+        <li>
+          Live threats and past threats were drawn the same way. There was no way to tell them
+          apart at a glance.
+        </li>
+        <li>
+          Clustered threats made the map unreadable at exactly the moment it mattered most.
+        </li>
+        <li>
+          The layout was not responsive. On the smaller screens operators typically used,
+          critical information simply was not visible.
+        </li>
+        <li>
+          Data presentation was inconsistent. Threats carry different numbers of sensor readings,
+          so the same data point appeared in different places for different threats, and the
+          operator had to search for it every time.
+        </li>
+      </ul>
+
+      <h3>What I changed</h3>
+      <ul class="tight">
+        <li>
+          Responsiveness that knows what to sacrifice. When space runs out the tables hold and
+          the map gives way, because the table is what the decision needs.
+        </li>
+        <li>
+          A fixed position for every data point, so the same reading is always in the same place
+          regardless of how many sensors reported.
+        </li>
+        <li>
+          Tighter use of the screen, which bought back room for the map.
+        </li>
+        <li>
+          Redrawn ellipses, so a cluster stays readable and live threats separate visually from
+          past ones.
+        </li>
+        <li>
+          Restraint elsewhere: separator lines, selective colour, spacing. Small moves that make
+          the screen scannable under pressure.
+        </li>
+      </ul>
+
+      <h2>Results</h2>
+      <ul class="tight">
+        <li>
+          Operator response times improved following the changes made during the 2014 operation,
+          on a system where response time is directly tied to outcomes.
+        </li>
+        <li>
+          Design and development were jointly awarded a commendation of excellence for
+          extraordinary contribution.
+        </li>
+        <li>
+          Afterwards I founded the Air Force's UX wing and secured funding in the millions to
+          recruit and train designers into it.
+        </li>
+      </ul>
+
+      <div class="gap">
+        <strong>Gap: the one number that would carry this</strong>
+        <p>
+          "Response times improved" is the weakest sentence on the page and it is the load-bearing
+          one. If any figure was ever recorded, or even a remembered before-and-after order of
+          magnitude, it changes this study completely. If no number exists, say so plainly rather
+          than leaving the vague claim standing. Interviewers respect the first and pick at the second.
+        </p>
+      </div>
+
+      <h2>What I learned</h2>
+      <ul class="tight">
+        <li>Small changes go a long way.</li>
+        <li>
+          User experience can matter as much as any feature, and in mission-critical systems the
+          cost of a mistake makes it matter more.
+        </li>
+        <li>That this was the work I wanted to do.</li>
+      </ul>
+
+      <h2>What I would do differently</h2>
+      <ul class="tight">
+        <li>
+          Push for a deeper research phase up front, so the changes were strategic rather than
+          tactical. I was putting out fires.
+        </li>
+        <li>Use far more whitespace.</li>
+      </ul>
+
+      <div class="gap">
+        <strong>This is the prototype brief</strong>
+        <p>
+          The build plan calls for rebuilding an older design as a working prototype, using the
+          original "I would have" as the brief. This is the strongest candidate in the whole body
+          of work: the two takeaways above are a real design brief, written by her, fifteen years
+          before the rebuild.
+        </p>
+        <p>
+          The obstacle is confidentiality, not craft. Doing it means rebuilding the problem class
+          rather than the system: a generic real-time threat triage interface, invented data,
+          nothing tied to actual detection ranges, timing or engagement logic. That is also a
+          better portfolio piece, because it can be shown to anyone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="prose">
+      <div class="gap">
+        <strong>Confidentiality, unresolved</strong>
+        <p>
+          The recorded position is that Air Force material stays within what has appeared in news
+          coverage during the last three years of war. The standing recommendation, declined so
+          far, is to have the unit's security officer look at it, and to describe the problem class
+          rather than showing detection ranges, timing or engagement logic.
+        </p>
+        <p>
+          Two facts worth weighing before go-live. Her existing Carbonmade site already names her
+          unit publicly on its About page. And the deck's aerial defense screens are already
+          redacted with placeholders, so the visual material was prepared with this in mind. The
+          risk is concentrated in the words, not the screens.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<div class="shell">
+  <footer class="site-foot">
+    <span><a href="/">All work</a></span>
+    <span><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
