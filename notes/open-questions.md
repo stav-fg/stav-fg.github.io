@@ -132,3 +132,21 @@ Found on 7 Sep while reading the source material. The brief is otherwise accurat
 34. **Screens are timestamped May 2022** in their own UI ("May 22, 2022, 16:34:52"), on a project
     that ran January to September 2018. Harmless, but if anyone reads the case study dates against
     the screenshots it looks inconsistent. Worth a line in the caption or a re-export.
+
+35. **The deck's aerial defense before/after screens are strong, and I did not publish them.**
+    Both are redacted to the XXXX standard the brief describes, and as a pair they demonstrate the
+    single clearest design argument in her whole body of work: in the before, every impact ellipse
+    is drawn identically and they overlap into an unreadable cluster; in the after, live threats
+    are solid filled shapes and past threats are dashed outlines, and the single mixed table has
+    become two, live and other.
+
+    What is still legible despite the redaction: real map geography with place names, response
+    timings in the tables, and the ellipse geometry itself. That is the exact category the
+    declined security-officer recommendation covered. A private slide deck and a public URL under
+    her real name are different risk profiles.
+
+    **Decision needed.** Three options: get the security officer review that was declined, publish
+    a cropped detail showing only the ellipse treatment against a blank ground, or publish nothing
+    photographic and rely on the abstract diagram now in the case study. I have taken the third
+    option as the default because it is safe and it explains the thinking better than a screenshot
+    of a Hebrew interface would to a reviewer at Google.

@@ -159,6 +159,75 @@
           the screen scannable under pressure.
         </li>
       </ul>
+    </div>
+
+    <figure>
+      <svg viewBox="0 0 720 340" role="img" aria-labelledby="ellipseTitle ellipseDesc"
+           style="width:100%;height:auto;background:var(--ground-sunk);border:1px solid var(--rule);border-radius:3px;">
+        <title id="ellipseTitle">How impact areas were redrawn</title>
+        <desc id="ellipseDesc">
+          Two panels. On the left, labelled Before, six overlapping ellipses are drawn in an
+          identical style, so a cluster reads as one indistinguishable mass and nothing indicates
+          which threats are still live. On the right, labelled After, the same six ellipses are
+          drawn in two styles: two live threats are filled and solid-edged, and four past threats
+          are unfilled with dashed edges, so the live ones separate from the cluster at a glance.
+        </desc>
+
+        <g font-family="var(--face-text)" font-size="11" letter-spacing="1.6"
+           fill="var(--ink-faint)" text-transform="uppercase">
+          <text x="24" y="30">BEFORE</text>
+          <text x="392" y="30">AFTER</text>
+        </g>
+
+        <!-- divider between the two states -->
+        <line x1="360" y1="16" x2="360" y2="324" stroke="var(--rule)" stroke-width="1"/>
+
+        <!-- BEFORE: every ellipse identical, so the cluster is one mass -->
+        <g transform="translate(24,48)" fill="var(--ink-soft)" fill-opacity="0.18"
+           stroke="var(--ink-soft)" stroke-width="1.5">
+          <ellipse cx="120" cy="96" rx="74" ry="34" transform="rotate(-28 120 96)"/>
+          <ellipse cx="158" cy="118" rx="66" ry="30" transform="rotate(-52 158 118)"/>
+          <ellipse cx="96"  cy="132" rx="70" ry="28" transform="rotate(-14 96 132)"/>
+          <ellipse cx="176" cy="82"  rx="58" ry="26" transform="rotate(-70 176 82)"/>
+          <ellipse cx="132" cy="150" rx="62" ry="24" transform="rotate(-40 132 150)"/>
+          <ellipse cx="90"  cy="70"  rx="54" ry="24" transform="rotate(-8 90 70)"/>
+        </g>
+
+        <!-- AFTER: same six, two drawn as live, four as past -->
+        <g transform="translate(392,48)">
+          <g fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-dasharray="5 4">
+            <ellipse cx="96"  cy="132" rx="70" ry="28" transform="rotate(-14 96 132)"/>
+            <ellipse cx="176" cy="82"  rx="58" ry="26" transform="rotate(-70 176 82)"/>
+            <ellipse cx="132" cy="150" rx="62" ry="24" transform="rotate(-40 132 150)"/>
+            <ellipse cx="90"  cy="70"  rx="54" ry="24" transform="rotate(-8 90 70)"/>
+          </g>
+          <g fill="var(--accent)" fill-opacity="0.26" stroke="var(--accent)" stroke-width="2.5">
+            <ellipse cx="120" cy="96" rx="74" ry="34" transform="rotate(-28 120 96)"/>
+            <ellipse cx="158" cy="118" rx="66" ry="30" transform="rotate(-52 158 118)"/>
+          </g>
+        </g>
+
+        <!-- key -->
+        <g transform="translate(392,308)" font-family="var(--face-text)" font-size="12"
+           fill="var(--ink-soft)">
+          <ellipse cx="12" cy="-4" rx="11" ry="6" fill="var(--accent)" fill-opacity="0.26"
+                   stroke="var(--accent)" stroke-width="2"/>
+          <text x="32" y="0">Live</text>
+          <ellipse cx="104" cy="-4" rx="11" ry="6" fill="none" stroke="var(--ink-faint)"
+                   stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="124" y="0">Past</text>
+        </g>
+      </svg>
+      <figcaption>
+        The same six impact areas, drawn two ways. Nothing was added to the screen and nothing was
+        removed: the only change is that a live threat is filled and solid-edged while a past one
+        is a dashed outline. Under the old drawing every ellipse was identical, so a cluster
+        arriving at once became one shape an operator had to untangle at the moment they had least
+        time to do it. Diagram redrawn from the original interface, which is not shown.
+      </figcaption>
+    </figure>
+
+    <div class="prose">
 
       <h2>Results</h2>
       <ul class="tight">

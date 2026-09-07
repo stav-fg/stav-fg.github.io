@@ -17,7 +17,7 @@
   --ground-sunk:   #f2f0ec;
   --ink:           #17161a;
   --ink-soft:      #4a4750;
-  --ink-faint:     #86828e;
+  --ink-faint:     #6f6b77;
   --rule:          #e2ded7;
 
   /* one accent, carried over from the Carbonmade site for continuity */
@@ -59,7 +59,7 @@
     --ground-sunk: #1b1a20;
     --ink:         #f2f0ec;
     --ink-soft:    #b3aebb;
-    --ink-faint:   #77737f;
+    --ink-faint:   #85818d;
     --rule:        #2c2a33;
     --accent:      #b39ae4;
     --accent-soft: #241e33;
@@ -71,7 +71,7 @@
   --ground-sunk: #1b1a20;
   --ink:         #f2f0ec;
   --ink-soft:    #b3aebb;
-  --ink-faint:   #77737f;
+  --ink-faint:   #85818d;
   --rule:        #2c2a33;
   --accent:      #b39ae4;
   --accent-soft: #241e33;
