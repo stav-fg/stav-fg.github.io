@@ -75,7 +75,11 @@ Three things stand out. It spans at least five release cycles, which is longer t
 six. It has a components file, meaning she built a design system for it. And it has genuine
 research artifacts including gamification ranks research, plus vision work in `256 + Vision`.
 
-**Question for Stav:** what is MSJ, and why is it not on the list of six? A project with vision
+**RESOLVED 7 Sep.** The Salesforce Drive index confirms My Service Journey is a 2022-2024 initiative
+with different owners, unrelated to her Embedded AI work. Out of consideration. Original note kept
+below for the record.
+
+~~**Question for Stav:** what is MSJ, and why is it not on the list of six?~~ A project with vision
 work, a component library and its own research across five releases may be a stronger case study
 than some of the six. It should at least be a deliberate exclusion rather than an oversight.
 

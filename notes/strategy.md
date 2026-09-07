@@ -113,9 +113,8 @@ adequate ones and nothing to present.
   a weak project, but worth knowing that the portfolio now says "complex operational software"
   and nothing else. If range matters for a specific role, the prototype rebuild is where it can
   be bought back cheaply.
-- **MSJ was never considered.** Fourteen files across five release cycles, a component library,
-  vision work and gamification research. Nobody has said why it is not one of the six. It may be
-  better than two of the four current case studies.
+- ~~**MSJ was never considered.**~~ Resolved 7 Sep: My Service Journey is a 2022-2024 initiative
+  with different owners, unrelated to her Embedded AI work. Withdrawn.
 - **The Webiks slot has two candidates and the brief assumed one.** Aircraft Maintenance and
   Drill Management are both hers, both sole-designer, both written up already. Aircraft
   Maintenance is the better craft story. Drill Management is the better systems-thinking story:
