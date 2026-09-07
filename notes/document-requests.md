@@ -117,10 +117,36 @@ know that in the first week of September than the last.
 
 ---
 
-## Corrections to earlier notes
+## MSJ is back in, and my reason for cutting it was wrong
 
-**MSJ is out.** I flagged "My Salesforce Journey" as a possible hidden strong project across five
-release cycles. The index resolves it: My Service Journey is a 2022 to 2024 initiative with
-different owners, unrelated to her Embedded AI work. Same for Service Catalog. Both removed from
-consideration. `notes/drive-figma-inventory.md` and `notes/strategy.md` say otherwise and are now
-wrong on this point.
+I excluded MSJ because the index said "different owners". Ehud corrected the method: ownership at
+Salesforce rotates constantly, so whose name is on a document says nothing about who led the
+design. Documentary ownership is not a filter and should never have been used as one.
+
+Re-examined on evidence that does not depend on ownership, and the exclusion does not hold:
+
+**The release numbers overlap her current work.** MSJ files run 250, 252, 254, 256, 260 and a
+"260+" brainstorm. Her Embedded AI documents run 260, 262, 264. Those are the same numbering
+ladder and they meet at 260. MSJ is not a finished older initiative sitting years before her AI
+work; it runs right up to it.
+
+**There is Agentforce material in the folder.** `[Service Cloud] Agentforce for Setup - Email to
+Case.fig` sits alongside the MSJ files. Agentforce is current-generation branding, not 2022.
+
+**The files are enormous.** `260 - My Salesforce Journey.fig` is 355MB. `254 - MSJ.fig` is 230MB.
+`252` is 213MB. For comparison, `KGER.fig` is 40MB. Whatever MSJ is, it is the largest body of
+design work in the entire Drive by a wide margin, roughly five times the lead case study.
+
+**It has a component library and a vision file**, which no other project here has.
+`MSJ - Components.fig` and `256 + Vision - MSJ.fig`.
+
+**And it has its own research**, `254 Research for MSJ_ Gamification Ranks.jam`, which makes it
+the only project in the Drive with a research artifact attached.
+
+Gamification also implies it is not another agent-console feature. The portfolio is currently four
+variations on enterprise support tooling with no range anywhere. If MSJ is a different kind of
+product, that is worth more than its size.
+
+**What I need is one sentence from Stav about what MSJ actually is**, and whether she led it. Not
+a document. On the current evidence it is a strong candidate and possibly the strongest, and I
+cut it for a bad reason.
