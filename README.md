@@ -6,8 +6,9 @@ the commit history readable, which the handoff brief treats as evidence of the p
 
 ## Where things stand, 7 September 2026
 
-Scaffolded in one session. Four case study pages exist. Two are drafted from real source
-material, two are stubs waiting on interviews that have not happened yet.
+Scaffolded in one session, from the handoff brief plus the source material it pointed at.
+Two case studies are written from real material. Two are listed but unwritten, because the
+interviews behind them have not happened.
 
 | Page | State |
 |---|---|
@@ -31,19 +32,8 @@ Target: `stav-fg.github.io` as a GitHub user site, which gives the cleanest poss
 no custom domain and no configuration. A repo named exactly `stav-fg.github.io` on her account
 publishes from the default branch at that address.
 
-Not set up yet, and blocked. See below.
-
-## Blocked on Xcode Command Line Tools
-
-`git` on this machine is the Apple stub, not a working binary. `node`, `npm` and `gh` are all
-absent. Running any git command triggers the developer tools install prompt.
-
-```bash
-xcode-select --install
-```
-
-Nothing in this repo needs node. Git is only needed to commit and push, so this blocks
-deployment and version history, not the work itself.
+Pages self-enables for a repo with that exact name and publishes from the default branch.
+Nothing here needs a build step, so there is no workflow to configure.
 
 ## Layout
 
@@ -98,9 +88,13 @@ live site on 7 September 2026. `source-material/deck-slides/` holds all 50 deck 
   `textContent` with inline `<style>` elements stripped returns everything.
 - **Carbonmade images** are served from `carbon-media.accelerator.net/0000000mhAP/<id>;<W>x<H>.png`.
   Requesting a large box such as `;4000x4000.png` returns near-original resolution.
-- **PDF text and page rendering work without any developer tools**, via macOS PDFKit through
-  `osascript -l JavaScript`. `pdftotext` and `pdftoppm` are not installed and cannot be installed
-  without Homebrew.
+- **PDF text extraction and page rendering** work through macOS PDFKit via
+  `osascript -l JavaScript`, with no poppler and no Homebrew. `qlmanage -t` renders an HTML file
+  to PNG, which is a usable way to eyeball a page without a browser or a dev server.
+- **Installing Command Line Tools headlessly** has a catch-22. The package only appears in
+  `softwareupdate --list` while `/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress`
+  exists. Create that marker first, then install by the exact label the listing prints. A stale
+  marker from an abandoned attempt makes every later `xcode-select --install` a silent no-op.
 - **The Google Doc brief** needs the `/mobilebasic` view. The normal `/edit` view renders to canvas
   and returns only UI chrome.
 
