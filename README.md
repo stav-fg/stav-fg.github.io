@@ -4,6 +4,12 @@ Static site. No build step, no framework, no dependencies. Open `index.html` in 
 it works. That is deliberate: it deploys to GitHub Pages with zero configuration, and it keeps
 the commit history readable, which the handoff brief treats as evidence of the process.
 
+## Start here
+
+`notes/session-brief.md` is the debrief: decisions made, findings, mistakes corrected, and what
+is still open. `notes/strategy.md` argues where the plan is wrong. `notes/open-questions.md` sorts
+every open item by who can answer it.
+
 ## Where things stand, 7 September 2026
 
 Scaffolded in one session, from the handoff brief plus the source material it pointed at.
