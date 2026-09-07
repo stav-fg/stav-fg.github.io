@@ -150,3 +150,20 @@ Found on 7 Sep while reading the source material. The brief is otherwise accurat
     photographic and rely on the abstract diagram now in the case study. I have taken the third
     option as the default because it is safe and it explains the thinking better than a screenshot
     of a Hebrew interface would to a reviewer at Google.
+
+36. **Three sections on the Aircraft Maintenance page had to be removed, not just emptied.**
+    "Who I was designing for", "Results" and "Takeaways" existed only as gap callouts. Once those
+    came out, all three were headings with nothing beneath them, which reads worse than an absent
+    section. They are deleted from the page and listed here instead.
+
+    All three are real weaknesses in the case study, in rising order of how much an interviewer
+    will care:
+    - **Personas.** The Clinic study has a user-types-and-characteristics matrix; this one names
+      technicians, commanders and air crew and never separates their needs.
+    - **Takeaways.** The deck ends both of its case studies with an honest "I learned" and
+      "I would have". That self-critique is what big tech interviewers probe for and most
+      portfolios omit. This study has none.
+    - **Results.** No outcome data at all, and the page now stops at what shipped. Eight years on,
+      a qualitative account is the realistic ceiling. If nothing can be recalled, say so on the
+      page rather than leaving the section off, because a stated absence survives questioning and
+      a silent one invites it.

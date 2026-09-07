@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The live-versus-past ellipse pair from the aerial defense case study.
+       A mark that means something rather than a monogram. -->
+  <rect width="64" height="64" rx="12" fill="#17161a"/>
+  <g transform="rotate(-32 32 32)">
+    <ellipse cx="32" cy="32" rx="23" ry="10" fill="none" stroke="#6f6b77"
+             stroke-width="2.5" stroke-dasharray="5 4"/>
+  </g>
+  <g transform="rotate(28 32 32)">
+    <ellipse cx="32" cy="32" rx="23" ry="10" fill="#b39ae4" fill-opacity="0.45"
+             stroke="#b39ae4" stroke-width="3"/>
+  </g>
+</svg>
