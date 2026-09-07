@@ -17,12 +17,8 @@ node_modules/
 # ---------------------------------------------------------------------
 source-material/
 
-# Working documents. Local only.
-#
-# notes/ carries internal Salesforce identifiers (hostnames, her internal
-# username) and candid strategic assessments never written for an audience.
-# drafts/ carries the CV working copy with contact details and open questions.
-# Neither belongs in a public repo. Move them to a private repo if they ever
-# need to be shared.
-notes/
-drafts/
+
+# notes/ and drafts/ ARE tracked: they are the operating record of how this was
+# built, and they belong with it. They are written on the assumption that this
+# repo is public, so they carry no employer-internal identifiers, no customer
+# names, and no contact details. Keep it that way when adding to them.

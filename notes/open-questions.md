@@ -1,0 +1,104 @@
+# Open questions and unresolved conflicts
+
+Everything here needs a human answer. Nothing here is blocked on me.
+Grouped by who can answer it and how urgent it is.
+
+---
+
+## A. Blocked on Salesforce access. Deadline end of September 2026.
+
+The only genuinely time-boxed work in this project. Everything in sections B through E can
+happen in October or later.
+
+1. Every metric in Section 6 of the brief, for all six projects. Adoption, acceptance rate,
+   edit rate, time saved, deflection, volume, CSAT.
+2. Usability findings, recordings, notes.
+3. Before-state documentation of the agent workflow.
+4. Design critique notes, especially anything recording a reversed decision.
+5. All six Figma files, exported whole, including rejected explorations.
+6. Accessibility audits, standards docs, review checklists.
+7. Any document she wrote that changed a decision.
+
+Not in the brief, added 7 Sep, same deadline:
+
+8. LinkedIn recommendations from Salesforce colleagues. Ask while she is still there.
+9. Personal contact details for anyone whose recollection might be needed in October.
+
+---
+
+## B. Answerable in one conversation with Stav. Not blocked on anything.
+
+10. **Webiks title.** Senior Product Designer or Product Designer? The old CV says Senior. Her
+    live portfolio About page says Senior. Her LinkedIn says Product Designer. Whichever is
+    right, all three have to agree, and LinkedIn is the one a recruiter cross-checks.
+11. **Phone number.** The brief has [phone, variant]. Her live site has [phone].
+12. **AI tooling.** Which tools she actually uses and for what. The current CV lists Adobe XD,
+    Axure, InVision and Zeplin, and no AI tooling at all, on a CV whose whole argument is AI
+    fluency. This is the most damaging single section on the CV and the cheapest to fix.
+13. **Accessibility specifics.** Which standards, which audit tooling, what the review gate was,
+    whether she trained others. Google and Microsoft screen for this explicitly.
+14. **Spanish.** Listed on the live site, absent from the brief. Still accurate?
+15. **Aircraft Maintenance personas.** She ran the interviews and the base visits. The Clinic
+    study has a proper user-characteristics matrix and this one has nothing. Recall, not research.
+16. **Aircraft Maintenance outcome.** No results section exists. Eight years on, a qualitative
+    account is the realistic ceiling, and it still beats stopping at the solution.
+
+---
+
+## C. Decisions only Ehud and Stav can make.
+
+17. **The one number for the Air Force study.** "Response times have improved" is the
+    load-bearing sentence and the weakest one on the page. If any figure was recorded, or even a
+    remembered order of magnitude, it changes the study. If none exists, say so plainly. Vague
+    claims get picked at; stated absences do not.
+18. **Air Force confidentiality.** The recorded position is "limited to what has appeared in news
+    coverage." The standing recommendation, declined so far, is a security officer review and
+    describing the problem class rather than the mechanics. Worth noting that her existing public
+    site already names her unit on its About page, and the deck's aerial defense screens are
+    already redacted with placeholders. The exposure is in the words, not the screens.
+19. **Which older design to rebuild as the working prototype.** My read: the Aerial Defense
+    takeaways are by far the best brief, because "I would have pushed for deeper research" and
+    "I would have used much more whitespace" is a genuine design brief she wrote herself fifteen
+    years ago. The Clinic takeaways are about delegation and research process, which do not
+    translate into a thing you can build. The obstacle is confidentiality, and the way through it
+    is to rebuild the problem class with invented data rather than the system.
+20. **Go-live date.** Not set.
+21. **Geography.** Israel, remote, or US. Not decided.
+22. **Whether to keep** the career break line, the second Asperii entry, and the two pre-2012 IDF
+    roles on the CV. My recommendations are in `drafts/cv.md`.
+
+---
+
+## D. Fix on the live Carbonmade site now, independent of everything else.
+
+The site is public and the password is off, so anyone she has sent it to is seeing this today.
+
+23. **Unedited template text** on the Aircraft Maintenance page: "You can you this place to talk
+    a little bit about the image on the side." Typo included.
+24. **Typo** on the Clinic page: "mange a monthly allocation plan."
+25. **The About blurb** reads "Experienced product design person," which looks like a half-finished
+    edit.
+26. **Salesforce is missing entirely** from the About page timeline, which stops at Asperii
+    2020-2021. The same problem the CV has. Her most significant four years appear in none of her
+    three public artifacts.
+
+---
+
+## E. Corrections to the handoff brief itself.
+
+Found on 7 Sep while reading the source material. The brief is otherwise accurate.
+
+27. **Drill Management is Webiks work**, done for the IDF, dated Jun 2017 to Sep 2018. The build
+    plan offers it as a possible proof artifact for the Air Force case study. It does not
+    qualify, because it is not from her Air Force service. Aerial Defense is the only candidate.
+28. **The Carbonmade project dates in section 4b are upload dates, not project dates.** Aircraft
+    Maintenance is listed as May 2022 but ran Jan to Sep 2018. Clinic Management is listed as
+    May 2021 but ran Sep 2020 to Nov 2021.
+29. **Paw Pal is already gone** from the live site. The decision to cut it is already executed.
+30. **The Webiks slot is much cheaper than assumed.** Two complete written case studies already
+    exist for it, Aircraft Maintenance and Drill Management. Combined with the deck's Aerial
+    Defense material, two of the four planned case studies are already sourced. Only the two
+    Salesforce studies start from zero, which means September is exclusively about Salesforce.
+31. **Asperii end date.** The brief lists the CV as saying 2020-2021 and LinkedIn as saying Sep
+    2020 to Apr 2022. The live site agrees with the CV. LinkedIn is likely correct; the Nov 2021
+    date refers to the clinic project ending, not the job.

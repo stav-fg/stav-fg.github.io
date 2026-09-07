@@ -279,20 +279,29 @@ blockquote.pull {
 ul.tight { padding-left: 1.15rem; margin: var(--s-2) 0 0; }
 ul.tight li + li { margin-top: var(--s-1); }
 
-/* --- editorial callouts used while drafting ---------------------- */
 
-.gap {
-  border: 1px dashed var(--accent);
+/* Case studies that are listed but not yet written. Shown rather than hidden,
+   because omitting the Salesforce work entirely would make a fourteen-year
+   career look like it stopped in 2018. Not linked, because a case study page
+   that is only a list of unanswered questions is worse than no page. */
+.work-item.pending { cursor: default; }
+.work-item.pending:hover { background: var(--ground); }
+.work-item.pending h3,
+.work-item.pending .meta,
+.work-item.pending .blurb { color: var(--ink-faint); }
+
+.tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: .5em;
+  font-family: var(--face-mono);
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
   background: var(--accent-soft);
-  border-radius: 4px;
-  padding: var(--s-3);
-  margin: var(--s-4) 0;
-  font-size: var(--t-small);
-  max-width: 42rem;
+  border-radius: 3px;
+  padding: .15em .45em;
+  white-space: nowrap;
 }
-.gap p { margin: 0; }
-.gap p + p { margin-top: var(--s-2); }
-.gap strong { font-family: var(--face-mono); font-size: var(--t-micro); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: var(--s-1); color: var(--accent); }
-
-/* Flip to `display:none` (or delete the blocks) before go-live. */
-body[data-mode="clean"] .gap { display: none; }
