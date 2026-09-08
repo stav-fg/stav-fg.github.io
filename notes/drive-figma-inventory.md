@@ -103,3 +103,60 @@ than some of the six. It should at least be a deliberate exclusion rather than a
 A `.fig` export is only useful if it opens. Import one into Figma this week and confirm it
 restores with its pages, components and version history intact. Finding out in October that the
 exports are broken would be the worst possible outcome, and it is a fifteen-minute check.
+
+---
+
+## Second pass, 8 September: two folders I had never opened
+
+I listed A3 and Service Catalog in the top-level inventory and then never looked inside either.
+Correcting that, and both change something.
+
+### A3 — the Registry files exist after all
+
+- `A3 Registry Setup.fig`, 122MB
+- `A3 Workshop.jam`
+- `A3 Record Companion Registry.jam` — **added 6 September**, weeks after everything else here,
+  which suggests it is the most current thing in the whole Drive
+
+My note in `document-requests.md` saying the A3 Registry file "was not in any folder I inventoried"
+was simply wrong. It was in the A3 folder, which I never opened. The A3 case study is not missing
+its design source.
+
+### Service Catalog — much larger than the index implied, and it contains research
+
+Nineteen files, several between 150MB and 210MB. Release numbers run 244 to 250, so it sits before
+the Embedded AI work rather than years before it.
+
+What is in there:
+
+- **`Service Cloud _ Service Catalog - Customer Research 2.0.fig`** — customer research
+- `Service Catalog - Screen library.fig` — a screen and component library
+- `🍤 246 SOBA builder experience.fig` — a second builder experience, distinct from A3's
+- `Service Cloud _ Self Service Workshop Assets.fig` — workshop material
+- `250 - Catalog Item Access - UX review.fig` — a UX review
+- **`_SLDS vs Kondo.fig`** — an evaluation of the Salesforce design system against an alternative
+- `Eligibility Rules.fig`, `250 CSP planing.fig`, `Service Catalog Demo - Alpha insurance.fig`
+
+The index excluded all of this as "old 2022-2024 initiatives, different owners", which is the same
+reasoning that turned out to be wrong for MSJ.
+
+## The "no research exists" alarm was half wrong
+
+I raised the absence of any research, usability study or readout as the most important signal in
+the document index. That still holds **for documents**. It does not hold for the Drive.
+
+Research artifacts are here, they are just Figma and FigJam files rather than written reports:
+
+- `Service Cloud _ Service Catalog - Customer Research 2.0.fig`
+- `254 Research for MSJ_ Gamification Ranks.jam`
+- `UT Case Summary.fig`, where UT is very likely usability testing
+- `A3 Workshop.jam` and `Service Cloud _ Self Service Workshop Assets.fig`
+- `AR4 Everything.jam`
+
+So the correct statement is narrower and more useful: **her research was done on canvases, not
+written up as reports.** That is common for designers and it is not a gap in her practice. It does
+mean every research artifact needs a PDF export to be usable, and it moves those files up the
+export priority list considerably.
+
+It also means the second document sweep should look for readouts and metrics, but should not
+expect to find research there.
