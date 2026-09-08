@@ -79,3 +79,49 @@ four layers, includes a worked concrete example, and ends in a competitive analy
 
 It was created on **6 September 2026**, which makes it the most recent artifact anywhere in this
 project, and it is the single best-documented case study candidate we have.
+
+---
+
+## MSJ resolved, 8 September, from the file itself
+
+Extracted `254 - MSJ.fig`: 12,968 labels. No longer a guess.
+
+**My Service Journey is a guided adoption and maturity product inside Service Cloud.** Its own
+copy: *"Discover Service capabilities personalized to your business needs that take your Service
+Cloud implementation from good to great. Simply select your business goal and service area to get
+started."* And: *"Unlock the full potential of your Service org."*
+
+What is in it:
+
+- Best-practice **journey maps**, chosen by business goal and service area
+- **Capability progress**, engagement progress and journey map progress, tracked separately
+- A **badge system**: capability badges, business goal badges, business outcome badges, and a
+  freemium versus paid badge
+- **"Climb the ranks"** — the gamification the research file was about
+- Progress rings and progress indicators throughout
+- Specific recommended capabilities, for example accessible home pages, article suggestions,
+  incident-related deflection, article effectiveness measurement
+- **AI Capabilities Adoption** and **AI Initiatives Adoption** as tracked categories
+
+### The name mystery is also solved
+
+One label reads: **"From my Service Journey to my Salesforce Journey"**. Both names are real. The
+product started as My Service Journey and was expanding in scope to cover Salesforce more broadly,
+which is why the 260 file is titled My Salesforce Journey while the project is MSJ. Not a
+mislabelled export. A rename in progress.
+
+### What this means for the portfolio
+
+It is the range piece, confirmed, and it is a better one than hoped.
+
+Every other candidate is an agent at a console being helped by AI. This is B2B adoption design:
+persuading an organisation to change what it does, personalised recommendation against stated
+business goals, progression and motivation mechanics, and a freemium boundary sitting inside the
+experience. Different users, different problem, different evidence of range.
+
+It also has a research artifact attached, `254 Research for MSJ: Gamification Ranks`, which makes
+it one of the few with research we can point to.
+
+**Recommendation: it takes the fourth slot**, and the four become teach it, assist with it,
+govern it, and get an organisation to adopt it. Email Reply Automation moves to reserve, since it
+overlaps KGER on subject matter where MSJ overlaps nothing.

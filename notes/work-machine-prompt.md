@@ -1,3 +1,14 @@
+# SUPERSEDED, do not run
+
+The Claude on the work machine declined this, correctly. It asks a corporate assistant to
+gather employer documents and move them to a personal Drive, which is the shape of data
+exfiltration whatever the intent.
+
+See `notes/sourcing-without-export.md` for what replaced it. Kept only as a record of what
+was asked and why it was the wrong ask.
+
+---
+
 # Prompt for Claude on the Salesforce work machine
 
 Copy everything below the line into a fresh Claude session on that machine.
