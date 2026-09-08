@@ -117,10 +117,10 @@ button[aria-pressed="true"]{background:var(--accent-wash);border-color:color-mix
       <div>
         <h1>Portfolio revival: everything still open</h1>
         <p class="sub">
-          Ordered by what forces the sequence, not by importance. Four case studies are chosen and
-          they form one argument: teach it, assist with it, automate it, govern it. What is left is
-          getting the evidence out before the badge stops working, and asking the people who will
-          stop answering once she leaves.
+          Four case studies, chosen and forming one argument: teach it, assist with it, govern it,
+          get an organisation to adopt it. Each row below is a datapoint rather than a document, and
+          the tag says where I think it lives. Rows tagged <b>stav</b> are the ones nobody else can
+          answer; rows tagged <b>trailhead</b> are already public and nobody should go hunting.
         </p>
       </div>
       <div class="countdown"><b id="days">&middot;&middot;</b><span id="daysLabel">days left</span></div>
@@ -148,6 +148,7 @@ button[aria-pressed="true"]{background:var(--accent-wash);border-color:color-mix
     <span><i>Twice</i> = checked, does not exist / not doing</span>
     <span><i>Three times</i> = back to open</span>
     <span><i>Hover a row</i> to add a note</span>
+    <span><i>Tag on each row</i> = where I think it lives</span>
   </div>
 
   <div class="rule-note">
@@ -190,161 +191,159 @@ var A = [
 function proj(){ return [{g:"Metrics",items:M},{g:"Research",items:R},{g:"Artifacts",items:A}]; }
 
 var PANELS = [
-  {phase:"now", id:"export", code:"FIG", name:"Figma exports", flag:"Blocking", lead:true,
-   note:"I cannot read .fig or .jam. They are zips whose canvas is Zstandard-compressed, and this Mac has no zstd. PDF export is the only way in.",
-   groups:[
-    {g:"File, Export frames to PDF. Per page, not the whole file.", items:[
-      {id:"e-rtcflows", t:"RTC Flows.jam", h:"Smallest file and the highest value. The decision path is the story.", core:true},
-      {id:"e-rtc", t:"RTC.fig, key pages only", h:"126MB whole. This is the study the screens have to carry.", core:true},
-      {id:"e-kger", t:"KGER.fig", h:"", core:true},
-      {id:"e-a3", t:"The A3 Registry file, once located", h:"It was not in any folder I inventoried. May be elsewhere.", core:true},
-      {id:"e-email", t:"Embedded Agents.fig and Knowledge Based Email Reply.jam", h:"For the agentic email study", core:false},
-      {id:"e-msj", t:"260 - My Salesforce Journey.fig and 256 + Vision - MSJ.fig", h:"Only if MSJ takes the fifth slot", core:false}
-    ]}
-   ]},
-
   {phase:"now", id:"job", code:"JOB", name:"The job search itself", flag:"Start this week", lead:true,
-   note:"Not in the original plan and it outranks most of it. Referrals decay from the day she leaves, and none of this waits for the portfolio.",
-   groups:[
-    {g:"Before the badge stops working", items:[
-      {id:"j-li", t:"Fix LinkedIn", h:"Highest-traffic artifact she owns, worst state of any of them. Still says she leads the design team at Asperii, which she left in 2022. One afternoon.", core:true},
-      {id:"j-refs", t:"Ask every colleague with a big tech connection for an introduction", h:"A referral gets a screen. A screen buys weeks. Those weeks are when the portfolio gets finished.", core:true},
-      {id:"j-recs", t:"Request LinkedIn recommendations", h:"Ask while she is present and top of mind", core:true},
-      {id:"j-contacts", t:"Collect personal contact details", h:"Anyone whose recollection or referral might be needed later", core:true}
-    ]},
-    {g:"Then, in parallel with building", items:[
-      {id:"j-apply", t:"Start applying before the portfolio is finished", h:"Build-then-apply turns a three-week deadline into a three-month CV gap", core:true},
-      {id:"j-geo", t:"Decide geography", h:"Israel, remote, or US. Gates which roles to target.", core:true}
-    ]}
-   ]},
+   note:"Not in the original plan and it outranks most of it. Referrals decay from the day she leaves, and none of it waits for the portfolio.",
+   groups:[{g:"Before the badge stops working", items:[
+      {id:"j-li", t:"Fix LinkedIn", src:"1 afternoon", h:"Highest-traffic artifact she owns, worst state of any of them. Still says she leads the design team at Asperii, which she left in 2022.", core:true},
+      {id:"j-refs", t:"Ask colleagues with big tech connections for introductions", src:"stav", h:"A referral gets a screen. A screen buys weeks. Those weeks are when the portfolio gets finished.", core:true},
+      {id:"j-recs", t:"Request LinkedIn recommendations", src:"stav", h:"Ask while she is present and top of mind", core:true},
+      {id:"j-contacts", t:"Collect personal contact details", src:"stav", h:"Anyone whose recollection or referral might be needed later", core:true},
+      {id:"j-apply", t:"Start applying before the portfolio is finished", src:"stav", h:"Build-then-apply turns a three-week deadline into a three-month CV gap", core:true}
+   ]}]},
+
+  {phase:"now", id:"export", code:"FIG", name:"Frame exports", flag:"~25 frames", lead:true,
+   note:"Not whole files. One hero, two to four states, and any before/after pair per case study. PNG at 2x. Prefer frames using demo data over frames showing a real org.",
+   groups:[{g:"Open in Figma, select, export", items:[
+      {id:"e-rtc", t:"RTC: model comparison and configuration surfaces", src:"RTC.fig", h:"The study the screens carry. Highest value export in the project.", core:true},
+      {id:"e-rtcflow", t:"RTC: v1 beside v3 of the config flow", src:"RTC Flows.jam", h:"An iteration story with dates on it. I already have the text; I need the picture.", core:true},
+      {id:"e-a3", t:"A3: the four-step configuration modal and the list view", src:"A3 Registry Setup.fig", h:"", core:true},
+      {id:"e-kger", t:"KGER: collapsed reply and expanded intent view, as a pair", src:"KGER.fig", h:"The whole design argument is the difference between those two frames", core:true},
+      {id:"e-msj", t:"MSJ: journey map, a progress state, the rank surface", src:"254 - MSJ.fig", h:"Already on this Mac", core:true},
+      {id:"e-files", t:"Get RTC, KGER and A3 Registry Setup onto this Mac", src:"blocking", h:"Those three folders were not in the download. Three of the four case studies.", core:true}
+   ]}]},
 
   {phase:"sept", id:"cs1", code:"CS1", name:"Real-Time Semantic Classification", flag:"Teach it", lead:true,
-   note:"Multi-model training, comparison and decision, with configuration driving what populates each field. The one study where the screens are the evidence.",
-   groups:[{g:"Documents", items:[
-      {id:"c1-fig", t:"RTC.fig and RTC Flows.jam as PDF", h:"Matters more here than any document", core:true},
-      {id:"c1-prd", t:"262 Real Time Semantic Classification PRD", h:"", core:true},
-      {id:"c1-sib", t:"260 Real Time Case Classification", h:"The sibling. Two releases means it evolved, and how it evolved is the story.", core:true},
-      {id:"c1-draft", t:"Earlier draft of the 262 PRD", h:"Only to diff against the final for anything reversed", core:false}
-   ]}]},
-
-  {phase:"sept", id:"cs2", code:"CS2", name:"KGER / MKGER, multi-intent email reply", flag:"Assist", lead:true,
-   note:"Will a person put their name on something a machine wrote? One click on the surface, inspectable reasoning underneath.",
-   groups:[{g:"Documents", items:[
-      {id:"c2-prd", t:"260 KGER - Customer Intent Mapping PRD", h:"", core:true},
-      {id:"c2-pbd", t:"EK Support for KGER & MKGER - PBD", h:"Defines the multi-article variant, which is the harder design", core:true},
-      {id:"c2-brain", t:"264 Multi Intent Brainstorming - Chat", h:"Brainstorming is where rejected directions live, and those are what interviewers ask about", core:true},
-      {id:"c2-blitz", t:"KGER/Service Replies Blitz notes", h:"A blitz usually means a compressed decision session", core:false},
-      {id:"c2-guard", t:"KGER Access Guard Issue", h:"A security constraint that shaped the design. Small, possibly a great detail.", core:false}
-   ]}]},
-
-  {phase:"sept", id:"cs3", code:"CS3", name:"Email Reply Automation", flag:"Automate", lead:true,
-   note:"When do you let it send without asking? Going from AI drafts to AI sends is the highest-stakes call in the area.",
-   groups:[{g:"Documents", items:[
-      {id:"c3-prd", t:"Email Reply Automation - 264 PRD", h:"", core:true},
-      {id:"c3-hld", t:"HLD: Agentic Email Response", h:"", core:true},
-      {id:"c3-framing", t:"Service AI Agentic Automation Gen II - Product Framing", h:"", core:true},
-      {id:"c3-reply", t:"Agentic Email Reply and Embedded Agents for Emails", h:"", core:false},
-      {id:"c3-notes", t:"Automated Email meeting notes", h:"", core:false}
-   ]}]},
-
-  {phase:"sept", id:"cs4", code:"CS4", name:"A3 Registry / Record Companions", flag:"Govern", lead:true,
-   note:"What is the machine permitted to touch at all? Admin and builder UX rather than agent UX, and it went through legal twice.",
-   groups:[{g:"Documents", items:[
-      {id:"c4-prd", t:"264 - A3 Registry UI - PRD", h:"", core:true},
-      {id:"c4-legal", t:"Both legal documents", h:"Registry UI Meeting with Legal, and Registry Setup Legal Discussion. Design under legal constraint is rare and memorable.", core:true},
-      {id:"c4-scoped", t:"user-scoped-record-companions-design", h:"Suggests the legal conversation was about data access", core:true},
-      {id:"c4-umbrella", t:"260 Service Assistant Framework Extensibility PRD", h:"Framing only", core:false},
-      {id:"c4-notes", t:"A3 Overview and A3 - Registry UI meeting notes", h:"", core:false}
-   ]}]},
-
-  {phase:"sept", id:"msj", code:"MSJ", name:"My Service Journey", flag:"Decide first", lead:false,
-   note:"The range candidate. Everything else in the portfolio is dense operational software for someone at a console.",
-   groups:[{g:"Before spending any effort on it", items:[
-      {id:"m-what", t:"One sentence from Stav on what MSJ actually is", h:"Not a document. It is the largest body of work in the Drive, 355MB against 40MB for KGER, and the only project with a component library, a vision file and its own research. I cannot evaluate it.", core:true},
-      {id:"m-figs", t:"If it stays: the 260 and Vision files as PDF", h:"", core:false},
-      {id:"m-research", t:"254 Research for MSJ, Gamification Ranks", h:"The only research artifact anywhere in the Drive", core:false}
-   ]}]},
-
-  {phase:"sept", id:"x", code:"ALL", name:"Cross-cutting and evidence", flag:"Do first", lead:true,
-   note:"Not per project. The people items depend on other humans replying, so they cannot wait.",
+   note:"Multi-model training, comparison and decision. Product behaviour is public on Trailhead, so only ask for what is not.",
    groups:[
-    {g:"Send this week, because others have to answer", items:[
-      {id:"x-asks", t:"Metric requests sent to PMs and analysts", h:"Hunt for three usable numbers, not forty. Tick when sent, not when answered.", core:true}
+    {g:"Only Stav knows these", items:[
+      {id:"d1-feedback", t:"What was the 13-14 July meeting feedback that produced v2?", src:"stav", h:"Her own board labels v2 as responding to it. The feedback itself is the story.", core:true},
+      {id:"d1-v3", t:"What changed again for v3 on 23 July?", src:"stav", h:"Two revisions in ten days. Something was wrong with v2.", core:true},
+      {id:"d1-80", t:"Where did the ~80% use one shared data set figure come from?", src:"stav", h:"It is written on her own board. If it came from research or telemetry it is a usable number, and we have almost none.", core:true},
+      {id:"d1-open", t:"Was the LLM confidence open question ever resolved?", src:"stav", h:"Her board flags it unresolved. Either answer makes a good paragraph.", core:true},
+      {id:"d1-hybrid", t:"Why allow predictive primary with LLM fallback in one config?", src:"stav", h:"Her board marks it NEW. A hybrid is a decision someone argued for.", core:true}
     ]},
-    {g:"The gap the document index revealed", items:[
-      {id:"x-sweep", t:"Second Drive sweep for the missing categories", h:"readout, adoption, acceptance, metrics, dashboard, GA, launch review, usability, research, accessibility, a11y, VPAT, QBR", core:true},
-      {id:"x-research", t:"Any usability study or research readout", h:"The full index contained none. Either they are filed under other words or they do not exist, and that is worth knowing now.", core:true},
-      {id:"x-a11y", t:"Accessibility audits, standards, review checklists", h:"Also absent from the index. Google and Microsoft screen for this explicitly.", core:true},
-      {id:"x-wiki", t:"Wiki, Quip and Slack canvas exports", h:"Written material that cannot be pulled later", core:true}
+    {g:"In the file", items:[
+      {id:"d1-compare", t:"How many algorithms compare side by side, and what does the comparison show?", src:"RTC.fig", h:"Accuracy, coverage, sample size? This is the crux of the study.", core:true},
+      {id:"d1-cold", t:"What does an admin see on day one with no historical data?", src:"RTC.fig", h:"Cold start is the honest hard case", core:true},
+      {id:"d1-perfield", t:"What per-field threshold configuration looks like", src:"RTC.fig", h:"All fields equal, or a threshold each", core:false}
     ]},
-    {g:"Two documents worth having regardless", items:[
-      {id:"x-ux", t:"Embedded Service AI Ongoing UX", h:"A presentation she authored and last edited. Her framing in her own words, which is the best available fix for copy that currently sounds like me.", core:true},
-      {id:"x-handoff", t:"Copy of Work Handoff - Stav Fisher Gross", h:"A spreadsheet she last edited in August. An inventory of everything she owned, written by her, at the end.", core:true}
+    {g:"Already public, do not go hunting", items:[
+      {id:"d1-pub", t:"Threshold behaviour and setup flow", src:"trailhead", h:"Einstein Classification Apps modules and the Configure Your Einstein Classification Model help page describe the confidence thresholds publicly. I can cite these.", core:false}
     ]},
-    {g:"Verify, do not assume", items:[
-      {id:"x-figcheck", t:"Import one .fig into Figma and confirm it restores", h:"Fifteen minutes. Finding out in October that the exports are broken is the worst available outcome.", core:true}
+    {g:"May not exist", items:[
+      {id:"d1-num", t:"Model accuracy or override rate", src:"readout?", h:"262 PRD or a launch readout. If nothing exists, say so on the page rather than leaving a vague claim.", core:false}
     ]}
    ]},
 
-  {phase:"soon", id:"q", code:"ASK", name:"Questions only Stav can answer", flag:"One conversation", lead:false,
-   note:"None of it is blocked on anything. All of it blocks the CV.",
+  {phase:"sept", id:"cs2", code:"CS2", name:"KGER / MKGER", flag:"Assist", lead:true,
+   note:"Grounded multi-intent email reply. Service Replies is documented publicly; the multi-intent variant is the part that is hers.",
    groups:[
-    {g:"Contradictions to resolve", items:[
-      {id:"q-webiks", t:"Webiks title: Senior or not?", h:"CV says Senior, her live site says Senior, LinkedIn says Product Designer. LinkedIn is what recruiters cross-check.", core:true},
-      {id:"q-phone", t:"Which phone number is right", h:"Two versions on record, one digit apart", core:true},
-      {id:"q-asperii", t:"Asperii end date", h:"CV and live site say 2021, LinkedIn says April 2022", core:true},
-      {id:"q-spanish", t:"Is Spanish still accurate?", h:"On the live site, absent from the brief", core:false}
+    {g:"Only Stav knows these", items:[
+      {id:"d2-default", t:"Why is the reasoning hidden behind a second click rather than shown by default?", src:"stav", h:"The single most important question in this case study. Every alternative rejected here is interview currency.", core:true},
+      {id:"d2-wrong", t:"What did agents do when a detected intent was wrong?", src:"stav", h:"Drop it, edit it, abandon the draft? This is how the design handles model failure.", core:true},
+      {id:"d2-cut", t:"What got cut from the multi-intent version, and why?", src:"stav", h:"", core:true}
     ]},
-    {g:"Content gaps", items:[
-      {id:"q-tools", t:"Which AI tools she actually uses, and for what", h:"The current CV lists Adobe XD, Axure, InVision, Zeplin and no AI tooling at all", core:true},
-      {id:"q-a11y", t:"What owning accessibility actually involved", h:"Standards, audit tooling, review gates, training others", core:true},
-      {id:"q-proto", t:"How the prototypes repo came about", h:"Who decided to replace Figma handoff, was there resistance, what changed for engineers", core:true},
-      {id:"q-personas", t:"Aircraft Maintenance personas", h:"She ran the interviews and base visits. Recall, not research.", core:false},
-      {id:"q-afnum", t:"Any number at all for the Air Force study", h:"Response times improved is the load-bearing sentence and the weakest one", core:false}
+    {g:"In the file or a doc", items:[
+      {id:"d2-count", t:"Typical and maximum intents detected in one email", src:"EK PBD", h:"A concrete number that costs nothing to publish", core:true},
+      {id:"d2-nogrounding", t:"What happens when an intent has no grounding article?", src:"KGER.fig", h:"The failure state is more interesting than the success state", core:true},
+      {id:"d2-guard", t:"What did the Access Guard issue actually restrict?", src:"doc", h:"KGER Access Guard Issue. A security constraint that shaped the design is a good detail.", core:false}
     ]},
-    {g:"Decisions", items:[
-      {id:"q-comp", t:"Portfolio composition", h:"If all four slots go to Salesforce, Webiks and the Air Force founding story drop out entirely. That is the only piece nobody else can copy.", core:true},
-      {id:"q-golive", t:"Go-live date", h:"Not set. Site is built and unindexed until it is.", core:true},
-      {id:"q-geo2", t:"Geography: Israel, remote, or US", h:"", core:true},
-      {id:"q-conf", t:"Air Force confidentiality position", h:"A security officer review is still the standing declined recommendation", core:false}
+    {g:"Already public", items:[
+      {id:"d2-pub", t:"How Service Replies grounds in knowledge, and its setup", src:"trailhead", h:"Salesforce Help, a Trailhead project on setup, and a Salesforce blog post. Product layer is covered without asking anyone.", core:false}
+    ]},
+    {g:"May not exist", items:[
+      {id:"d2-accept", t:"Acceptance rate and edit rate", src:"readout?", h:"Edit rate is a design metric, not just a model one. Most valuable number in the project if it exists.", core:false}
     ]}
    ]},
 
-  {phase:"soon", id:"fix", code:"FIX", name:"Live Carbonmade site", flag:"Public right now", lead:false,
+  {phase:"sept", id:"cs3", code:"CS3", name:"A3 Registry / Record Companions", flag:"Govern", lead:true,
+   note:"Unreleased, so nothing is public and confidentiality is tighter than anywhere else. Everything here comes from her.",
+   groups:[
+    {g:"Only Stav knows these", items:[
+      {id:"d3-legal", t:"What did legal object to, and what changed in the design because of it?", src:"stav", h:"Two separate legal sessions. Design under legal constraint is rare and almost nobody she is competing with will have it. Ask her rather than reading the documents.", core:true},
+      {id:"d3-safety", t:"What went wrong that made Revert to Default and Preview Before Save necessary?", src:"stav", h:"Both are on her board as Safety Features. A safety feature exists because something was unsafe.", core:true},
+      {id:"d3-scope", t:"Why does scope split into shared versus per-user?", src:"stav", h:"The user-scoped design doc suggests the legal conversation was about data access", core:true},
+      {id:"d3-admin", t:"Who is the admin, and how technical are they?", src:"stav", h:"A four-step modal that writes YAML implies an assumption about who is using it", core:true}
+    ]},
+    {g:"I already have these", items:[
+      {id:"d3-flow", t:"The five-phase admin lifecycle", src:"extracted", h:"Initialization, configuration modal, persistence, list view, runtime. Already pulled from her board.", core:false},
+      {id:"d3-example", t:"The worked example on her board", src:"extracted", h:"Already pulled", core:false}
+    ]},
+    {g:"Do not publish", items:[
+      {id:"d3-conf", t:"Roadmap, internal service names, competitor assessment", src:"never", h:"All three are on the A3 board. The case study works without any of them.", core:true}
+    ]}
+   ]},
+
+  {phase:"sept", id:"cs4", code:"CS4", name:"My Service Journey", flag:"Range", lead:true,
+   note:"Guided adoption and maturity. The only candidate that is not an agent at a console, and the only one with a commercial boundary inside the experience.",
+   groups:[
+    {g:"Only Stav knows these", items:[
+      {id:"d4-persuade", t:"How do you get an org to adopt something it is not required to?", src:"stav", h:"The whole design problem, and it is completely different from the other three", core:true},
+      {id:"d4-freemium", t:"What sits behind the paid badge, and how did you handle showing someone something they cannot have?", src:"stav", h:"A commercial boundary inside the experience is a real design tension", core:true},
+      {id:"d4-ranks", t:"What did the gamification research actually find?", src:"stav", h:"254 Research for MSJ: Gamification Ranks. The only research artifact attached to any candidate.", core:true},
+      {id:"d4-scope", t:"Why did it expand from My Service Journey to My Salesforce Journey?", src:"stav", h:"A label on her own board records the transition. A scope expansion is a story.", core:true}
+    ]},
+    {g:"In the file, already on this Mac", items:[
+      {id:"d4-count", t:"How many capabilities in the catalogue, and how many ranks", src:"254 - MSJ.fig", h:"I can pull these", core:false},
+      {id:"d4-tracks", t:"Why three separate progress tracks rather than one score?", src:"254 - MSJ.fig", h:"Capability, engagement and journey map progress are tracked separately", core:true}
+    ]},
+    {g:"May not exist", items:[
+      {id:"d4-lift", t:"Any adoption or engagement lift number", src:"readout?", h:"This is the one project where a number would be natural, because the product is about adoption", core:false}
+    ]}
+   ]},
+
+  {phase:"sept", id:"x", code:"ALL", name:"Cross-cutting", flag:"Do first", lead:true,
+   note:"Not per project. The people items depend on other humans replying.",
+   groups:[
+    {g:"Send this week", items:[
+      {id:"x-asks", t:"Metric requests to PMs and analysts", src:"stav", h:"Hunt for three usable numbers, not forty. Tick when sent, not when answered.", core:true}
+    ]},
+    {g:"The evidence nobody has found", items:[
+      {id:"x-sweep", t:"Second sweep: readout, adoption, acceptance, GA, usability, accessibility, QBR", src:"search", h:"A full index turned up none of these. Either they are filed under other words or they do not exist.", core:true},
+      {id:"x-a11y", t:"What owning accessibility actually involved", src:"stav", h:"Standards, audit tooling, review gates, training others. Google and Microsoft screen for this explicitly.", core:true}
+    ]},
+    {g:"Worth having regardless", items:[
+      {id:"x-ux", t:"Embedded Service AI Ongoing UX", src:"doc", h:"A presentation she authored and last edited. Her framing in her own words, which is the best available fix for copy that sounds like me.", core:true},
+      {id:"x-handoff", t:"Copy of Work Handoff - Stav Fisher Gross", src:"doc", h:"An inventory of everything she owned, written by her, at the end", core:true}
+    ]}
+   ]},
+
+  {phase:"soon", id:"q", code:"CV", name:"CV and LinkedIn facts", flag:"5 minutes", lead:false,
+   note:"One-line answers that block the CV.",
+   groups:[{g:"Contradictions", items:[
+      {id:"q-webiks", t:"Webiks: Senior Product Designer or Product Designer?", src:"stav", h:"CV and her live site say Senior, LinkedIn says not. LinkedIn is what recruiters cross-check.", core:true},
+      {id:"q-phone", t:"Which phone number is right", src:"stav", h:"Two versions on record, one digit apart", core:true},
+      {id:"q-asperii", t:"Asperii: ended 2021 or April 2022?", src:"stav", h:"", core:true},
+      {id:"q-tools", t:"Which AI tools she actually uses, and for what", src:"stav", h:"The current CV lists Adobe XD, Axure, InVision, Zeplin and no AI tooling at all", core:true},
+      {id:"q-comp", t:"Portfolio composition: do Webiks and the Air Force story survive?", src:"ehud", h:"Four Salesforce slots would drop the founding-a-design-function story, the only piece nobody can copy", core:true},
+      {id:"q-golive", t:"Go-live date and geography", src:"stav", h:"Site is built and unindexed until there is a date", core:true}
+   ]}]},
+
+  {phase:"soon", id:"fix", code:"FIX", name:"Live Carbonmade site", flag:"Public now", lead:false,
    note:"Password is off, so anyone she has sent the link to is seeing this today.",
    groups:[{g:"Fix or take down", items:[
-      {id:"f-tmpl", t:"Unedited template text on Aircraft Maintenance", h:"\u201cYou can you this place to talk a little bit about the image on the side.\u201d Typo included.", core:true},
-      {id:"f-typo", t:"Typo on the Clinic page", h:"\u201cmange a monthly allocation plan\u201d", core:true},
-      {id:"f-about", t:"About blurb reads as a half-finished edit", h:"\u201cExperienced product design person.\u201d", core:true},
-      {id:"f-sf", t:"Salesforce missing from the About timeline", h:"It stops at Asperii. Her most significant four years appear in none of her three public artifacts.", core:true},
-      {id:"f-lorem", t:"Two Aircraft Maintenance screens are lorem ipsum", h:"Reviews and grouped-by-category are placeholder text, live today. Re-export from the Webiks Figma.", core:false}
+      {id:"f-tmpl", t:"Unedited template text on Aircraft Maintenance", src:"5 min", h:"&ldquo;You can you this place to talk a little bit about the image on the side.&rdquo; Typo included.", core:true},
+      {id:"f-typo", t:"Typo on the Clinic page", src:"5 min", h:"&ldquo;mange a monthly allocation plan&rdquo;", core:true},
+      {id:"f-about", t:"About blurb reads as a half-finished edit", src:"5 min", h:"&ldquo;Experienced product design person.&rdquo;", core:true},
+      {id:"f-sf", t:"Salesforce missing from the About timeline", src:"stav", h:"It stops at Asperii. Her most significant four years appear in none of her three public artifacts.", core:true}
    ]}]},
 
   {phase:"later", id:"build", code:"BUILD", name:"The portfolio itself", flag:"No deadline", lead:false,
-   note:"Everything needed for the non-Salesforce work is already on the machine.",
    groups:[
     {g:"Writing", items:[
-      {id:"b-int1", t:"Interview: Real-Time Classification", h:"", core:true},
-      {id:"b-int2", t:"Interview: KGER multi-intent", h:"", core:true},
-      {id:"b-int3", t:"Interview: Email Reply Automation", h:"", core:true},
-      {id:"b-int4", t:"Interview: A3 Registry", h:"", core:true},
-      {id:"b-arc", t:"Write the four as one arc, not four features", h:"Teach it, assist with it, automate it, govern it. The framing is worth more than any single study.", core:true},
-      {id:"b-voice", t:"Her voice pass over everything already drafted", h:"The two written case studies and About currently sound like the model that wrote them", core:true}
+      {id:"b-arc", t:"Write the four as one arc", src:"claude", h:"Teach it, assist with it, govern it, get an org to adopt it. Worth more than any single study.", core:true},
+      {id:"b-int", t:"Run the interview, one question at a time", src:"stav", h:"notes/interview-plan.md", core:true},
+      {id:"b-voice", t:"Her voice pass over everything drafted", src:"stav", h:"The site copy currently sounds like the model that wrote it", core:true},
+      {id:"b-repo", t:"Write the prototypes-repo piece", src:"drafted", h:"drafts/case-study-prototypes.md. Unblocked by the deadline.", core:true}
     ]},
-    {g:"Case study repairs", items:[
-      {id:"b-personas", t:"Aircraft Maintenance: personas", h:"", core:false},
-      {id:"b-results", t:"Aircraft Maintenance: results, or a stated absence", h:"A stated absence survives questioning; a vague claim does not", core:false},
-      {id:"b-takeaways", t:"Aircraft Maintenance: takeaways", h:"The deck ends both its studies with an honest I-would-have. This one has none.", core:false}
-    ]},
-    {g:"Artifacts", items:[
-      {id:"b-repo", t:"Write the prototypes-repo piece", h:"Drafted at drafts/case-study-prototypes.md. The method behind all four, and unblocked by the deadline.", core:true},
-      {id:"b-proto", t:"Build the sanitised prototype rebuild", h:"Problem class with invented data, not the real system", core:true},
-      {id:"b-cv", t:"Rewrite CV and LinkedIn in one pass", h:"So they stop contradicting each other", core:true},
-      {id:"b-imgs", t:"Put project imagery into the case study pages", h:"18 real images pulled and sized; one is placed so far", core:false}
+    {g:"Visuals", items:[
+      {id:"b-thresh", t:"Threshold gradient diagram into the RTC study", src:"built", h:"drafts/visuals/rtc-threshold-gradient.svg", core:true},
+      {id:"b-diagrams", t:"Draw the KGER, A3 and MSJ decision diagrams", src:"claude", h:"Redrawn diagrams beat screenshots, and carry no confidentiality risk", core:true},
+      {id:"b-frames", t:"Place the exported frames with real captions", src:"claude", h:"The caption is the work. Name the decision, not the screen.", core:true}
     ]},
     {g:"Launch", items:[
-      {id:"b-noindex", t:"Remove noindex and robots.txt", h:"Go-live day only. Both are marked in the source.", core:true},
-      {id:"b-backup", t:"Back up the Carbonmade originals before cancelling", h:"246MB, only recoverable while that site is up", core:true}
+      {id:"b-noindex", t:"Remove noindex and robots.txt", src:"1 min", h:"Go-live day only. Both marked in the source.", core:true},
+      {id:"b-backup", t:"Back up the Carbonmade originals before cancelling", src:"stav", h:"246MB, only recoverable while that site is up", core:true}
     ]}
    ]}
 ];
@@ -470,7 +469,9 @@ function build(){
           tk.addEventListener("click",function(){cycle(p.id,it.id,row);});
           row.appendChild(tk);
           var right=el("div"), lab=el("label","label");
-          lab.appendChild(el("span",null,it.t));
+          var line = el("span",null,it.t);
+          if(it.src){ var w = el("span","who",it.src); line.appendChild(w); }
+          lab.appendChild(line);
           if(it.h) lab.appendChild(el("span","hint",it.h));
           lab.addEventListener("click",function(){cycle(p.id,it.id,row);});
           right.appendChild(lab);
