@@ -20,19 +20,47 @@ Three of these line up into a progression, and that changes what the portfolio i
 they are not four AI features. They are one argument about how much authority a machine should
 have, told at three points along the scale.
 
-| | Case study | The question it answers | Who decides |
+Corrected 8 September on RTC, which I had badly misread. It is not a field getting filled in. It
+is multi-model and multi-variable training, comparison and decision, with configuration that
+determines what populates each field. That is model-operations UX: the surface where someone
+decides which model to trust and what its output is allowed to drive. Rare, hard, and visually
+dense.
+
+With RTC restored the four line up as one continuous argument.
+
+| | Case study | The question it answers | Where authority sits |
 |---|---|---|---|
-| **1** | **KGER / MKGER**, multi-intent email reply | Will a person put their name on something a machine wrote? | AI drafts, **human decides** |
-| **2** | **Email Reply Automation**, agentic email | When do you let it send without asking? | AI acts, **human supervises** |
-| **3** | **A3 Registry / Record Companions** | What is the machine permitted to touch at all? | **Humans decide** what AI may do |
-| **4** | **MSJ** | (range: not an agent console at all) | — |
+| **1** | **Real-Time Semantic Classification** | Which model do we trust, on what evidence, and what does it get to fill? | A human **trains and chooses** |
+| **2** | **KGER / MKGER**, multi-intent email reply | Will a person put their name on something a machine wrote? | AI drafts, a human **decides** |
+| **3** | **Email Reply Automation**, agentic email | When do you let it send without asking? | AI acts, a human **supervises** |
+| **4** | **A3 Registry / Record Companions** | What is the machine permitted to touch at all? | Humans **govern** what AI may do |
 
-A designer who can say "I designed assist, then automation, then governance, in that order, in
-production, for enterprise support" has a thesis rather than a portfolio. That is a materially
-stronger position than four separate features, and it is the single most valuable framing
-available in this whole project.
+Teach it, assist with it, automate it, govern it. Four surfaces along one question: how much
+authority does a machine get, and who decides. A designer who can say she designed all four, in
+production, for enterprise support, has a thesis rather than a portfolio. That is the single most
+valuable framing available in this project, and it is worth more than any individual case study
+in it.
 
-### 1. KGER / MKGER — the trust problem
+RTC also earns its place on craft rather than concept. The other three are largely about judgment
+under uncertainty. RTC is the one with genuine interface complexity to show: comparison views,
+variable configuration, and the mapping from model output to populated field. A portfolio needs at
+least one study where the screens themselves are the evidence, and this is it.
+
+### 1. Real-Time Semantic Classification — the training and trust problem
+Multi-model, multi-variable training and comparison, then a decision about which configuration
+runs, with each configuration determining what populates each field. The design problem is making
+a model comparison legible enough that a non-data-scientist can make that call and live with it.
+
+**Want, in order:**
+1. **PDF export of `RTC.fig` and `RTC Flows.jam`.** This case study is carried by its screens more
+   than by its prose, so the Figma matters more here than on any of the others. The flows file
+   especially, since the decision path is the story.
+2. `262 Real Time Semantic Classification PRD`.
+3. `260 Real Time Case Classification`, the sibling. Two releases means it evolved, and how it
+   evolved is a large part of the story.
+4. The earlier draft of the 262 PRD, to diff against the final for anything that got reversed.
+
+### 2. KGER / MKGER — the trust problem
 The customer email contains several separate asks. One click produces a grounded reply with its
 sources. A second click opens every detected intent and the article behind it, and the agent can
 drop an intent or swap a source. Speed on the surface, inspectable reasoning underneath, and the
@@ -42,7 +70,7 @@ tension between those two is the design problem.
 `264 Multi Intent Brainstorming - Chat`, `KGER/Service Replies Blitz` notes,
 `KGER Access Guard Issue`.
 
-### 2. Email Reply Automation — the autonomy problem
+### 3. Email Reply Automation — the autonomy problem
 The one I underweighted first time. Moving from "AI drafts, a human sends" to "AI sends" is the
 highest-stakes decision in the entire area. What is the guardrail, when does it hand back, and how
 does a person supervise something that has already replied to a customer? Almost nobody
@@ -52,7 +80,7 @@ interviewing at Google has designed that in production.
 `Embedded Agents for Emails`, `Automated Email` meeting notes,
 `<WIP> Service AI Agentic Automation Gen II - Product Framing`.
 
-### 3. A3 Registry / Record Companions — the governance problem
+### 4. A3 Registry / Record Companions — the governance problem
 A registry deciding what AI actors may attach to which records, and what they may do there.
 Admin and builder UX rather than agent UX, so it adds a different kind of design problem. It went
 through legal twice, and `user-scoped-record-companions-design` suggests per-user scoping, which
@@ -63,7 +91,7 @@ and memorable.
 `user-scoped-record-companions-design`, `260 Service Assistant Framework Extensibility PRD`,
 the A3 meeting notes.
 
-### 4. MSJ — the range piece
+### Fifth, if the portfolio has room: MSJ — the range piece
 Everything else in the portfolio, including the older work, is dense operational software for
 people at a console. MSJ appears to be something else: gamification ranks research, a component
 library, a vision file, and `250 Service Adoption - Jason.fig` in the same folder, which suggests
@@ -90,10 +118,6 @@ In reserve only because its core overlaps KGER.
 **Summaries.** The handoff angle is the good one: one human handing work to another through a
 machine's summary of what happened. `Customizable Case Summary Structure PBD` and
 `[Spring '26] Enhanced Summaries Enablement`.
-
-**Real-Time Semantic Classification.** Demoted. The conceptual hook is excellent, since a wrong
-classification is silent and looks exactly like a correct one, but the visible design is fields
-being filled in. Hard to make a reviewer feel it.
 
 **The prototypes repo.** Not competing for a slot. It is the method behind all four and should run
 through them rather than sit beside them.
