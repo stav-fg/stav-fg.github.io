@@ -11,78 +11,92 @@ have someone remove the detail that made the story.
 
 ---
 
-## The seven candidates
+## The pick: an arc, not four features
 
-Four to build, three in reserve. Chosen for minimum overlap, because four studies of "AI suggests
-something to an agent" reads as one study told four times.
+Confirmed 8 September: she worked on and led features across all of them, so ownership is not a
+constraint and the only question is which stories are worth telling.
 
-| # | Case study | Why it earns a slot | Docs exist? |
+Three of these line up into a progression, and that changes what the portfolio is. Read together
+they are not four AI features. They are one argument about how much authority a machine should
+have, told at three points along the scale.
+
+| | Case study | The question it answers | Who decides |
 |---|---|---|---|
-| 1 | **KGER / MKGER — multi-intent email reply** | The trust problem. One click on the surface, inspectable reasoning underneath. She is confirmed UX Lead. | Strong |
-| 2 | **A3 Registry UI / Record Companions** | Admin and builder UX, not agent UX. Different design problem, and it went through legal twice. | Strongest |
-| 3 | **Real-Time Semantic Classification** | A wrong answer here is silent. It looks like a filled-in field and propagates. Confirmed UX Lead. | Good |
-| 4 | **The prototypes repo** | Method rather than product. Needs no documents at all. | N/A |
-| 5 | Service Replies multi-intent | Richest doc cluster of any project | Very strong |
-| 6 | Enhanced / Work Summaries | Personalisation and customisable structure | Strong |
-| 7 | Embedded / Agentic Email | She authored the framing deck herself | Good |
+| **1** | **KGER / MKGER**, multi-intent email reply | Will a person put their name on something a machine wrote? | AI drafts, **human decides** |
+| **2** | **Email Reply Automation**, agentic email | When do you let it send without asking? | AI acts, **human supervises** |
+| **3** | **A3 Registry / Record Companions** | What is the machine permitted to touch at all? | **Humans decide** what AI may do |
+| **4** | **MSJ** | (range: not an agent console at all) | — |
 
-Reserve is 5, 6, 7. Reasoning for the cut in the response.
+A designer who can say "I designed assist, then automation, then governance, in that order, in
+production, for enterprise support" has a thesis rather than a portfolio. That is a materially
+stronger position than four separate features, and it is the single most valuable framing
+available in this whole project.
 
----
+### 1. KGER / MKGER — the trust problem
+The customer email contains several separate asks. One click produces a grounded reply with its
+sources. A second click opens every detected intent and the article behind it, and the agent can
+drop an intent or swap a source. Speed on the surface, inspectable reasoning underneath, and the
+tension between those two is the design problem.
 
-## 1. KGER / MKGER — multi-intent email reply
+**Want:** `260 KGER - Customer Intent Mapping PRD`, `EK Support for KGER & MKGER - PBD`,
+`264 Multi Intent Brainstorming - Chat`, `KGER/Service Replies Blitz` notes,
+`KGER Access Guard Issue`.
 
-**Want, in order:**
-1. `260 KGER - Customer Intent Mapping PRD` — she is UX Lead on it. Establishes ownership and the problem.
-2. `EK Support for KGER & MKGER - PBD` — defines the multi-article variant, which is the harder design and the better story.
-3. `264 Multi Intent Brainstorming - Chat` — brainstorming is where rejected directions live, and rejected directions are what interviewers ask about.
-4. `KGER/Service Replies Blitz` notes — a blitz usually means a compressed decision session.
-5. `KGER Access Guard Issue` — a security constraint that shaped the design. Small, possibly a great detail.
+### 2. Email Reply Automation — the autonomy problem
+The one I underweighted first time. Moving from "AI drafts, a human sends" to "AI sends" is the
+highest-stakes decision in the entire area. What is the guardrail, when does it hand back, and how
+does a person supervise something that has already replied to a customer? Almost nobody
+interviewing at Google has designed that in production.
 
-**Skip:** the superseded `OLD_` version, unless the diff between old and new shows a reversal.
-If it does, it is suddenly the most valuable document in this list.
+**Want:** `Email Reply Automation - 264 PRD`, `HLD: Agentic Email Response`, `Agentic Email Reply`,
+`Embedded Agents for Emails`, `Automated Email` meeting notes,
+`<WIP> Service AI Agentic Automation Gen II - Product Framing`.
 
-## 2. A3 Registry UI / Record Companions
+### 3. A3 Registry / Record Companions — the governance problem
+A registry deciding what AI actors may attach to which records, and what they may do there.
+Admin and builder UX rather than agent UX, so it adds a different kind of design problem. It went
+through legal twice, and `user-scoped-record-companions-design` suggests per-user scoping, which
+means the legal conversation was probably about data access. Design under legal constraint is rare
+and memorable.
 
-**Want, in order:**
-1. `264 - A3 Registry UI - PRD` — the core.
-2. `A3 Registry UI - Meeting with Legal` **and** `A3 Registry Setup - Legal Discussion` — both. Design constrained by legal review is unusual, memorable, and something almost no competing portfolio will have.
-3. `user-scoped-record-companions-design` — a design doc written by someone else about her area shows how the team worked.
-4. `260 Service Assistant Framework Extensibility PRD` — the umbrella, for framing only.
-5. `A3 Overview` and `A3 - Registry UI` meeting notes.
+**Want:** `264 - A3 Registry UI - PRD`, **both** legal documents,
+`user-scoped-record-companions-design`, `260 Service Assistant Framework Extensibility PRD`,
+the A3 meeting notes.
 
-**Skip for now:** `Salesforce A3 Architecture`, unless the case study ends up being about the
-constraints the architecture imposed.
+### 4. MSJ — the range piece
+Everything else in the portfolio, including the older work, is dense operational software for
+people at a console. MSJ appears to be something else: gamification ranks research, a component
+library, a vision file, and `250 Service Adoption - Jason.fig` in the same folder, which suggests
+it is about driving adoption rather than assisting a task. Motivating behaviour change is a
+genuinely different design problem from helping someone finish a case.
 
-## 3. Real-Time Semantic Classification
+It is also the largest body of work in the Drive by a wide margin: 355MB for the 260 file against
+40MB for KGER.
 
-**Want, in order:**
-1. `262 Real Time Semantic Classification PRD` — she is UX Lead.
-2. `260 Real Time Case Classification` — the sibling. Two PRDs across two releases means the thing evolved, and how it evolved is the story.
-3. The earlier draft of the 262 PRD, **only** to diff against the final.
+**Want:** one sentence on what it is, then `260 - My Salesforce Journey.fig` and
+`256 + Vision - MSJ.fig` as PDF, plus `254 Research for MSJ_ Gamification Ranks.jam`.
 
-This is the thinnest of the four. If nothing here shows a design decision rather than a
-requirement, swap it for Service Replies.
-
-## 4. The prototypes repo
-
-Nothing needed. Draft is at `drafts/case-study-prototypes.md`. Blocked only on questions for her.
-
----
+**Risk:** it is the only pick I cannot evaluate. If it turns out to be an internal onboarding
+microsite, it drops and Service Replies takes the slot.
 
 ## Reserve
 
-**Service Replies (5).** Want `Service Replies Multi-Intent Integration Proposal` and
-`Service Replies Multi-Intent Detection PBD` first. A proposal names alternatives, which is the
-most useful document type there is. Also `Service Replies - Handover`, which usually says what
-shipped and what did not. Held in reserve only because it overlaps heavily with KGER.
+**Service Replies.** Strongest reserve, and first substitute if MSJ falls through.
+`Proactive Service Replies PBD` is the interesting one: AI speaking unprompted is a real design
+question. `Split Setup for Chat & Voice PRD` adds a modality nothing else in the portfolio has.
+Also `Multi-Intent Integration Proposal`, because a proposal names the alternatives that lost.
+In reserve only because its core overlaps KGER.
 
-**Summaries (6).** Want `Customizable Case Summary Structure PBD` and
-`[Spring '26] Enhanced Summaries Enablement`. Enablement decks are written to explain a feature to
-people who did not build it, which makes them unusually good source material.
+**Summaries.** The handoff angle is the good one: one human handing work to another through a
+machine's summary of what happened. `Customizable Case Summary Structure PBD` and
+`[Spring '26] Enhanced Summaries Enablement`.
 
-**Embedded Email (7).** Want `Embedded Service AI Ongoing UX`, which she last edited herself in
-November 2025, and `<WIP> Service AI Agentic Automation Gen II - Product Framing`.
+**Real-Time Semantic Classification.** Demoted. The conceptual hook is excellent, since a wrong
+classification is silent and looks exactly like a correct one, but the visible design is fields
+being filled in. Hard to make a reviewer feel it.
+
+**The prototypes repo.** Not competing for a slot. It is the method behind all four and should run
+through them rather than sit beside them.
 
 ---
 
