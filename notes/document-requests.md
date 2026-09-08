@@ -91,7 +91,21 @@ and memorable.
 `user-scoped-record-companions-design`, `260 Service Assistant Framework Extensibility PRD`,
 the A3 meeting notes.
 
-### Fifth, if the portfolio has room: MSJ — the range piece
+### Fifth, if the portfolio has room: MSJ, My Service Journey — the range piece
+
+**Name, corrected 8 September.** MSJ is **My Service Journey**, not My Salesforce Journey. Worth
+recording that the file in Drive is genuinely titled `260 - My Salesforce Journey.fig`, so either
+the export is mislabelled or there are two different things under one abbreviation. Do not assume
+the filename is the project.
+
+**This is also the project the Salesforce Drive index explicitly excluded**, under
+"everything under 'My Service Journey' ... old 2022-2024 initiatives, different owners". Two of
+those three reasons are already known to be unreliable: ownership does not indicate what she led,
+and the release numbers on the Figma files run 250 to 260+, which does not sit years before her
+Embedded AI work at 260 to 264.
+
+So the index says drop it and the file evidence says look again. That conflict is unresolved and
+only Stav can settle it.
 Everything else in the portfolio, including the older work, is dense operational software for
 people at a console. MSJ appears to be something else: gamification ranks research, a component
 library, a vision file, and `250 Service Adoption - Jason.fig` in the same folder, which suggests

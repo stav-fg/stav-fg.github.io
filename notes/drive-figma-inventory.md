@@ -16,7 +16,7 @@ is verifying coverage, not doing the exports.
 |---|---|
 | `Service AI` | The Embedded AI area. Contains most of the six. |
 | `RTC` | Real-Time Classification, project 1 |
-| `MSJ` | My Salesforce Journey. **Not in the brief at all.** See below. |
+| `MSJ` | My Service Journey. **Not in the brief at all.** See below. |
 | `Case Management` | Unclear scope, one file |
 | `A3` | Not yet opened |
 | `Service Catalog - Build & Connect` | Not yet opened |
@@ -60,7 +60,7 @@ Not yet opened. Possibly where metrics live.
 This fills the one gap in the prototypes repo, which had no Real-Time Classification module.
 Between this and the repo, all six projects now have some material.
 
-## MSJ — My Salesforce Journey
+## MSJ — My Service Journey
 
 A substantial project that appears nowhere in the handoff brief. Fourteen files, versioned by
 Salesforce release:
