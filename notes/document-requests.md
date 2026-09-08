@@ -188,3 +188,30 @@ product, that is worth more than its size.
 **What I need is one sentence from Stav about what MSJ actually is**, and whether she led it. Not
 a document. On the current evidence it is a strong candidate and possibly the strongest, and I
 cut it for a bad reason.
+
+---
+
+## Why the Figma files cannot be read here
+
+Investigated 8 September rather than assumed.
+
+`.fig` and `.jam` are zip containers. Unpacking `RTC Flows.jam` gives `canvas.fig`, `thumbnail.png`,
+`meta.json` and an `images/` folder. So far so readable.
+
+`canvas.fig` is then two length-prefixed chunks after a 12-byte header. The first is raw-deflate and
+decompresses to the 72KB kiwi schema, which is just field and enum names and identical across files.
+The second chunk starts `28 b5 2f fd`, which is **Zstandard**. That one holds the document: every
+node, label, sticky and connector.
+
+This machine has no route to zstd. No `zstd` binary, no `zstandard` Python module, no
+`compression.zstd` on Python 3.9, no `libzstd` in the dyld shared cache, and `tar` was built without
+it. Installing one needs Homebrew, which needs a sudo password.
+
+**What did come out:** `thumbnail.png`, 370x400, a rendered preview of the whole board. For RTC
+Flows it shows two parallel decision flows of roughly twenty-plus nodes each, with several branch
+points and yellow sticky annotations. Too small to read, but it corroborates the description of
+the project as genuinely complex rather than a field being populated.
+
+**Conclusion:** PDF export from Figma is the only practical route, and it is a two-minute action
+per file. Downloading the `.fig` files locally would add the thumbnail and any embedded raster
+assets and nothing else, because the vector UI stays locked without zstd.

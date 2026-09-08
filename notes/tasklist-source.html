@@ -1,0 +1,544 @@
+<title>Portfolio Revival Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground:#f4f6f9; --surface:#fff; --surface-2:#eef1f6;
+  --ink:#14171d; --ink-soft:#545b69; --ink-faint:#858d9d;
+  --rule:#dde2ea; --rule-strong:#c3cad6;
+  --accent:#1f56c4; --accent-wash:#e7edfb;
+  --urgent:#a8431c; --urgent-wash:#fbeade;
+  --done:#146b4a; --done-wash:#e2f1ea;
+  --none:#6a6570; --none-wash:#eeecf0;
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r:5px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0e1015; --surface:#161a21; --surface-2:#1e232c;
+  --ink:#e9ecf2; --ink-soft:#a3abba; --ink-faint:#6f7787;
+  --rule:#272d38; --rule-strong:#3a4250;
+  --accent:#7ba3f0; --accent-wash:#1a2438;
+  --urgent:#e29168; --urgent-wash:#33221a;
+  --done:#4fb289; --done-wash:#14291f;
+  --none:#9a94a4; --none-wash:#232128;
+}}
+:root[data-theme="dark"]{
+  --ground:#0e1015; --surface:#161a21; --surface-2:#1e232c;
+  --ink:#e9ecf2; --ink-soft:#a3abba; --ink-faint:#6f7787;
+  --rule:#272d38; --rule-strong:#3a4250;
+  --accent:#7ba3f0; --accent-wash:#1a2438;
+  --urgent:#e29168; --urgent-wash:#33221a;
+  --done:#4fb289; --done-wash:#14291f;
+  --none:#9a94a4; --none-wash:#232128;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.wrap{width:min(100% - 2rem,62rem);margin-inline:auto;padding-block:1.5rem 4rem}
+
+.status{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:1.15rem 1.25rem;display:grid;gap:1.1rem}
+.status-top{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1rem}
+h1{font-size:1.3rem;font-weight:600;letter-spacing:-.017em;margin:0 0 .25rem;text-wrap:balance}
+.sub{color:var(--ink-soft);margin:0;max-width:48ch}
+.countdown{font-family:var(--mono);text-align:right;flex-shrink:0;background:var(--urgent-wash);border:1px solid color-mix(in srgb,var(--urgent) 30%,transparent);border-radius:var(--r);padding:.5rem .8rem}
+.countdown b{display:block;font-size:1.85rem;line-height:1;font-weight:600;color:var(--urgent);font-variant-numeric:tabular-nums}
+.countdown span{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--urgent);opacity:.85}
+
+.meters{display:grid;gap:.7rem}
+@media (min-width:40rem){.meters{grid-template-columns:1fr auto;align-items:center;gap:1.5rem}}
+.bar{height:9px;background:var(--surface-2);border-radius:99px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%;transition:width .25s ease}
+.bar .got{background:var(--done)} .bar .none{background:var(--none)}
+.tally{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);display:flex;gap:1rem;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.tally b{color:var(--ink);font-weight:600}
+
+.controls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+button{font:inherit;font-size:.8rem;color:var(--ink-soft);background:var(--surface);border:1px solid var(--rule-strong);border-radius:var(--r);padding:.3rem .7rem;cursor:pointer}
+button:hover{color:var(--ink);border-color:var(--ink-faint)}
+button[aria-pressed="true"]{background:var(--accent-wash);border-color:color-mix(in srgb,var(--accent) 45%,transparent);color:var(--accent);font-weight:500}
+.sync{font-family:var(--mono);font-size:.7rem;color:var(--ink-faint);margin-left:auto}
+
+.phase{margin:1.75rem 0 .6rem;display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.phase h2{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:0}
+.phase .when{font-family:var(--mono);font-size:.72rem;color:var(--urgent)}
+.phase .when.calm{color:var(--ink-faint)}
+
+.panels{display:grid;gap:.6rem}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.panel.lead{border-color:color-mix(in srgb,var(--accent) 40%,var(--rule))}
+.phead{width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.8rem;padding:.8rem 1rem;background:none;border:0;border-radius:0;text-align:left;color:inherit}
+.phead:hover{background:var(--surface-2)}
+.chev{color:var(--ink-faint);font-size:.7rem;transition:transform .18s ease;width:.8em}
+.panel[data-open="true"] .chev{transform:rotate(90deg)}
+.pname{font-weight:600;letter-spacing:-.012em}
+.pmeta{display:flex;gap:.55rem;align-items:baseline;flex-wrap:wrap}
+.pcode{font-family:var(--mono);font-size:.7rem;color:var(--ink-faint);letter-spacing:.04em}
+.flag{font-family:var(--mono);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;padding:.1rem .4rem;border-radius:3px;background:var(--accent-wash);color:var(--accent);font-weight:500;white-space:nowrap}
+.pcount{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pcount.clear{color:var(--done)}
+.pbody{border-top:1px solid var(--rule);padding:.3rem 0 .6rem}
+.panel[data-open="false"] .pbody{display:none}
+.grouphead{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);padding:.85rem 1rem .35rem;font-weight:500}
+
+.item{display:grid;grid-template-columns:auto 1fr;gap:.7rem;padding:.42rem 1rem;align-items:start}
+.item+.item{border-top:1px solid color-mix(in srgb,var(--rule) 55%,transparent)}
+.item.hide{display:none}
+.tick{width:1.15rem;height:1.15rem;flex:none;margin-top:.16rem;padding:0;border:1.5px solid var(--rule-strong);border-radius:3px;background:var(--surface);display:grid;place-items:center;font-family:var(--mono);font-size:.7rem;line-height:1;font-weight:600;color:transparent}
+.item[data-s="got"] .tick{background:var(--done-wash);border-color:var(--done);color:var(--done)}
+.item[data-s="none"] .tick{background:var(--none-wash);border-color:var(--none);color:var(--none)}
+.label{cursor:pointer}
+.item[data-s="got"] .label>span,.item[data-s="none"] .label>span{color:var(--ink-faint)}
+.item[data-s="got"] .label>span{text-decoration:line-through;text-decoration-color:var(--rule-strong)}
+.hint{display:block;color:var(--ink-faint);font-size:.8rem}
+.who{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--rule);border-radius:3px;padding:0 .3em;margin-left:.4em;white-space:nowrap}
+.note{font:inherit;font-family:var(--mono);font-size:.76rem;width:100%;margin-top:.3rem;padding:.25rem .45rem;background:var(--surface-2);border:1px solid transparent;border-radius:3px;color:var(--ink);resize:none;overflow:hidden;min-height:1.9rem}
+.note::placeholder{color:var(--ink-faint)}
+.note:hover{border-color:var(--rule)}
+.note:focus{border-color:var(--accent);background:var(--surface);outline:none}
+.note.empty:not(:focus){opacity:0;height:0;min-height:0;padding:0;margin:0;border:0}
+.item:hover .note.empty:not(:focus){opacity:1;height:auto;min-height:1.9rem;padding:.25rem .45rem;margin-top:.3rem}
+
+.rule-note{margin-top:1.5rem;padding:1rem 1.1rem;background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--urgent);border-radius:var(--r);color:var(--ink-soft)}
+.rule-note p{margin:0;max-width:70ch}
+.rule-note p+p{margin-top:.6rem}
+.rule-note strong{color:var(--ink);font-weight:600}
+.legend{margin-top:1rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);display:flex;gap:1.2rem;flex-wrap:wrap}
+.legend i{font-style:normal;color:var(--ink-soft)}
+</style>
+
+<div class="wrap">
+
+  <header class="status">
+    <div class="status-top">
+      <div>
+        <h1>Portfolio revival: everything still open</h1>
+        <p class="sub">
+          Ordered by what forces the sequence, not by importance. Four case studies are chosen and
+          they form one argument: teach it, assist with it, automate it, govern it. What is left is
+          getting the evidence out before the badge stops working, and asking the people who will
+          stop answering once she leaves.
+        </p>
+      </div>
+      <div class="countdown"><b id="days">&middot;&middot;</b><span id="daysLabel">days left</span></div>
+    </div>
+    <div class="meters">
+      <div class="bar" role="img" aria-label="Overall progress" id="bar"><i class="got" style="width:0%"></i><i class="none" style="width:0%"></i></div>
+      <div class="tally">
+        <span><b id="nGot">0</b> done</span>
+        <span><b id="nNone">0</b> n/a</span>
+        <span><b id="nOpen">0</b> open</span>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="urgentBtn" aria-pressed="false">Deadline items only</button>
+      <button id="openAll">Expand all</button>
+      <button id="closeAll">Collapse all</button>
+      <span class="sync" id="sync">saved in this browser</span>
+    </div>
+  </header>
+
+  <div id="panels"></div>
+
+  <div class="legend">
+    <span><i>Click once</i> = done</span>
+    <span><i>Twice</i> = checked, does not exist / not doing</span>
+    <span><i>Three times</i> = back to open</span>
+    <span><i>Hover a row</i> to add a note</span>
+  </div>
+
+  <div class="rule-note">
+    <p><strong>Take everything. Sort in October.</strong> Curating later is free. Access is not.</p>
+    <p>If it cannot be exported, screenshot it. If it cannot be screenshotted, write down what it said and the number it contained, in the note on the row.</p>
+    <p><strong>The Figma exports are the current blocker.</strong> I cannot read .fig or .jam: they are zip containers whose canvas is Zstandard-compressed, and this machine has no zstd. File, Export frames to PDF, per page rather than the whole file, and I can read everything. For Real-Time Classification that matters more than the PRD, because it is the one study the screens have to carry.</p>
+    <p>Send the metric requests in week one. Numbers sit with PMs, analysts and launch readouts, not with the designer, and people take days to reply.</p>
+    <p><strong>Hunt for three numbers, not forty.</strong> An interviewer cannot verify a figure from a previous employer and knows it. What numbers buy is a concrete case study and proof she was close enough to the outcome to know them. Two or three across the whole portfolio does that. Where nothing exists, change the sentence: "we never instrumented this, which I would push for now" is a strong answer, and "response times improved" is a weak one.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var DEADLINE = new Date("2026-09-30T23:59:59+03:00");
+
+var M = [
+  {id:"m-adopt", t:"Adoption or usage rate", h:"How many orgs or agents enabled it", core:true},
+  {id:"m-accept",t:"Acceptance rate", h:"How often agents took the suggestion unedited", core:true},
+  {id:"m-edit",  t:"Edit rate", h:"How often they changed it. A design metric, not just a model one.", core:true},
+  {id:"m-time",  t:"Time saved", h:"Per case or per interaction", core:true},
+  {id:"m-defl",  t:"Deflection rate", h:"Where it applies", core:false},
+  {id:"m-vol",   t:"Volume", h:"Cases processed, replies generated, articles surfaced", core:true},
+  {id:"m-csat",  t:"CSAT or agent satisfaction", h:"If it was ever measured", core:false},
+  {id:"m-read",  t:"Launch readout, QBR or exec review", h:"Often the only place a number was written down", core:true}
+];
+var R = [
+  {id:"r-usab",  t:"Usability findings", h:"Recordings and notes, not just the summary", core:false},
+  {id:"r-pers",  t:"Personas and use-characteristics matrices", h:"", core:false},
+  {id:"r-comp",  t:"Competitive or comparative analyses", h:"", core:false},
+  {id:"r-before",t:"Before-state documentation", h:"What the agent workflow looked like before this shipped", core:false},
+  {id:"r-crit",  t:"Design critique notes", h:"Especially anything showing a decision reversed", core:false}
+];
+var A = [
+  {id:"a-figma", t:"Figma file, whole", h:"Much of this is already in the Drive folder. Verify coverage rather than re-export.", core:true},
+  {id:"a-reject",t:"Rejected directions and early explorations", h:"These carry more interview weight than final screens", core:false},
+  {id:"a-shots", t:"Before and after screenshots of internal states", h:"", core:false},
+  {id:"a-docs",  t:"Anything she wrote that shaped a decision", h:"Easy to forget: it does not look like a design artifact", core:false}
+];
+function proj(){ return [{g:"Metrics",items:M},{g:"Research",items:R},{g:"Artifacts",items:A}]; }
+
+var PANELS = [
+  {phase:"now", id:"export", code:"FIG", name:"Figma exports", flag:"Blocking", lead:true,
+   note:"I cannot read .fig or .jam. They are zips whose canvas is Zstandard-compressed, and this Mac has no zstd. PDF export is the only way in.",
+   groups:[
+    {g:"File, Export frames to PDF. Per page, not the whole file.", items:[
+      {id:"e-rtcflows", t:"RTC Flows.jam", h:"Smallest file and the highest value. The decision path is the story.", core:true},
+      {id:"e-rtc", t:"RTC.fig, key pages only", h:"126MB whole. This is the study the screens have to carry.", core:true},
+      {id:"e-kger", t:"KGER.fig", h:"", core:true},
+      {id:"e-a3", t:"The A3 Registry file, once located", h:"It was not in any folder I inventoried. May be elsewhere.", core:true},
+      {id:"e-email", t:"Embedded Agents.fig and Knowledge Based Email Reply.jam", h:"For the agentic email study", core:false},
+      {id:"e-msj", t:"260 - My Salesforce Journey.fig and 256 + Vision - MSJ.fig", h:"Only if MSJ takes the fifth slot", core:false}
+    ]}
+   ]},
+
+  {phase:"now", id:"job", code:"JOB", name:"The job search itself", flag:"Start this week", lead:true,
+   note:"Not in the original plan and it outranks most of it. Referrals decay from the day she leaves, and none of this waits for the portfolio.",
+   groups:[
+    {g:"Before the badge stops working", items:[
+      {id:"j-li", t:"Fix LinkedIn", h:"Highest-traffic artifact she owns, worst state of any of them. Still says she leads the design team at Asperii, which she left in 2022. One afternoon.", core:true},
+      {id:"j-refs", t:"Ask every colleague with a big tech connection for an introduction", h:"A referral gets a screen. A screen buys weeks. Those weeks are when the portfolio gets finished.", core:true},
+      {id:"j-recs", t:"Request LinkedIn recommendations", h:"Ask while she is present and top of mind", core:true},
+      {id:"j-contacts", t:"Collect personal contact details", h:"Anyone whose recollection or referral might be needed later", core:true}
+    ]},
+    {g:"Then, in parallel with building", items:[
+      {id:"j-apply", t:"Start applying before the portfolio is finished", h:"Build-then-apply turns a three-week deadline into a three-month CV gap", core:true},
+      {id:"j-geo", t:"Decide geography", h:"Israel, remote, or US. Gates which roles to target.", core:true}
+    ]}
+   ]},
+
+  {phase:"sept", id:"cs1", code:"CS1", name:"Real-Time Semantic Classification", flag:"Teach it", lead:true,
+   note:"Multi-model training, comparison and decision, with configuration driving what populates each field. The one study where the screens are the evidence.",
+   groups:[{g:"Documents", items:[
+      {id:"c1-fig", t:"RTC.fig and RTC Flows.jam as PDF", h:"Matters more here than any document", core:true},
+      {id:"c1-prd", t:"262 Real Time Semantic Classification PRD", h:"", core:true},
+      {id:"c1-sib", t:"260 Real Time Case Classification", h:"The sibling. Two releases means it evolved, and how it evolved is the story.", core:true},
+      {id:"c1-draft", t:"Earlier draft of the 262 PRD", h:"Only to diff against the final for anything reversed", core:false}
+   ]}]},
+
+  {phase:"sept", id:"cs2", code:"CS2", name:"KGER / MKGER, multi-intent email reply", flag:"Assist", lead:true,
+   note:"Will a person put their name on something a machine wrote? One click on the surface, inspectable reasoning underneath.",
+   groups:[{g:"Documents", items:[
+      {id:"c2-prd", t:"260 KGER - Customer Intent Mapping PRD", h:"", core:true},
+      {id:"c2-pbd", t:"EK Support for KGER & MKGER - PBD", h:"Defines the multi-article variant, which is the harder design", core:true},
+      {id:"c2-brain", t:"264 Multi Intent Brainstorming - Chat", h:"Brainstorming is where rejected directions live, and those are what interviewers ask about", core:true},
+      {id:"c2-blitz", t:"KGER/Service Replies Blitz notes", h:"A blitz usually means a compressed decision session", core:false},
+      {id:"c2-guard", t:"KGER Access Guard Issue", h:"A security constraint that shaped the design. Small, possibly a great detail.", core:false}
+   ]}]},
+
+  {phase:"sept", id:"cs3", code:"CS3", name:"Email Reply Automation", flag:"Automate", lead:true,
+   note:"When do you let it send without asking? Going from AI drafts to AI sends is the highest-stakes call in the area.",
+   groups:[{g:"Documents", items:[
+      {id:"c3-prd", t:"Email Reply Automation - 264 PRD", h:"", core:true},
+      {id:"c3-hld", t:"HLD: Agentic Email Response", h:"", core:true},
+      {id:"c3-framing", t:"Service AI Agentic Automation Gen II - Product Framing", h:"", core:true},
+      {id:"c3-reply", t:"Agentic Email Reply and Embedded Agents for Emails", h:"", core:false},
+      {id:"c3-notes", t:"Automated Email meeting notes", h:"", core:false}
+   ]}]},
+
+  {phase:"sept", id:"cs4", code:"CS4", name:"A3 Registry / Record Companions", flag:"Govern", lead:true,
+   note:"What is the machine permitted to touch at all? Admin and builder UX rather than agent UX, and it went through legal twice.",
+   groups:[{g:"Documents", items:[
+      {id:"c4-prd", t:"264 - A3 Registry UI - PRD", h:"", core:true},
+      {id:"c4-legal", t:"Both legal documents", h:"Registry UI Meeting with Legal, and Registry Setup Legal Discussion. Design under legal constraint is rare and memorable.", core:true},
+      {id:"c4-scoped", t:"user-scoped-record-companions-design", h:"Suggests the legal conversation was about data access", core:true},
+      {id:"c4-umbrella", t:"260 Service Assistant Framework Extensibility PRD", h:"Framing only", core:false},
+      {id:"c4-notes", t:"A3 Overview and A3 - Registry UI meeting notes", h:"", core:false}
+   ]}]},
+
+  {phase:"sept", id:"msj", code:"MSJ", name:"My Salesforce Journey", flag:"Decide first", lead:false,
+   note:"The range candidate. Everything else in the portfolio is dense operational software for someone at a console.",
+   groups:[{g:"Before spending any effort on it", items:[
+      {id:"m-what", t:"One sentence from Stav on what MSJ actually is", h:"Not a document. It is the largest body of work in the Drive, 355MB against 40MB for KGER, and the only project with a component library, a vision file and its own research. I cannot evaluate it.", core:true},
+      {id:"m-figs", t:"If it stays: the 260 and Vision files as PDF", h:"", core:false},
+      {id:"m-research", t:"254 Research for MSJ, Gamification Ranks", h:"The only research artifact anywhere in the Drive", core:false}
+   ]}]},
+
+  {phase:"sept", id:"x", code:"ALL", name:"Cross-cutting and evidence", flag:"Do first", lead:true,
+   note:"Not per project. The people items depend on other humans replying, so they cannot wait.",
+   groups:[
+    {g:"Send this week, because others have to answer", items:[
+      {id:"x-asks", t:"Metric requests sent to PMs and analysts", h:"Hunt for three usable numbers, not forty. Tick when sent, not when answered.", core:true}
+    ]},
+    {g:"The gap the document index revealed", items:[
+      {id:"x-sweep", t:"Second Drive sweep for the missing categories", h:"readout, adoption, acceptance, metrics, dashboard, GA, launch review, usability, research, accessibility, a11y, VPAT, QBR", core:true},
+      {id:"x-research", t:"Any usability study or research readout", h:"The full index contained none. Either they are filed under other words or they do not exist, and that is worth knowing now.", core:true},
+      {id:"x-a11y", t:"Accessibility audits, standards, review checklists", h:"Also absent from the index. Google and Microsoft screen for this explicitly.", core:true},
+      {id:"x-wiki", t:"Wiki, Quip and Slack canvas exports", h:"Written material that cannot be pulled later", core:true}
+    ]},
+    {g:"Two documents worth having regardless", items:[
+      {id:"x-ux", t:"Embedded Service AI Ongoing UX", h:"A presentation she authored and last edited. Her framing in her own words, which is the best available fix for copy that currently sounds like me.", core:true},
+      {id:"x-handoff", t:"Copy of Work Handoff - Stav Fisher Gross", h:"A spreadsheet she last edited in August. An inventory of everything she owned, written by her, at the end.", core:true}
+    ]},
+    {g:"Verify, do not assume", items:[
+      {id:"x-figcheck", t:"Import one .fig into Figma and confirm it restores", h:"Fifteen minutes. Finding out in October that the exports are broken is the worst available outcome.", core:true}
+    ]}
+   ]},
+
+  {phase:"soon", id:"q", code:"ASK", name:"Questions only Stav can answer", flag:"One conversation", lead:false,
+   note:"None of it is blocked on anything. All of it blocks the CV.",
+   groups:[
+    {g:"Contradictions to resolve", items:[
+      {id:"q-webiks", t:"Webiks title: Senior or not?", h:"CV says Senior, her live site says Senior, LinkedIn says Product Designer. LinkedIn is what recruiters cross-check.", core:true},
+      {id:"q-phone", t:"Which phone number is right", h:"Two versions on record, one digit apart", core:true},
+      {id:"q-asperii", t:"Asperii end date", h:"CV and live site say 2021, LinkedIn says April 2022", core:true},
+      {id:"q-spanish", t:"Is Spanish still accurate?", h:"On the live site, absent from the brief", core:false}
+    ]},
+    {g:"Content gaps", items:[
+      {id:"q-tools", t:"Which AI tools she actually uses, and for what", h:"The current CV lists Adobe XD, Axure, InVision, Zeplin and no AI tooling at all", core:true},
+      {id:"q-a11y", t:"What owning accessibility actually involved", h:"Standards, audit tooling, review gates, training others", core:true},
+      {id:"q-proto", t:"How the prototypes repo came about", h:"Who decided to replace Figma handoff, was there resistance, what changed for engineers", core:true},
+      {id:"q-personas", t:"Aircraft Maintenance personas", h:"She ran the interviews and base visits. Recall, not research.", core:false},
+      {id:"q-afnum", t:"Any number at all for the Air Force study", h:"Response times improved is the load-bearing sentence and the weakest one", core:false}
+    ]},
+    {g:"Decisions", items:[
+      {id:"q-comp", t:"Portfolio composition", h:"If all four slots go to Salesforce, Webiks and the Air Force founding story drop out entirely. That is the only piece nobody else can copy.", core:true},
+      {id:"q-golive", t:"Go-live date", h:"Not set. Site is built and unindexed until it is.", core:true},
+      {id:"q-geo2", t:"Geography: Israel, remote, or US", h:"", core:true},
+      {id:"q-conf", t:"Air Force confidentiality position", h:"A security officer review is still the standing declined recommendation", core:false}
+    ]}
+   ]},
+
+  {phase:"soon", id:"fix", code:"FIX", name:"Live Carbonmade site", flag:"Public right now", lead:false,
+   note:"Password is off, so anyone she has sent the link to is seeing this today.",
+   groups:[{g:"Fix or take down", items:[
+      {id:"f-tmpl", t:"Unedited template text on Aircraft Maintenance", h:"\u201cYou can you this place to talk a little bit about the image on the side.\u201d Typo included.", core:true},
+      {id:"f-typo", t:"Typo on the Clinic page", h:"\u201cmange a monthly allocation plan\u201d", core:true},
+      {id:"f-about", t:"About blurb reads as a half-finished edit", h:"\u201cExperienced product design person.\u201d", core:true},
+      {id:"f-sf", t:"Salesforce missing from the About timeline", h:"It stops at Asperii. Her most significant four years appear in none of her three public artifacts.", core:true},
+      {id:"f-lorem", t:"Two Aircraft Maintenance screens are lorem ipsum", h:"Reviews and grouped-by-category are placeholder text, live today. Re-export from the Webiks Figma.", core:false}
+   ]}]},
+
+  {phase:"later", id:"build", code:"BUILD", name:"The portfolio itself", flag:"No deadline", lead:false,
+   note:"Everything needed for the non-Salesforce work is already on the machine.",
+   groups:[
+    {g:"Writing", items:[
+      {id:"b-int1", t:"Interview: Real-Time Classification", h:"", core:true},
+      {id:"b-int2", t:"Interview: KGER multi-intent", h:"", core:true},
+      {id:"b-int3", t:"Interview: Email Reply Automation", h:"", core:true},
+      {id:"b-int4", t:"Interview: A3 Registry", h:"", core:true},
+      {id:"b-arc", t:"Write the four as one arc, not four features", h:"Teach it, assist with it, automate it, govern it. The framing is worth more than any single study.", core:true},
+      {id:"b-voice", t:"Her voice pass over everything already drafted", h:"The two written case studies and About currently sound like the model that wrote them", core:true}
+    ]},
+    {g:"Case study repairs", items:[
+      {id:"b-personas", t:"Aircraft Maintenance: personas", h:"", core:false},
+      {id:"b-results", t:"Aircraft Maintenance: results, or a stated absence", h:"A stated absence survives questioning; a vague claim does not", core:false},
+      {id:"b-takeaways", t:"Aircraft Maintenance: takeaways", h:"The deck ends both its studies with an honest I-would-have. This one has none.", core:false}
+    ]},
+    {g:"Artifacts", items:[
+      {id:"b-repo", t:"Write the prototypes-repo piece", h:"Drafted at drafts/case-study-prototypes.md. The method behind all four, and unblocked by the deadline.", core:true},
+      {id:"b-proto", t:"Build the sanitised prototype rebuild", h:"Problem class with invented data, not the real system", core:true},
+      {id:"b-cv", t:"Rewrite CV and LinkedIn in one pass", h:"So they stop contradicting each other", core:true},
+      {id:"b-imgs", t:"Put project imagery into the case study pages", h:"18 real images pulled and sized; one is placed so far", core:false}
+    ]},
+    {g:"Launch", items:[
+      {id:"b-noindex", t:"Remove noindex and robots.txt", h:"Go-live day only. Both are marked in the source.", core:true},
+      {id:"b-backup", t:"Back up the Carbonmade originals before cancelling", h:"246MB, only recoverable while that site is up", core:true}
+    ]}
+   ]}
+];
+
+var PHASES = [
+  {id:"now",   label:"This week", when:"outranks the portfolio, and nothing here waits for it", urgent:true},
+  {id:"sept",  label:"Before 30 September", when:"unrecoverable after the badge stops working", urgent:true},
+  {id:"soon",  label:"Any time, but blocking", when:"no deadline, all of it blocks something else", urgent:false},
+  {id:"later", label:"The build", when:"everything needed is already local", urgent:false}
+];
+
+var state = {}, db = null, urgentOnly = false;
+var LS = "stav-tasklist-v1";
+try { var raw = localStorage.getItem(LS); if (raw) state = JSON.parse(raw) || {}; } catch(e){}
+function saveLocal(){ try { localStorage.setItem(LS, JSON.stringify(state)); } catch(e){} }
+
+var pending = {}, timer = null;
+function persist(pid){
+  saveLocal();
+  if(!db) return;
+  pending[pid] = true;
+  clearTimeout(timer);
+  timer = setTimeout(function(){
+    var ids = Object.keys(pending); pending = {};
+    ids.forEach(function(id){
+      db.doc("progress/"+id).set({items: state[id]||{}}).catch(function(){ sync("saved locally"); });
+    });
+  }, 450);
+}
+function sync(m){ document.getElementById("sync").textContent = m; }
+function get(p,i){ return (state[p] && state[p][i]) || null; }
+function visible(panel,it){ return !(urgentOnly && panel.phase !== "sept" && panel.phase !== "now"); }
+
+function counts(){
+  var g=0,n=0,t=0;
+  PANELS.forEach(function(p){ p.groups.forEach(function(gr){ gr.items.forEach(function(it){
+    if(!visible(p,it)) return;
+    t++; var v=get(p.id,it.id);
+    if(v&&v.s==="got") g++; else if(v&&v.s==="none") n++;
+  });});});
+  return {got:g,none:n,total:t,open:t-g-n};
+}
+function pcount(p){
+  var d=0,t=0;
+  p.groups.forEach(function(gr){ gr.items.forEach(function(it){
+    t++; var v=get(p.id,it.id); if(v&&(v.s==="got"||v.s==="none")) d++;
+  });});
+  return {done:d,total:t};
+}
+function refresh(){
+  var c=counts();
+  document.getElementById("nGot").textContent=c.got;
+  document.getElementById("nNone").textContent=c.none;
+  document.getElementById("nOpen").textContent=c.open;
+  var bar=document.getElementById("bar");
+  bar.children[0].style.width=(c.total?c.got/c.total*100:0)+"%";
+  bar.children[1].style.width=(c.total?c.none/c.total*100:0)+"%";
+  bar.setAttribute("aria-label",c.got+" of "+c.total+" done, "+c.none+" not applicable");
+  PANELS.forEach(function(p){
+    var el=document.querySelector('[data-count="'+p.id+'"]'); if(!el) return;
+    var pc=pcount(p); el.textContent=pc.done+"/"+pc.total;
+    el.classList.toggle("clear", pc.total>0 && pc.done===pc.total);
+  });
+}
+function apply(el,pid,iid){
+  var v=get(pid,iid), s=v?v.s:"open";
+  el.setAttribute("data-s",s);
+  var tk=el.querySelector(".tick");
+  tk.textContent = s==="got"?"✓":(s==="none"?"–":"");
+  tk.setAttribute("aria-label", s==="got"?"Done":s==="none"?"Not applicable":"Open");
+}
+function cycle(pid,iid,el){
+  var v=get(pid,iid), s=v?v.s:"open";
+  var nx = s==="open"?"got":(s==="got"?"none":"open");
+  if(!state[pid]) state[pid]={};
+  var note = v&&v.n ? v.n : "";
+  if(nx==="open" && !note) delete state[pid][iid]; else state[pid][iid]={s:nx,n:note};
+  apply(el,pid,iid); refresh(); persist(pid);
+}
+function setNote(pid,iid,txt){
+  var v=get(pid,iid);
+  if(!txt && (!v||v.s==="open")){ if(state[pid]) delete state[pid][iid]; }
+  else { if(!state[pid]) state[pid]={}; state[pid][iid]={s:v?v.s:"open",n:txt}; }
+  persist(pid);
+}
+function el(tag,cls,txt){ var n=document.createElement(tag); if(cls)n.className=cls; if(txt!=null)n.textContent=txt; return n; }
+
+function build(){
+  var host=document.getElementById("panels"); host.textContent="";
+  PHASES.forEach(function(ph){
+    var head=el("div","phase");
+    head.appendChild(el("h2",null,ph.label));
+    var w=el("span","when"+(ph.urgent?"":" calm"),ph.when);
+    head.appendChild(w);
+    host.appendChild(head);
+    var wrap=el("div","panels");
+    PANELS.filter(function(p){return p.phase===ph.id;}).forEach(function(p){
+      var panel=el("section","panel"+(p.lead?" lead":""));
+      panel.setAttribute("data-open", p.lead?"true":"false");
+      var hd=el("button","phead"); hd.type="button";
+      hd.setAttribute("aria-expanded",panel.getAttribute("data-open"));
+      hd.appendChild(el("span","chev","▶"));
+      var mid=el("span"), meta=el("span","pmeta");
+      meta.appendChild(el("span","pcode",p.code));
+      meta.appendChild(el("span","pname",p.name));
+      if(p.flag) meta.appendChild(el("span","flag",p.flag));
+      mid.appendChild(meta); mid.appendChild(el("span","hint",p.note));
+      hd.appendChild(mid);
+      var c=el("span","pcount","0/0"); c.setAttribute("data-count",p.id); hd.appendChild(c);
+      hd.addEventListener("click",function(){
+        var o=panel.getAttribute("data-open")==="true";
+        panel.setAttribute("data-open",o?"false":"true");
+        hd.setAttribute("aria-expanded",o?"false":"true");
+      });
+      panel.appendChild(hd);
+      var body=el("div","pbody");
+      p.groups.forEach(function(gr){
+        body.appendChild(el("div","grouphead",gr.g));
+        gr.items.forEach(function(it){
+          var row=el("div","item");
+          row.setAttribute("data-item",p.id+":"+it.id);
+          var tk=el("button","tick"); tk.type="button";
+          tk.addEventListener("click",function(){cycle(p.id,it.id,row);});
+          row.appendChild(tk);
+          var right=el("div"), lab=el("label","label");
+          lab.appendChild(el("span",null,it.t));
+          if(it.h) lab.appendChild(el("span","hint",it.h));
+          lab.addEventListener("click",function(){cycle(p.id,it.id,row);});
+          right.appendChild(lab);
+          var nt=el("textarea","note empty"); nt.rows=1;
+          nt.placeholder="note, or the number itself";
+          var v0=get(p.id,it.id);
+          if(v0&&v0.n){ nt.value=v0.n; nt.classList.remove("empty"); }
+          nt.addEventListener("input",function(){
+            nt.classList.toggle("empty",!nt.value);
+            nt.style.height="auto"; nt.style.height=nt.scrollHeight+"px";
+          });
+          nt.addEventListener("change",function(){setNote(p.id,it.id,nt.value.trim());});
+          nt.addEventListener("blur",function(){setNote(p.id,it.id,nt.value.trim());});
+          right.appendChild(nt);
+          row.appendChild(right); body.appendChild(row);
+          apply(row,p.id,it.id);
+        });
+      });
+      panel.appendChild(body); wrap.appendChild(panel);
+    });
+    host.appendChild(wrap);
+    head.setAttribute("data-phase",ph.id);
+    wrap.setAttribute("data-phase",ph.id);
+  });
+  filter(); refresh();
+}
+function filter(){
+  document.querySelectorAll('[data-phase]').forEach(function(n){
+    var ph = n.getAttribute("data-phase");
+    n.style.display = (urgentOnly && ph!=="sept" && ph!=="now") ? "none" : "";
+  });
+}
+function countdown(){
+  var d=Math.ceil((DEADLINE-new Date())/86400000);
+  var n=document.getElementById("days"), l=document.getElementById("daysLabel");
+  if(d>0){ n.textContent=d; l.textContent=d===1?"day left":"days left"; }
+  else { n.textContent="0"; l.textContent="access ended"; }
+}
+
+build(); countdown(); setInterval(countdown,3600000);
+document.getElementById("urgentBtn").addEventListener("click",function(){
+  urgentOnly=!urgentOnly;
+  this.setAttribute("aria-pressed",String(urgentOnly));
+  this.textContent = urgentOnly?"Showing deadline only":"Deadline items only";
+  filter(); refresh();
+});
+document.getElementById("openAll").addEventListener("click",function(){
+  document.querySelectorAll(".panel").forEach(function(p){
+    p.setAttribute("data-open","true"); p.querySelector(".phead").setAttribute("aria-expanded","true");
+  });
+});
+document.getElementById("closeAll").addEventListener("click",function(){
+  document.querySelectorAll(".panel").forEach(function(p){
+    p.setAttribute("data-open","false"); p.querySelector(".phead").setAttribute("aria-expanded","false");
+  });
+});
+
+if(window.claude && typeof window.claude.use==="function"){
+  window.claude.use("db").then(function(d){
+    if(!d) return; db=d; sync("shared · syncing");
+    db.collection("progress").onSnapshot(function(snap){
+      if(!snap.metadata.hasPendingWrites){
+        var inc={}; snap.docs.forEach(function(doc){ var b=doc.data(); inc[doc.id]=(b&&b.items)||{}; });
+        state=inc; saveLocal(); build();
+      }
+      sync("shared · saved");
+    }, function(){ sync("saved in this browser"); db=null; });
+  }).catch(function(){});
+}
+})();
+</script>
