@@ -118,7 +118,7 @@ again.
 | `deck-slides/` | Re-derivable from the deck PDF, see README extraction notes |
 | `github-export/` | `github.zip` in the shared Drive Projects folder |
 | `fig-extracts/` | Re-derivable from any `.fig` with `tools/figextract.py` |
-| **`carbonmade-originals/`** | **Only recoverable while stavfg.portfolio.site is up.** 15MB, 37 images. Carbonmade is being cancelled, so copy this folder across before that happens. |
+| `carbonmade-originals/` | **Backed up to Drive 9 September**, `Projects/carbonmade`. 37 images in three folders, verified against the Mac file by file. Safe to cancel Carbonmade. |
 
 The Figma files themselves live in the shared Drive folder `Projects`. On the old machine they were
 also on the Desktop under `stav portfolio data`, about 1.9GB. Do not copy that across; download from
@@ -133,18 +133,20 @@ activation toast, a five-step configuration modal with empty states, six trainin
 frames, and the config record page in both Configuration Details and Models and Training. That
 satisfies item 1 of the RTC request in `notes/document-requests.md`.
 
-### Move these off the Mac before it is wiped or handed back
+### Nothing is left on the Mac
 
-Everything else can be fetched again. These cannot, or not easily.
+**Checked and closed 9 September 2026.** This section used to list material that existed only on
+the Mac. It is empty now.
 
-1. **`source-material/carbonmade-originals/`** — 15MB, 37 images at full resolution. Only
-   recoverable while stavfg.portfolio.site is up, and that site is being cancelled. **This is the
-   only genuinely irreplaceable folder.** Copy it to Drive or a USB stick.
-2. **`source-material/fig-extracts/`** — 452KB of already-extracted text from the FigJam boards.
-   Re-derivable, but only if you still have the source `.jam` files, so copying it saves a step.
-3. **Anything Stav has downloaded to the Desktop** that is not already in Drive.
+`carbonmade-originals/` was the one genuinely irreplaceable folder, recoverable only while
+stavfg.portfolio.site was up, and that subscription is being cancelled. It is in Drive at
+`Projects/carbonmade`, three subfolders, 37 files, counts verified against the Mac.
 
-Nothing else on the Mac matters. The repo carries the site, the notes, the drafts and the tools.
+`fig-extracts/` is on the PC already. Everything else in the table above is re-derivable from Drive,
+LinkedIn or the tools in `tools/`.
+
+**The Mac can be wiped or handed back.** Confirm the repo is pushed first, which is the only thing
+on it that is not also somewhere else.
 
 ---
 

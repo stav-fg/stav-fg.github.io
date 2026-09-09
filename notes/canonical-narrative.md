@@ -141,10 +141,10 @@ One Google Doc, shared with her as an editor. It replaced the artifact trackers 
 artifact pins its version, so every republish after the share was invisible to her. Docs do not
 pin. Both artifacts should be deleted from the gallery.
 
-**Carbonmade is being retired, decided 9 September.** Everything from it is already archived here:
-37 full-resolution originals and 19 web copies under `source-material/carbonmade-originals` and
-`assets/`, plus every word of copy in `source-material/carbonmade-copy-pulled.md`. Nothing is lost
-by cancelling.
+**Carbonmade is being retired, decided 9 September.** Everything from it is archived twice: 37
+full-resolution originals in Drive at `Projects/carbonmade` and on disk under
+`source-material/carbonmade-originals`, 19 web copies in `assets/`, and every word of copy in
+`source-material/carbonmade-copy-pulled.md`. Nothing is lost by cancelling.
 
 One consequence to watch: her LinkedIn currently points at stavfg.portfolio.site. When that goes
 down the link breaks, and a dead portfolio link is worse than an imperfect one. Either keep
