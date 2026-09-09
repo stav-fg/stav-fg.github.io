@@ -7,8 +7,31 @@ serve it should be cut, however good it is.
 
 ## The claim, in one sentence
 
-**Stav designs the line between what a machine decides and what a person decides, in software
-where being wrong costs something.**
+**Fourteen years making complicated software behave. These days, the part of an AI product where
+someone decides whether to trust it.**
+
+The first sentence covers everything she has done. The second covers the last four years and sits
+lower on the page, where it only has to be true of the Salesforce work.
+
+### What this replaced, and why
+
+The earlier claim was that she designs the line between what a machine decides and what a person
+decides, in software where being wrong costs something. Stav rejected it and she was right, for a
+reason worth recording.
+
+It sounds grand, and it is only accurate about two projects: aerial defense in 2013 and aircraft
+maintenance in 2018. A support rep sending a slightly imperfect email is not a life-or-death
+consequence, so the line **failed on all four years of the work that matters most.** I had built a
+narrative about consequence and then chosen four case studies that are not about consequence.
+
+It was also restrictive. Naming a domain fences her in, and a game studio reading it would not see
+themselves. Naming a kind of problem travels.
+
+**The real through-line is legibility rather than stakes.** An unreadable cluster of threats made
+readable. Dozens of procedure steps across three systems made into one flow. A model comparison a
+non-specialist can choose from. A machine's reasoning a rep can inspect before sending. What an AI
+may touch, made explicit. A sprawling product turned into a visible path. That is true of every
+project in the portfolio, and it carries into any industry.
 
 ## The claim, in a paragraph
 
