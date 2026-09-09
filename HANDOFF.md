@@ -204,9 +204,12 @@ Run the setup script. It reports the site status and everything missing, so ther
 to check by hand:
 
 ```
-env\Scripts\python tools\setup.py
+%LOCALAPPDATA%\Programs\Python313\tools\python.exe tools\setup.py
 git log --oneline -5
 ```
+
+Full interpreter path, the same as section 3, because `env/` does not exist yet on a new machine.
+Building it is what this command does. Every later command uses `env\Scripts\python`.
 
 Then open Stav's working doc and see whether she has answered anything yet. Her answers are the
 bottleneck for all four remaining case studies:
