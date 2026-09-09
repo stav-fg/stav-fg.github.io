@@ -63,7 +63,8 @@ Not in the brief, added 7 Sep, same deadline:
     translate into a thing you can build. The obstacle is confidentiality, and the way through it
     is to rebuild the problem class with invented data rather than the system.
 20. **Go-live date.** Not set.
-21. **Geography.** Israel, remote, or US. Not decided.
+21. ~~**Geography.**~~ **RESOLVED 9 Sep: central Israel or remote, no relocation.** See
+    `notes/strategy.md` section 6 for what it changes.
 22. **Whether to keep** the career break line, the second Asperii entry, and the two pre-2012 IDF
     roles on the CV. My recommendations are in `drafts/cv.md`.
 

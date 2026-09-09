@@ -133,3 +133,56 @@ adequate ones and nothing to present.
 
 Note that only item 3 is on the current critical path in the brief, and items 1 and 2 are not in
 the plan at all.
+
+---
+
+## 6. Geography is decided, and it narrows the target list more than it looks
+
+Decided 9 September: **central Israel or remote. No relocation.**
+
+That is a clean answer and it unblocks the CV, the LinkedIn location field and the About page. It
+also changes the target set in a way worth being honest about.
+
+### All five target companies have Israeli sites
+
+Google in Tel Aviv and Haifa, Microsoft in Herzliya, Meta in Tel Aviv, Amazon and AWS in Tel Aviv
+and Haifa, Apple in Herzliya. So "big tech in central Israel" is not a contradiction and the
+original target list survives.
+
+### But the design headcount there is thin
+
+Those sites are predominantly engineering and research. Product design roles exist but are few,
+and for many products the design org sits in the US. Across all five companies at any given
+moment, the number of open product design roles in Israel that match her level is small. Possibly
+single digits.
+
+No relocation removes the largest pool of matching roles. That is a legitimate constraint and not
+one to argue with, but the plan should account for it rather than pretend the funnel is the same
+size.
+
+### So widen the company list, not the geography
+
+The honest move is to keep the five as aspiration and add the Israeli companies with real product
+design organisations. Israeli tech has plenty: established product companies, the Israeli sites of
+large US firms beyond the big five, and a deep bench of AI-native companies where four years of
+shipping production AI is unusually valuable.
+
+Worth saying plainly: **her AI experience is more differentiating in the Israeli market than it
+would be in the Bay Area**, where designers who have shipped production AI are now common. Here
+she is closer to rare.
+
+### Remote is a bonus, not a plan
+
+Remote roles at large US companies have largely closed since 2022, and hiring from Israel adds
+timezone and employer-of-record friction on top. Treat any remote role as upside rather than as
+half the strategy.
+
+### The referral consequence, which is the actionable part
+
+This makes her **Salesforce Israel colleagues the highest-value network she has**, not a secondary
+one. They are local, many will move to other Israeli companies, and the Israeli tech market runs
+on personal introductions to an unusual degree.
+
+That raises the priority of the referral asks again. It is no longer just "ask before the badge
+stops working". It is that the people who can actually place her are the ones sitting near her
+right now.
