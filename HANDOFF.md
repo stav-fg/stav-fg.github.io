@@ -171,9 +171,21 @@ needs three answers and no documents.
 
 **Confidentiality.** This repo is public. Never commit: internal service names, the roadmap, the
 release-priority ordering, the competitor comparison from the A3 board, the anchor customer name,
-or anything from `source-material/`. **Run `python tools/scan.py` before every push.** It checks
-every tracked file against `.confidential-terms`, which is gitignored so the list of blocked strings
-never enters the repo itself.
+or anything from `source-material/`. **Run the scan before every push**, using the environment's
+interpreter:
+
+```
+env\Scripts\python tools\scan.py          Windows
+env/bin/python tools/scan.py            macOS and Linux
+```
+
+It checks every tracked file against `.confidential-terms`, which is gitignored so the list of
+blocked strings never enters the repo itself.
+
+Do not shorten that to `python tools/scan.py`. On Windows it hits the Microsoft Store stub and exits
+9009 without scanning, and 9009 is a shell "command not found" rather than a scan result. Anyone
+gating a push on the exit code sees non-zero and may read it as the scan having found something.
+That failure is at its most expensive here.
 
 **Voice.** No triplets arranged for cadence. No X-not-Y contrasts. No em dashes. Never "passionate",
 "leveraging", "robust", "delve", "testament", "tapestry", "unleash". Vary sentence length. Say each
@@ -222,7 +234,8 @@ Earlier scans only checked the site, so a notes file added afterwards went unche
 very thing the scan protects. That is a mistake I made once in this file and had to undo.
 
 ```
-python tools/scan.py
+env\Scripts\python tools\scan.py
 ```
 
-It exits non-zero if anything is found, so it can gate a push. Run it before every one.
+It exits non-zero if anything is found, so it can gate a push. Run it before every one. Section 6
+has the other platforms and explains why the short form is a trap.

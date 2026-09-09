@@ -2,7 +2,12 @@
 """
 Check every tracked file for strings that must never be committed.
 
-    python tools/scan.py
+    env/bin/python tools/scan.py            macOS and Linux
+    env\\Scripts\\python tools\\scan.py        Windows
+
+Use the environment's interpreter, built by tools/setup.py. A bare `python` is
+the Microsoft Store stub on Windows and exits 9009 without running anything,
+which looks like a scan failure and is not one.
 
 Reads the terms from .confidential-terms, which is gitignored so the list itself
 never enters the repo. Exits non-zero if anything is found, so it can gate a push.

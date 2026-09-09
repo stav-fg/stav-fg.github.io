@@ -1,5 +1,6 @@
 # Everything the tools in tools/ need. Cross-platform, no system packages.
-#   python tools/setup.py     builds env/ from this file
+#   tools/setup.py builds env/ from this file. See HANDOFF.md section 3 for the
+#   exact interpreter to call; a bare `python` does not work on Windows.
 
 zstandard>=0.22      # reads the compressed document chunk inside .fig and .jam
 pymupdf>=1.24        # PDF text and page rendering, replaces macOS PDFKit
