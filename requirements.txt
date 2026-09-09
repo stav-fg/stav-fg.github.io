@@ -1,0 +1,6 @@
+# Everything the tools in tools/ need. Cross-platform, no system packages.
+#   python tools/setup.py     builds env/ from this file
+
+zstandard>=0.22      # reads the compressed document chunk inside .fig and .jam
+pymupdf>=1.24        # PDF text and page rendering, replaces macOS PDFKit
+pillow>=10.0         # image resizing, replaces macOS sips

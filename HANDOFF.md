@@ -33,23 +33,60 @@ not travel between computers, so re-save those if you want them to persist.
 
 ---
 
-## 3. Setting up a new Mac
+## 3. Setting up the machine
 
-```bash
-git clone git@github.com:stav-fg/stav-fg.github.io.git stav-portfolio
+The next machine is a **PC**, so everything here is cross-platform. The old machine was a Mac and
+several early steps used macOS-only tools. Those have been replaced.
+
+**Install first:**
+
+- **Git for Windows** from https://git-scm.com/download/win. It bundles Git Bash, which is the
+  easiest place to run the commands below.
+- **Python 3.8 or newer** from https://python.org. Tick "Add Python to PATH" in the installer.
+
+**Then:**
+
+```
+git clone https://github.com/stav-fg/stav-fg.github.io.git stav-portfolio
 cd stav-portfolio
-./tools/setup.sh
+py tools\setup.py
 ```
 
-`setup.sh` checks for git, creates the Python environment the Figma extractor needs, and tells you
-what is missing. It is safe to run more than once.
+On macOS or Linux the last line is `python3 tools/setup.py`.
 
-Two things it cannot do for you:
+`setup.py` checks git and Python, builds the `env/` virtual environment from `requirements.txt`,
+reports which source material is missing, and pings the live site. Safe to run repeatedly. It ends
+by printing the exact command to run the Figma extractor on your platform.
 
-- **Xcode Command Line Tools.** Needed for git. `xcode-select --install`. If that seems to do
-  nothing, see the catch-22 documented in the README; it cost an hour on the first machine.
-- **The Drive connector.** Account-level, so it should already be there. If not, add it in Claude's
-  settings.
+**The Drive connector** is account-level, so it should already be there. If not, add it in Claude's
+settings.
+
+### The tools, and what they replaced
+
+Everything in `tools/` is pure Python now. No Homebrew, no Xcode, no macOS utilities.
+
+| Tool | What it does | Replaced |
+|---|---|---|
+| `tools/figextract.py` | Pulls text, thumbnail and metadata out of a `.fig` or `.jam` | Nothing, always portable |
+| `tools/pdfpages.py` | Renders a PDF to one PNG per page and dumps its text | macOS PDFKit via `osascript`, and `sips` |
+| `tools/setup.py` | Sets the machine up | A bash script that only ran on macOS |
+
+Run them with the environment's Python, not the system one:
+
+```
+env\Scripts\python tools\figextract.py "RTC Flows.jam" source-material\fig-extracts
+env\Scripts\python tools\pdfpages.py source-material\portfolio-panel-deck.pdf source-material\deck-slides
+```
+
+### Two macOS habits that will not carry over
+
+Both are noted in the README and neither matters on Windows.
+
+- **`qlmanage -t`** was used to render an HTML page to PNG without a browser, for checking layout.
+  On Windows, just open the file in a browser, or ask Claude to screenshot it with its browser
+  tools.
+- **The Xcode Command Line Tools catch-22** cost an hour on the Mac. Irrelevant here; Git for
+  Windows is a normal installer.
 
 ---
 
@@ -70,11 +107,24 @@ again.
 | **`carbonmade-originals/`** | **Only recoverable while stavfg.portfolio.site is up.** 15MB, 37 images. Carbonmade is being cancelled, so copy this folder across before that happens. |
 
 The Figma files themselves live in the shared Drive folder `Projects`. On the old machine they were
-also on the Desktop under `stav portfolio data`, about 1.9GB. Do not bother copying that; download
-from Drive on the new machine instead.
+also on the Desktop under `stav portfolio data`, about 1.9GB. Do not copy that across; download from
+Drive on the new machine instead.
 
 **`RTC.fig`, `KGER.fig` and `A3 Registry Setup.fig` were never on the old machine at all.** Three of
 the four case studies. They are in Drive.
+
+### Move these off the Mac before it is wiped or handed back
+
+Everything else can be fetched again. These cannot, or not easily.
+
+1. **`source-material/carbonmade-originals/`** — 15MB, 37 images at full resolution. Only
+   recoverable while stavfg.portfolio.site is up, and that site is being cancelled. **This is the
+   only genuinely irreplaceable folder.** Copy it to Drive or a USB stick.
+2. **`source-material/fig-extracts/`** — 452KB of already-extracted text from the FigJam boards.
+   Re-derivable, but only if you still have the source `.jam` files, so copying it saves a step.
+3. **Anything Stav has downloaded to the Desktop** that is not already in Drive.
+
+Nothing else on the Mac matters. The repo carries the site, the notes, the drafts and the tools.
 
 ---
 
@@ -117,15 +167,18 @@ at Salesforce. If Ehud or Stav says she owned something, that is the fact.
 
 ## 7. First thing to do on the new machine
 
-Run `./tools/setup.sh`, then check the site still builds and the live version matches:
+Run the setup script. It reports the site status and everything missing, so there is nothing else
+to check by hand:
 
-```bash
-curl -s -o /dev/null -w "%{http_code}\n" https://stav-fg.github.io
+```
+py tools\setup.py
 git log --oneline -5
 ```
 
-Then open the working doc and see whether Stav has answered anything yet. Her answers are the
-bottleneck for all four remaining case studies.
+Then open Stav's working doc and see whether she has answered anything yet. Her answers are the
+bottleneck for all four remaining case studies:
+
+https://docs.google.com/document/d/1xNr0xT6stFkhGRiLsXmBwKRRtkWI00vY0jzSaMDqoIE/edit
 
 ---
 

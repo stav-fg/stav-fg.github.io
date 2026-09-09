@@ -93,6 +93,10 @@ live site on 7 September 2026. `source-material/deck-slides/` holds all 50 deck 
 
 ### Extraction notes, so nobody repeats the work
 
+**Note:** the first three below describe how things were done on macOS. The project has since moved
+to a PC and the tools in `tools/` are pure Python, so these are history rather than instructions.
+See `HANDOFF.md` section 3 for the portable versions.
+
 - **The live Carbonmade site cannot be read by normal text extraction.** It animates text in, so
   the nodes are hidden and both `innerText` and article-extraction return an empty page. Reading
   `textContent` with inline `<style>` elements stripped returns everything.
