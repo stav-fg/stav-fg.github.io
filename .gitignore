@@ -28,3 +28,7 @@ env/
 
 # The list of strings that must never be committed. Local only, for obvious reasons.
 .confidential-terms
+
+# Archives of source material. A zip at the repo root is not covered by
+# source-material/, so one `git add -A` would publish it. Never commit these.
+*.zip

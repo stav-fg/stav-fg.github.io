@@ -49,10 +49,16 @@ several early steps used macOS-only tools. Those have been replaced.
 ```
 git clone https://github.com/stav-fg/stav-fg.github.io.git stav-portfolio
 cd stav-portfolio
-py tools\setup.py
+python tools\setup.py
 ```
 
-On macOS or Linux the last line is `python3 tools/setup.py`.
+On macOS or Linux that is `python3 tools/setup.py`.
+
+**Do not rely on the `py` launcher.** An earlier version of this file used it. It ships with the
+python.org installer, and on a machine without admin rights that installer may not run at all. The
+PC this moved to uses a nuget CPython build and PortableGit, neither of which provides `py`. Call
+the interpreter directly. After setup, use the environment's Python for everything:
+`env\Scripts\python tools\...` on Windows, `env/bin/python tools/...` elsewhere.
 
 `setup.py` checks git and Python, builds the `env/` virtual environment from `requirements.txt`,
 reports which source material is missing, and pings the live site. Safe to run repeatedly. It ends
@@ -110,8 +116,14 @@ The Figma files themselves live in the shared Drive folder `Projects`. On the ol
 also on the Desktop under `stav portfolio data`, about 1.9GB. Do not copy that across; download from
 Drive on the new machine instead.
 
-**`RTC.fig`, `KGER.fig` and `A3 Registry Setup.fig` were never on the old machine at all.** Three of
-the four case studies. They are in Drive.
+**`RTC.fig`, `KGER.fig` and `A3 Registry Setup.fig` are in Drive and were never copied to the Mac.**
+Not missing, just never fetched. Download from Drive on whichever machine needs them.
+
+**RTC is no longer blocked on a Figma export.** `Projects/new export/rtc` in Drive holds a complete
+24-frame export, each frame as both PNG and PDF, uploaded 9 September. Empty state, toggle-on with
+activation toast, a five-step configuration modal with empty states, six training-in-progress
+frames, and the config record page in both Configuration Details and Models and Training. That
+satisfies item 1 of the RTC request in `notes/document-requests.md`.
 
 ### Move these off the Mac before it is wiped or handed back
 
@@ -172,7 +184,7 @@ Run the setup script. It reports the site status and everything missing, so ther
 to check by hand:
 
 ```
-py tools\setup.py
+env\Scripts\python tools\setup.py
 git log --oneline -5
 ```
 

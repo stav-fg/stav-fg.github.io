@@ -52,9 +52,12 @@ runs, with each configuration determining what populates each field. The design 
 a model comparison legible enough that a non-data-scientist can make that call and live with it.
 
 **Want, in order:**
-1. **PDF export of `RTC.fig` and `RTC Flows.jam`.** This case study is carried by its screens more
-   than by its prose, so the Figma matters more here than on any of the others. The flows file
-   especially, since the decision path is the story.
+1. ~~PDF export of `RTC.fig`~~ **DONE, found 9 September.** `Projects/new export/rtc` in Drive holds
+   24 frames as PNG and PDF: empty state, toggle-on with activation toast, a five-step configuration
+   modal with empty states, six training-in-progress frames, and the config record page in both
+   Configuration Details and Models and Training. Uploaded 9 September and missed at the time
+   because the folder was not re-checked after the first inventory. `RTC Flows.jam` is still worth
+   a PDF, since the decision path is the story and I only have its text.
 2. `262 Real Time Semantic Classification PRD`.
 3. `260 Real Time Case Classification`, the sibling. Two releases means it evolved, and how it
    evolved is a large part of the story.
