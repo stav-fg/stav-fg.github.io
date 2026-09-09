@@ -194,11 +194,13 @@ var PANELS = [
   {phase:"now", id:"job", code:"JOB", name:"The job search itself", flag:"Start this week", lead:true,
    note:"Not in the original plan and it outranks most of it. Referrals decay from the day she leaves, and none of it waits for the portfolio.",
    groups:[{g:"Before the badge stops working", items:[
-      {id:"j-li", t:"Fix LinkedIn", src:"1 afternoon", h:"Highest-traffic artifact she owns, worst state of any of them. Still says she leads the design team at Asperii, which she left in 2022.", core:true},
-      {id:"j-refs", t:"Ask colleagues with big tech connections for introductions", src:"stav", h:"A referral gets a screen. A screen buys weeks. Those weeks are when the portfolio gets finished.", core:true},
+      {id:"j-li", t:"Fix LinkedIn", src:"1 afternoon", h:"Copy is written and waiting in the shared Google Doc. Still says she leads the design team at Asperii, which she left in 2022, and claims 8 years when it is 14.", core:true},
+      {id:"j-doc", t:"Work through the shared Google Doc", src:"stav", h:"LinkedIn copy, the PM email, the export list and the open questions. She can do all of it without either of us.", core:true},
+      {id:"j-refs", t:"Ask colleagues for introductions", src:"stav", h:"A referral gets a screen, a screen buys weeks, and those weeks are when the portfolio gets finished. Her Salesforce Israel colleagues matter most here: they are local and many will move to other Israeli companies.", core:true},
       {id:"j-recs", t:"Request LinkedIn recommendations", src:"stav", h:"Ask while she is present and top of mind", core:true},
       {id:"j-contacts", t:"Collect personal contact details", src:"stav", h:"Anyone whose recollection or referral might be needed later", core:true},
-      {id:"j-apply", t:"Start applying before the portfolio is finished", src:"stav", h:"Build-then-apply turns a three-week deadline into a three-month CV gap", core:true}
+      {id:"j-apply", t:"Start applying before the portfolio is finished", src:"stav", h:"Build-then-apply turns a three-week deadline into a three-month CV gap", core:true},
+      {id:"j-geo", t:"Set LinkedIn Open To Work location preferences", src:"5 min", h:"Israel plus remote. Recruiters filter on that field, not on the About text. Geography resolved 9 Sep: central Israel or remote, no relocation.", core:true}
    ]}]},
 
   {phase:"now", id:"export", code:"FIG", name:"Frame exports", flag:"~25 frames", lead:true,
@@ -316,7 +318,7 @@ var PANELS = [
       {id:"q-asperii", t:"Asperii: ended 2021 or April 2022?", src:"stav", h:"", core:true},
       {id:"q-tools", t:"Which AI tools she actually uses, and for what", src:"stav", h:"The current CV lists Adobe XD, Axure, InVision, Zeplin and no AI tooling at all", core:true},
       {id:"q-comp", t:"Portfolio composition: do Webiks and the Air Force story survive?", src:"ehud", h:"Four Salesforce slots would drop the founding-a-design-function story, the only piece nobody can copy", core:true},
-      {id:"q-golive", t:"Go-live date and geography", src:"stav", h:"Site is built and unindexed until there is a date", core:true}
+      {id:"q-golive", t:"Go-live date", src:"stav", h:"Site is built and unindexed until there is a date", core:true}
    ]}]},
 
   {phase:"soon", id:"fix", code:"FIX", name:"Live Carbonmade site", flag:"Public now", lead:false,
