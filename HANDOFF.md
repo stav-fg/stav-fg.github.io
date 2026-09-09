@@ -218,27 +218,57 @@ https://docs.google.com/document/d/1xNr0xT6stFkhGRiLsXmBwKRRtkWI00vY0jzSaMDqoIE/
 
 ---
 
-## 8. One outstanding cleanup
+## 8. The customer name in git history, decided and closed
 
-On 9 September a scan across every tracked file found the anchor customer named in
-`notes/session-brief.md`, quoted from the handoff brief inside a sentence about not publishing it.
-It was committed on 7 September and pushed, so it sat publicly readable on GitHub for two days.
+**Decision, 9 September 2026: leave it. Do not rewrite history. This is settled, not pending.**
 
-The working file is fixed. **The commit history still contains it**, because the repo is public and
-that commit is on origin. Clearing it means rewriting history and force pushing, which changes every
-commit hash. Nobody else has cloned this repo so the practical cost is low, but it is destructive
-and should be a deliberate decision rather than something done in passing. Ask before doing it.
+On 9 September a scan found the anchor customer named in `notes/session-brief.md`, quoted from the
+handoff brief inside a sentence about not publishing it. The working file was fixed the same day and
+the tip has been clean since. A later scan across all 38 commits found the name in **24 of them**,
+because it persisted through every commit that touched that file, plus two `HANDOFF.md` commits from
+a second mistake where blocked terms were written into a grep example.
 
-**The lesson worth keeping:** the scan has to run over `git ls-files`, not over the HTML pages.
-Earlier scans only checked the site, so a notes file added afterwards went unchecked for two days.
+### Why leaving it is the right call
 
-`tools/scan.py` now does this properly. It reads the list of blocked strings from
-`.confidential-terms`, which is gitignored, because writing the terms into the repo would leak the
-very thing the scan protects. That is a mistake I made once in this file and had to undo.
+Rewriting was considered properly and rejected on the facts.
+
+**A force push would not have removed it.** Orphaned commits stay reachable on GitHub by direct SHA
+until GitHub garbage-collects on its own schedule. The destructive option buys less than it appears
+to. Genuine removal means deleting and recreating the repo, or opening a support ticket.
+
+**Deleting the repo costs something real.** The readable commit history is treated by the brief as
+evidence of how the work was done. Trading that for a partial fix is a bad trade.
+
+**Exposure is low.** Public repo, zero stars, zero forks, no inbound links, site is `noindex`, and
+nobody has been told the repo exists.
+
+**The tip is clean and gated.** `tools/scan.py` runs over `git ls-files` before every push, so
+nothing new gets in. That is the control that actually matters going forward.
+
+### Do not reopen this
+
+If a future session rediscovers the name in history, this is the answer. It was found, assessed and
+deliberately accepted by Ehud. Reopening it costs a day and changes nothing.
+
+**What would change the decision:** the repo gaining traffic, being linked from her CV or LinkedIn,
+being forked, or the site coming out of `noindex` with the customer relationship still sensitive. If
+any of those happen, delete and recreate rather than force push, because only that removes it.
+
+### The lesson worth keeping
+
+The scan has to run over `git ls-files`, not over the HTML pages. Earlier scans only checked the
+site, so a notes file added afterwards went unchecked for two days.
+
+`tools/scan.py` does this properly now. It reads the blocked strings from `.confidential-terms`,
+which is gitignored, because writing the terms into the repo would leak the very thing the scan
+protects. That is a mistake I made once in this file and had to undo.
+
+It has three exit codes, so a caller can tell the cases apart:
 
 ```
-env\Scripts\python tools\scan.py
+0   scanned, nothing found
+1   scanned, found something. Do not push.
+2   could not scan. Says nothing about whether the repo is clean.
 ```
 
-It exits non-zero if anything is found, so it can gate a push. Run it before every one. Section 6
-has the other platforms and explains why the short form is a trap.
+Run it before every push, with the environment's interpreter. Section 6 has the command.
