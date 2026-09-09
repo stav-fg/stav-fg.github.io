@@ -107,7 +107,7 @@ Six pages, 42 tracked files, 5.9MB. Pages weigh 5 to 13KB.
 - A favicon built from the live-threat ellipse rather than a monogram.
 - A 404 page.
 
-**The tracker**, at `https://claude.ai/code/artifact/a5ff0822-bbc2-4db4-a510-31414b3f9d39`.
+**The tracker**, at `https://claude.ai/code/artifact/ecc654d3-6f79-4c26-9e2f-777f07f1b718`.
 Four phases ordered by what expires first, three states per row because "confirmed this does not
 exist" is a real answer, notes per row for holding a number when she finds one, and a countdown.
 Private until shared.

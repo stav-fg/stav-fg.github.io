@@ -107,3 +107,14 @@ laptop. Those are the parts no model would generate, and they are what make the 
 > I design software for people who can't afford to get it wrong.
 
 Everything else on the site is evidence for that sentence.
+
+---
+
+## Artifact links, current
+
+**Stav's short list:** https://claude.ai/code/artifact/ecc654d3-6f79-4c26-9e2f-777f07f1b718
+
+Published fresh on 9 September. The previous artifact, `a5ff0822`, had its share pinned to an
+early version, so viewers kept seeing the old sixty-row tracker no matter how often it was
+republished. That one should not be shared with anyone. Unshare or delete it from the artifact
+view when convenient.
