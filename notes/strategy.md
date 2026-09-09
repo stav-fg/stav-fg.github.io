@@ -136,53 +136,25 @@ the plan at all.
 
 ---
 
-## 6. Geography is decided, and it narrows the target list more than it looks
+## 6. Geography: central Israel or remote, no relocation
 
-Decided 9 September: **central Israel or remote. No relocation.**
+Decided 9 September. Unblocks the CV, the LinkedIn location field and the About page.
 
-That is a clean answer and it unblocks the CV, the LinkedIn location field and the About page. It
-also changes the target set in a way worth being honest about.
+Two practical notes, neither of them an argument about targeting. Big tech is the ICP, not a fence,
+and the company list was never limited to five.
 
-### All five target companies have Israeli sites
+**Design headcount in Israeli sites is thin.** All five ICP companies have offices here, but those
+sites are mostly engineering and research and much of the design org sits in the US. Fewer matching
+roles open at any given moment than the same search would return for the Bay Area. Worth knowing
+when judging how long the search takes, not when deciding where to apply.
 
-Google in Tel Aviv and Haifa, Microsoft in Herzliya, Meta in Tel Aviv, Amazon and AWS in Tel Aviv
-and Haifa, Apple in Herzliya. So "big tech in central Israel" is not a contradiction and the
-original target list survives.
+**Remote is upside, not half the plan.** Remote roles at large US companies have largely closed
+since 2022, and hiring from Israel adds timezone and employer-of-record friction.
 
-### But the design headcount there is thin
+**Referrals are local and that raises their value.** Her Salesforce Israel colleagues are the
+strongest network she has for this geography: they are here, many will move to other Israeli
+companies, and this market runs on introductions. Another reason the referral asks go out before
+the badge stops working rather than after.
 
-Those sites are predominantly engineering and research. Product design roles exist but are few,
-and for many products the design org sits in the US. Across all five companies at any given
-moment, the number of open product design roles in Israel that match her level is small. Possibly
-single digits.
-
-No relocation removes the largest pool of matching roles. That is a legitimate constraint and not
-one to argue with, but the plan should account for it rather than pretend the funnel is the same
-size.
-
-### So widen the company list, not the geography
-
-The honest move is to keep the five as aspiration and add the Israeli companies with real product
-design organisations. Israeli tech has plenty: established product companies, the Israeli sites of
-large US firms beyond the big five, and a deep bench of AI-native companies where four years of
-shipping production AI is unusually valuable.
-
-Worth saying plainly: **her AI experience is more differentiating in the Israeli market than it
-would be in the Bay Area**, where designers who have shipped production AI are now common. Here
-she is closer to rare.
-
-### Remote is a bonus, not a plan
-
-Remote roles at large US companies have largely closed since 2022, and hiring from Israel adds
-timezone and employer-of-record friction on top. Treat any remote role as upside rather than as
-half the strategy.
-
-### The referral consequence, which is the actionable part
-
-This makes her **Salesforce Israel colleagues the highest-value network she has**, not a secondary
-one. They are local, many will move to other Israeli companies, and the Israeli tech market runs
-on personal introductions to an unusual degree.
-
-That raises the priority of the referral asks again. It is no longer just "ask before the badge
-stops working". It is that the people who can actually place her are the ones sitting near her
-right now.
+Her four years shipping production AI is also more differentiating here than in the Bay Area,
+where it has become common.
