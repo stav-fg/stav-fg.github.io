@@ -25,3 +25,6 @@ source-material/
 
 # Local Python environment for tools/figextract.py. Rebuilt by tools/setup.sh.
 env/
+
+# The list of strings that must never be committed. Local only, for obvious reasons.
+.confidential-terms

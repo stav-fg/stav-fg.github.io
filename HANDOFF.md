@@ -151,8 +151,9 @@ needs three answers and no documents.
 
 **Confidentiality.** This repo is public. Never commit: internal service names, the roadmap, the
 release-priority ordering, the competitor comparison from the A3 board, the anchor customer name,
-or anything from `source-material/`. Before any push, check with
-`git ls-files | xargs grep -il <term>`.
+or anything from `source-material/`. **Run `python tools/scan.py` before every push.** It checks
+every tracked file against `.confidential-terms`, which is gitignored so the list of blocked strings
+never enters the repo itself.
 
 **Voice.** No triplets arranged for cadence. No X-not-Y contrasts. No em dashes. Never "passionate",
 "leveraging", "robust", "delve", "testament", "tapestry", "unleash". Vary sentence length. Say each
@@ -193,12 +194,15 @@ that commit is on origin. Clearing it means rewriting history and force pushing,
 commit hash. Nobody else has cloned this repo so the practical cost is low, but it is destructive
 and should be a deliberate decision rather than something done in passing. Ask before doing it.
 
-**The lesson worth keeping:** the confidentiality scan has to run over `git ls-files`, not over the
-HTML pages. Earlier scans only checked the site, so a notes file added afterwards went unchecked for
-two days. Run this by hand before any push:
+**The lesson worth keeping:** the scan has to run over `git ls-files`, not over the HTML pages.
+Earlier scans only checked the site, so a notes file added afterwards went unchecked for two days.
+
+`tools/scan.py` now does this properly. It reads the list of blocked strings from
+`.confidential-terms`, which is gitignored, because writing the terms into the repo would leak the
+very thing the scan protects. That is a mistake I made once in this file and had to undo.
 
 ```
-for t in Singapore DaVita soma.salesforce sbenshimongros; do
-  echo "$t: $(grep -rilF "$t" $(git ls-files) | tr '\n' ' ')"
-done
+python tools/scan.py
 ```
+
+It exits non-zero if anything is found, so it can gate a push. Run it before every one.
