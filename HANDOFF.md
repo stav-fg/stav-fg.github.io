@@ -38,27 +38,35 @@ not travel between computers, so re-save those if you want them to persist.
 The next machine is a **PC**, so everything here is cross-platform. The old machine was a Mac and
 several early steps used macOS-only tools. Those have been replaced.
 
-**Install first:**
+**Install first.** Git and Python 3.8 or newer. On the PC this moved to, neither could be
+installed the normal way, because that account has no admin rights and the python.org MSI fails
+with `0x80070003`. What worked there, and what is on that machine now:
 
-- **Git for Windows** from https://git-scm.com/download/win. It bundles Git Bash, which is the
-  easiest place to run the commands below.
-- **Python 3.8 or newer** from https://python.org. Tick "Add Python to PATH" in the installer.
+- **PortableGit 2.55.0**, unzipped to `%LOCALAPPDATA%\Programs\PortableGit`.
+- **The nuget CPython 3.13 build**, unpacked to `%LOCALAPPDATA%\Programs\Python313`. The
+  interpreter is at `...\Python313\tools\python.exe`.
+
+On a machine with admin rights the normal installers are fine. Git for Windows is at
+https://git-scm.com/download/win and Python at https://python.org.
 
 **Then:**
 
 ```
 git clone https://github.com/stav-fg/stav-fg.github.io.git stav-portfolio
 cd stav-portfolio
-python tools\setup.py
+%LOCALAPPDATA%\Programs\Python313\tools\python.exe tools\setup.py
 ```
 
 On macOS or Linux that is `python3 tools/setup.py`.
 
-**Do not rely on the `py` launcher.** An earlier version of this file used it. It ships with the
-python.org installer, and on a machine without admin rights that installer may not run at all. The
-PC this moved to uses a nuget CPython build and PortableGit, neither of which provides `py`. Call
-the interpreter directly. After setup, use the environment's Python for everything:
-`env\Scripts\python tools\...` on Windows, `env/bin/python tools/...` elsewhere.
+**On Windows, call the interpreter by its full path.** Two shorter forms look right and both fail
+here. `py tools\setup.py` needs the launcher, which only ships with the python.org installer. A
+bare `python` resolves to the Microsoft Store stub, which is not an interpreter. Earlier versions of
+this file gave each of them in turn, so if you find yourself editing this paragraph to shorten the
+command, that is the mistake repeating.
+
+After setup, use the environment's Python for everything: `env\Scripts\python tools\...` on
+Windows, `env/bin/python tools/...` elsewhere. That one is stable, because `setup.py` builds it.
 
 `setup.py` checks git and Python, builds the `env/` virtual environment from `requirements.txt`,
 reports which source material is missing, and pings the live site. Safe to run repeatedly. It ends

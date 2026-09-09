@@ -2,7 +2,12 @@
 """
 Prepare a machine to continue this project. Works on Windows, macOS and Linux.
 
-    python tools/setup.py          (Windows: py tools\\setup.py)
+    python3 tools/setup.py                       macOS and Linux
+    <path-to>\\python.exe tools\\setup.py         Windows
+
+On Windows, call the interpreter by its full path. There is no `py` launcher
+on a machine without the python.org installer, and a bare `python` may resolve
+to the Microsoft Store stub, which is not an interpreter and fails oddly.
 
 Safe to run more than once. It checks what is present, builds the Python
 environment the tools need, and tells you what is still missing.

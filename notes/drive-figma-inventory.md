@@ -2,7 +2,14 @@
 
 Folder: `Projects`, shared with ehudfisher@gmail.com.
 https://drive.google.com/drive/folders/1GIZUU6nGSqM-Ldon3xOFs49h03nfS1P0
-Inventoried 7 September 2026. Not yet downloaded.
+**This is a snapshot taken 7 September 2026, not a standing description of the folder.** Stav adds
+to it. On 9 September a complete 24-frame RTC export was found in `Projects/new export/rtc`,
+uploaded that morning, and it unblocked the case study this file had listed as blocked. Nothing
+below was wrong when written; it had simply stopped being complete.
+
+**What invalidates it:** any date after 7 September, and any moment Stav has been asked for an
+export. Re-list the folder before you use this file to decide that something is missing. Two
+minutes of listing beats a week of waiting on an export that already exists.
 
 **The export work is largely already done.** The brief lists "export all six Figma files" as the
 headline September task. Most of it exists here already as `.fig` and `.jam` files. What remains
