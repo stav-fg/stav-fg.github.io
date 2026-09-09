@@ -70,7 +70,7 @@ Not in the brief, added 7 Sep, same deadline:
 
 ---
 
-## D. Fix on the live Carbonmade site now, independent of everything else.
+## D. ~~Fix on the live Carbonmade site~~ RETIRED 9 Sep. Carbonmade is being cancelled, so none of the items below need fixing. Kept as a record of what the old site said.
 
 The site is public and the password is off, so anyone she has sent it to is seeing this today.
 
