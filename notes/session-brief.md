@@ -24,7 +24,7 @@ evidence of her process, because the commits are ours. She has 84 real ones that
 
 **I pulled all source material out of the repo before the first push.** A `<user>.github.io` Pages
 repo must be public. The commit as it stood would have published the handoff brief, which contains
-"Anchor customer was Singapore Airlines. DO NOT NAME THEM", the client-name redaction problem, her
+the anchor customer named outright, alongside an instruction never to name them, the client-name redaction problem, her
 contact details and the full strategy, plus the deck with unredacted clinic screenshots. Notes and
 drafts are tracked but sanitised of internal identifiers.
 

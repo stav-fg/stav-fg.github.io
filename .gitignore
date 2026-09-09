@@ -22,3 +22,6 @@ source-material/
 # built, and they belong with it. They are written on the assumption that this
 # repo is public, so they carry no employer-internal identifiers, no customer
 # names, and no contact details. Keep it that way when adding to them.
+
+# Local Python environment for tools/figextract.py. Rebuilt by tools/setup.sh.
+env/

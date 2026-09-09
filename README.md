@@ -6,6 +6,10 @@ the commit history readable, which the handoff brief treats as evidence of the p
 
 ## Start here
 
+**Moving to another computer, or a fresh Claude session? Read `HANDOFF.md` first.** It covers setup,
+what is not in this repo and where to get it, and the rules that are not negotiable.
+
+
 `notes/session-brief.md` is the debrief: decisions made, findings, mistakes corrected, and what
 is still open. `notes/strategy.md` argues where the plan is wrong. `notes/open-questions.md` sorts
 every open item by who can answer it.
