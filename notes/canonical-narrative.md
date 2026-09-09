@@ -139,7 +139,7 @@ Everything else on the site is evidence for that sentence.
 
 One Google Doc, shared with her as an editor. It replaced the artifact trackers because sharing an
 artifact pins its version, so every republish after the share was invisible to her. Docs do not
-pin. Both artifacts should be deleted from the gallery.
+pin. Both artifacts were deleted on 9 September.
 
 **Carbonmade is being retired, decided 9 September.** Everything from it is archived twice: 37
 full-resolution originals in Drive at `Projects/carbonmade` and on disk under
@@ -150,11 +150,18 @@ One consequence to watch: her LinkedIn currently points at stavfg.portfolio.site
 down the link breaks, and a dead portfolio link is worse than an imperfect one. Either keep
 Carbonmade up until the new site launches or strip the URL from her profile at cancellation.
 
-## Artifact links, retired
+## The artifact trackers, deleted 9 September
 
-**Stav's short list:** https://claude.ai/code/artifact/ecc654d3-6f79-4c26-9e2f-777f07f1b718
+Both are gone from the gallery, `a5ff0822` and `ecc654d3`. Nothing points at them any more and
+there is nothing left to clean up here.
 
-Published fresh on 9 September. The previous artifact, `a5ff0822`, had its share pinned to an
-early version, so viewers kept seeing the old sixty-row tracker no matter how often it was
-republished. That one should not be shared with anyone. Unshare or delete it from the artifact
-view when convenient.
+Worth keeping the reason. Sharing an artifact pins the version the recipient sees, so every
+republish after the share was invisible to Stav. She spent two days looking at a sixty-row tracker
+while I kept "updating" it. Publishing a second artifact did not help, because the same pinning
+applied to the new one.
+
+**The rule that came out of it: anything a person needs to re-read as it changes goes in a Google
+Doc.** Artifacts are fine for something read once.
+
+The content is not lost. The source of both is in the repo at `notes/shortlist-source.html` and
+`notes/tasklist-source.html`, and the current version of that list lives in Stav's working doc.
