@@ -25,27 +25,22 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
      font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:min(100% - 2.5rem,42rem);margin-inline:auto;padding-block:3.5rem 5rem}
 
-.wrap{width:min(100% - 2.5rem,40rem);margin-inline:auto;padding-block:3.5rem 5rem}
-
-header{margin-bottom:3rem}
+header{margin-bottom:2.6rem}
 h1{font-family:var(--serif);font-weight:400;font-size:2.4rem;line-height:1.15;
    letter-spacing:-.01em;margin:0 0 .8rem;text-wrap:balance}
 .intro{color:var(--ink-soft);margin:0;font-size:1.05rem;max-width:34rem}
-.intro + .intro{margin-top:.7rem}
-
-.done-note{margin-top:1.4rem;padding:.85rem 1rem;background:var(--accent-wash);
+.done-note{margin-top:1.3rem;padding:.85rem 1rem;background:var(--accent-wash);
   border-radius:6px;font-size:.92rem;color:var(--ink-soft)}
 .done-note b{color:var(--ink);font-weight:600}
 
-h2{font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.13em;
-   text-transform:uppercase;color:var(--ink-faint);margin:2.6rem 0 .9rem}
-h2 .cnt{font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--ink-faint);opacity:.8}
+h2{font-size:.78rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+   color:var(--ink-faint);margin:2.4rem 0 .9rem}
 
 .item{display:grid;grid-template-columns:auto 1fr;gap:.95rem;align-items:start;
       background:var(--card);border:1px solid var(--rule);border-radius:8px;
       padding:1rem 1.1rem;margin-bottom:.6rem}
-.item:hover{border-color:var(--ink-faint)}
 .box{width:1.35rem;height:1.35rem;flex:none;margin-top:.15rem;padding:0;cursor:pointer;
      border:1.5px solid var(--rule);border-radius:5px;background:var(--sunk);
      display:grid;place-items:center;font-size:.85rem;line-height:1;color:transparent}
@@ -53,17 +48,30 @@ h2 .cnt{font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--ink
 .item[data-done="1"] .t{color:var(--ink-faint);text-decoration:line-through;
   text-decoration-color:var(--rule)}
 .item[data-done="1"] .why{color:var(--ink-faint)}
-
 .t{font-weight:600;font-size:1.02rem;display:block;cursor:pointer}
 .why{display:block;color:var(--ink-soft);font-size:.93rem;margin-top:.2rem}
 .ready{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.05em;
   text-transform:uppercase;color:var(--accent);background:var(--accent-wash);
   border-radius:4px;padding:.1rem .4rem;margin-left:.5rem;vertical-align:2px;white-space:nowrap}
-ul.q{margin:.55rem 0 0;padding-left:1.05rem;color:var(--ink-soft);font-size:.93rem}
-ul.q li{margin-bottom:.28rem}
 a{color:var(--accent)}
 
-footer{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--rule);
+details{margin-top:.7rem;border-top:1px solid var(--rule);padding-top:.6rem}
+summary{cursor:pointer;font-size:.87rem;color:var(--accent);font-weight:600;
+  list-style:none;user-select:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+ ";font-weight:600}
+details[open] summary::before{content:"– "}
+details > div{font-size:.92rem;color:var(--ink-soft);margin-top:.6rem}
+details p{margin:0 0 .55rem}
+details ul{margin:.2rem 0 .7rem;padding-left:1.1rem}
+details li{margin-bottom:.3rem}
+details b{color:var(--ink)}
+.quote{background:var(--sunk);border-radius:6px;padding:.7rem .85rem;margin:.5rem 0 .8rem;
+  font-size:.9rem;line-height:1.55}
+.num{display:block;margin-bottom:.7rem}
+.num b{display:block;color:var(--ink);font-size:.95rem}
+
+footer{margin-top:2.8rem;padding-top:1.4rem;border-top:1px solid var(--rule);
   color:var(--ink-faint);font-size:.88rem}
 footer b{color:var(--ink-soft);font-weight:600}
 </style>
@@ -73,12 +81,8 @@ footer b{color:var(--ink-soft);font-weight:600}
 <header>
   <h1>Eight things only you can do</h1>
   <p class="intro">
-    Everything else on this project is handled. The site is built and live, the case studies are
-    chosen, the writing is underway. These eight are the ones that need you specifically.
-  </p>
-  <p class="intro">
-    Nothing here should take more than half an hour. Most of it is already written for you and
-    waiting in the shared doc.
+    Everything else is handled. The site is built and live, the case studies are chosen, the
+    writing is underway. Expand any item for the specifics, so you never have to go looking.
   </p>
   <div class="done-note">
     <b>The order is the point.</b> The first three involve other people, so they get slower the
@@ -86,114 +90,252 @@ footer b{color:var(--ink-soft);font-weight:600}
   </div>
 </header>
 
-<h2>First, because other people are involved <span class="cnt">&middot; 3</span></h2>
+<h2>First, because other people are involved</h2>
 
 <div class="item" data-id="li">
-  <button class="box" aria-label="Mark done">✓</button>
+  <button class="box" aria-label="Mark done">&#10003;</button>
   <span>
     <span class="t">Update your LinkedIn <span class="ready">copy is written</span></span>
     <span class="why">
-      Headline, About and every role description are drafted in the shared doc. Read it, cut
-      anything that doesn't sound like you, paste it in. It's the page recruiters actually open,
-      and right now it says you lead the design team at Asperii.
+      All of it is drafted and waiting in
+      <a href="https://docs.google.com/document/d/1Bqz6jIQWmaIh2KqL9IC-WUE-E2Wjhiw7ldKx1ujY0NQ/edit">the shared doc</a>,
+      section 1. Read it, cut what doesn't sound like you, paste it in.
     </span>
+    <details>
+      <summary>What's in there, and the one line to skip</summary>
+      <div>
+        <p><b>Three headline options</b>, with a recommendation. Pick one, don't blend them.</p>
+        <p><b>A full About section</b>, about six short paragraphs.</p>
+        <p><b>Bullets for all six roles.</b> Two or three each. Right now every role on your
+        profile has no description at all, which is the actual gap.</p>
+        <p><b>Skip the first line of the About.</b> It currently opens "I design software for
+        people who can't afford to get it wrong." That's being reworked, because it describes
+        aerial defense and aircraft maintenance and none of your Salesforce work. Use this
+        instead for now:</p>
+        <div class="quote">Fourteen years making complicated software behave.</div>
+        <p><b>Also set Open To Work</b> to Israel plus remote. Recruiters filter on that field,
+        not on your About text.</p>
+      </div>
+    </details>
   </span>
 </div>
 
 <div class="item" data-id="refs">
-  <button class="box" aria-label="Mark done">✓</button>
+  <button class="box" aria-label="Mark done">&#10003;</button>
   <span>
-    <span class="t">Ask a few colleagues for an intro and a recommendation <span class="ready">email is written</span></span>
+    <span class="t">Ask for intros and recommendations <span class="ready">email is written</span></span>
     <span class="why">
       One email does both. The people around you now are the ones most likely to place you, and
       they get much harder to reach once you've left.
     </span>
+    <details>
+      <summary>What a good recommendation actually says</summary>
+      <div>
+        <p>Most people freeze when asked, and write something generic about being lovely to work
+        with. Send them two or three lines to start from and they'll write something useful in
+        five minutes. Three things worth them saying:</p>
+        <ul>
+          <li><b>The scope.</b> That you were the only designer across six engineering teams in
+          three countries. Nobody reading your CV will believe that until someone else says it.</li>
+          <li><b>One judgment call they watched you make.</b> An argument you won, a direction you
+          pushed back on, a thing you insisted on. Specific beats warm.</li>
+          <li><b>How you worked, if they saw it.</b> That you sent running prototypes instead of
+          Figma files, and what that changed for them.</li>
+        </ul>
+        <p>Lines they can adapt:</p>
+        <div class="quote">
+          "Stav was the only designer across our whole area, six teams in three time zones, and
+          somehow it never showed."<br><br>
+          "She stopped handing us Figma files and started handing us prototypes we could click
+          through. It changed how we ran reviews."<br><br>
+          "When we wanted to ship [x], she was the one who argued we shouldn't until we'd solved
+          [y]. She was right."
+        </div>
+        <p><b>Who to ask:</b> PMs you worked with closely, an engineering lead or two, and your
+        manager. Four or five people is plenty. More than that and they get thin.</p>
+      </div>
+    </details>
   </span>
 </div>
 
 <div class="item" data-id="pms">
-  <button class="box" aria-label="Mark done">✓</button>
+  <button class="box" aria-label="Mark done">&#10003;</button>
   <span>
-    <span class="t">Ask the PMs for numbers <span class="ready">same email</span></span>
+    <span class="t">Ask the PMs for the three golden numbers <span class="ready">same email</span></span>
     <span class="why">
-      Adoption, acceptance rate, edit rate. Rough is fine. Three numbers across the whole
-      portfolio is plenty, and people take days to reply.
+      You have no numbers anywhere in the portfolio right now. Three across the whole thing is
+      plenty. Twenty is not twice as good.
     </span>
+    <details>
+      <summary>Which three, and why those</summary>
+      <div>
+        <span class="num">
+          <b>1. Acceptance rate</b>
+          How often a rep sent the AI's draft without editing it. This is the one that says the
+          design worked. If people take the suggestion as-is, they trusted it.
+        </span>
+        <span class="num">
+          <b>2. Edit rate</b>
+          How often they changed it before sending. This is a <b>design</b> metric, not a model
+          metric, and almost nobody thinks to ask for it. If most drafts get edited, the model was
+          fine and the handoff wasn't. That distinction is exactly what an interviewer wants to
+          hear you make.
+        </span>
+        <span class="num">
+          <b>3. Adoption</b>
+          How many orgs or agents turned it on. Proves it shipped and that someone wanted it.
+        </span>
+        <p><b>Nice to have, not worth chasing:</b> time saved per case, deflection rate, CSAT.</p>
+        <p><b>Rough is completely fine.</b> "Around 60%" is worth having. "Directionally it went up
+        a lot" is worth having. A launch readout, a QBR slide or a screenshot of a dashboard all
+        count.</p>
+        <p><b>If the answer is that nobody measured it</b>, that is also a real answer and I want
+        to know. On the page we say we never instrumented it and what I'd push for now, which
+        survives a follow-up question. A vague claim like "response times improved" does not.</p>
+      </div>
+    </details>
   </span>
 </div>
 
-<h2>Half an hour in Figma <span class="cnt">&middot; 2</span></h2>
+<h2>Half an hour in Figma</h2>
 
 <div class="item" data-id="frames">
-  <button class="box" aria-label="Mark done">✓</button>
+  <button class="box" aria-label="Mark done">&#10003;</button>
   <span>
     <span class="t">Export about six frames each from RTC, A3 Registry and KGER</span>
     <span class="why">
-      One hero shot, a few states, any before and after pair. PNG at 2x. Where you have a choice,
-      pick the frame with demo data over one showing a real customer. The full list is in the doc.
+      Open the file, select the frames, Export as PNG at 2x. Not the whole file.
     </span>
+    <details>
+      <summary>Exactly which frames, per project</summary>
+      <div>
+        <p><b>RTC.</b> The most important export in the project. I have the flow text and nothing
+        visual, and this is the one case study the screens have to carry.</p>
+        <ul>
+          <li>The model comparison view. However many algorithms sit side by side, and whatever
+          the comparison shows for each.</li>
+          <li>The threshold configuration, including per-field thresholds if that screen exists.</li>
+          <li>What an admin sees on day one with no historical data.</li>
+          <li>If it's easy: v1 of the config flow next to v3, because four dated versions is an
+          iteration story with timestamps on it.</li>
+        </ul>
+        <p><b>A3 Registry Setup.</b> Nothing about this is public anywhere, so it all comes from
+        you.</p>
+        <ul>
+          <li>The empty state, before anything is configured.</li>
+          <li>The four-step configuration modal, one frame per step if they exist.</li>
+          <li>The list view where companions are managed.</li>
+        </ul>
+        <p><b>KGER.</b> Two frames minimum, and they only work as a pair.</p>
+        <ul>
+          <li>The collapsed reply, before anything is expanded.</li>
+          <li>The expanded view showing every detected intent and its source article. The whole
+          design argument is the difference between those two.</li>
+        </ul>
+        <p><b>One rule that saves hours later:</b> where you have a choice, pick the frame using
+        demo data over one showing a real customer org. That removes almost all the redaction
+        work.</p>
+      </div>
+    </details>
   </span>
 </div>
 
 <div class="item" data-id="files">
-  <button class="box" aria-label="Mark done">✓</button>
+  <button class="box" aria-label="Mark done">&#10003;</button>
   <span>
     <span class="t">Send Ehud the RTC, KGER and A3 Registry Setup files</span>
     <span class="why">
-      Those three didn't come across with the rest, and they're three of the four case studies.
-      Skip this one if you've exported the frames above.
+      Those three didn't come across with the rest and they're three of the four case studies.
+      Skip this if you've already exported the frames above.
     </span>
   </span>
 </div>
 
-<h2>Twenty minutes, typing into the doc <span class="cnt">&middot; 1</span></h2>
+<h2>Twenty minutes, typing into the doc</h2>
 
 <div class="item" data-id="answers">
-  <button class="box" aria-label="Mark done">✓</button>
+  <button class="box" aria-label="Mark done">&#10003;</button>
   <span>
-    <span class="t">Answer the eleven questions no document can answer</span>
+    <span class="t">Answer the questions no document can answer</span>
     <span class="why">
-      These are the ones that make the case studies good. Short answers are fine, and a sentence
-      each is genuinely enough.
+      Bottom of <a href="https://docs.google.com/document/d/1Bqz6jIQWmaIh2KqL9IC-WUE-E2Wjhiw7ldKx1ujY0NQ/edit">the shared doc</a>.
+      A sentence each is genuinely enough.
     </span>
-    <ul class="q">
-      <li><b>RTC:</b> what was the July meeting feedback that changed the flow, twice?</li>
-      <li><b>KGER:</b> why is the reasoning behind a second click instead of shown by default?</li>
-      <li><b>A3:</b> what did legal object to, and what changed because of it?</li>
-      <li><b>MSJ:</b> how do you get an org to adopt something it isn't required to?</li>
-      <li>and the big one: what changed in how you design because the material is probabilistic?</li>
-    </ul>
+    <details>
+      <summary>The five that matter most</summary>
+      <div>
+        <ul>
+          <li><b>RTC:</b> what was the July meeting feedback that changed the config flow, twice
+          in ten days?</li>
+          <li><b>KGER:</b> why is the reasoning behind a second click instead of shown by default?
+          What did you consider and reject?</li>
+          <li><b>A3:</b> what did legal object to, and what changed in the design because of it?</li>
+          <li><b>A3:</b> what went wrong that made "Revert to Default" and "Preview Before Save"
+          necessary? A safety feature exists because something was unsafe.</li>
+          <li><b>The big one:</b> what changed in how you design because the material is
+          probabilistic instead of deterministic? This is the answer a designer without AI
+          experience can't give, and it's the most valuable one in the set.</li>
+        </ul>
+      </div>
+    </details>
   </span>
 </div>
 
-<h2>Five minutes each, whenever <span class="cnt">&middot; 2</span></h2>
+<h2>Five minutes each, whenever</h2>
 
 <div class="item" data-id="facts">
-  <button class="box" aria-label="Mark done">✓</button>
+  <button class="box" aria-label="Mark done">&#10003;</button>
   <span>
     <span class="t">Confirm four facts for the CV</span>
-    <span class="why">
-      Your Webiks title, which phone number is right, whether Asperii ended 2021 or 2022, and
-      which AI tools you actually use. All four currently contradict each other somewhere.
-    </span>
+    <span class="why">All four currently contradict each other somewhere.</span>
+    <details>
+      <summary>The four</summary>
+      <div>
+        <ul>
+          <li><b>Webiks title.</b> Your CV says Senior Product Designer. Your portfolio says
+          Senior. LinkedIn says Product Designer. Which is right? LinkedIn is the one people
+          cross-check.</li>
+          <li><b>Phone number.</b> Two versions on record, one digit apart: 050-894-9469 and
+          050-894-9460.</li>
+          <li><b>Asperii end date.</b> Your CV and site say 2021. LinkedIn says April 2022.</li>
+          <li><b>AI tools.</b> Which ones you actually use and for what. Your CV currently lists
+          Adobe XD, Axure, InVision and Zeplin, and no AI tooling at all, on a CV whose whole
+          argument is AI fluency.</li>
+        </ul>
+      </div>
+    </details>
   </span>
 </div>
 
 <div class="item" data-id="carbon">
-  <button class="box" aria-label="Mark done">✓</button>
+  <button class="box" aria-label="Mark done">&#10003;</button>
   <span>
     <span class="t">Fix four things on your live Carbonmade site</span>
     <span class="why">
-      It's public right now and one page still has the template's placeholder text on it. Listed
-      in the doc.
+      It's public right now, password off, so anyone you've sent it to is seeing this today.
     </span>
+    <details>
+      <summary>The four, with the exact text</summary>
+      <div>
+        <ul>
+          <li><b>Aircraft Maintenance page</b> still has the Carbonmade template's placeholder
+          text on it: "You can you this place to talk a little bit about the image on the side."
+          Typo included.</li>
+          <li><b>Clinic page</b> typo: "mange a monthly allocation plan".</li>
+          <li><b>About blurb</b> reads "Experienced product design person", which looks like a
+          half-finished edit.</li>
+          <li><b>Salesforce is missing entirely</b> from the About timeline. It stops at Asperii
+          2020-2021, so your most significant four years appear nowhere on the site.</li>
+        </ul>
+      </div>
+    </details>
   </span>
 </div>
 
 <footer>
   <b>Not yours to worry about:</b> the site, the case study writing, the diagrams, the CV rewrite,
-  the extraction from your Figma files, and everything that can be sourced from public Salesforce
-  documentation. That's all in hand.
+  reading your Figma files, and anything that can be sourced from public Salesforce documentation.
+  All in hand.
 </footer>
 
 </div>
@@ -203,9 +345,7 @@ footer b{color:var(--ink-soft);font-weight:600}
   "use strict";
   var KEY = "stav-shortlist-v1", state = {};
   try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){}
-
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
-
   document.querySelectorAll(".item").forEach(function(row){
     var id = row.getAttribute("data-id");
     function paint(){
