@@ -1,5 +1,11 @@
 # Figma files are readable after all
 
+**Snapshot, written 8 September 2026 on the Mac, kept as a record of how this was worked out.**
+The commands below hand-build a venv because that is what was done at the time. Do not follow them
+now. `tools/setup.py` builds `env/` from `requirements.txt`, which includes `zstandard`, and
+`HANDOFF.md` section 3 has the current invocation for each platform. Anything here that reads as a
+statement about "this machine" is about the Mac.
+
 Written 8 September, correcting what I told you earlier.
 
 ## I gave up too early

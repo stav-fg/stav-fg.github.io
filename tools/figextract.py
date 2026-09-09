@@ -7,10 +7,11 @@ canvas.fig is a 12-byte header followed by length-prefixed chunks: the first is
 raw-deflate and holds the kiwi schema (generic, useless), the second is
 Zstandard and holds the document.
 
-Needs the `zstandard` package. This machine has no zstd binary and no libzstd,
-so a venv is the way:
-    python3 -m venv env && ./env/bin/pip install zstandard
-    ./env/bin/python tools/figextract.py <file.jam|file.fig> <outdir>
+Needs the `zstandard` package, which tools/setup.py installs into env/ from
+requirements.txt. Run setup first, then:
+
+    env/bin/python tools/figextract.py <file.jam|file.fig> <outdir>        macOS, Linux
+    env\\Scripts\\python tools\\figextract.py <file.jam|file.fig> <outdir>    Windows
 """
 import re, sys, json, struct, pathlib, zipfile
 import zstandard as zstd
