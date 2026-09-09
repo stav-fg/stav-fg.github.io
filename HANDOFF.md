@@ -5,6 +5,12 @@ Written 9 September 2026, for Stav picking this up on her own machine, same Anth
 **If you are a fresh Claude session: read this file first, then the four files in step 2. Do not
 re-interview anyone. Almost everything has been decided and the reasoning is written down.**
 
+> **If Stav is the one in the room, stop and read `notes/working-with-stav.md` before you say
+> anything.** From the morning of 10 September she is picking this up herself. Everything else in
+> this repo is written for Ehud and the register is wrong for her. Two items in her working doc are
+> also stale in ways that would send her off doing work that is already finished, and that file says
+> which.
+
 ---
 
 ## 1. What this is, in four lines
@@ -25,6 +31,7 @@ go-live date yet. Two case studies are written, four more are chosen and unwritt
 | `notes/strategy.md` | Where the original plan was wrong. The job search has the same deadline as the artifact pull and was not in the plan. |
 | `notes/session-brief.md` | Decisions made, findings, and the mistakes that were corrected. |
 | `notes/document-requests.md` | The four case studies, and the specific datapoints each still needs. |
+| `notes/working-with-stav.md` | **Read first if Stav is in the room.** How to run the session with her rather than with Ehud. |
 
 Then `notes/open-questions.md` for everything still unresolved, sorted by who can answer it.
 
