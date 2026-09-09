@@ -87,8 +87,10 @@ rules on this one.
 
 ### What is only recoverable while Carbonmade is up
 
-`source-material/carbonmade-originals/` holds 37 images at full resolution, 246MB, pulled from the
-live site on 7 September 2026. `source-material/deck-slides/` holds all 50 deck pages rendered at
+`source-material/carbonmade-originals/` holds 37 images at full resolution, 15MB, pulled from the
+live site on 7 September 2026. An earlier version of this line said 246MB. That was the first pull,
+which requested a `;4000x4000` box and got every asset padded and upscaled into a square. The bare
+asset id returns the true original, which is what is in the folder now. `source-material/deck-slides/` holds all 50 deck pages rendered at
 2x. Back both up somewhere durable before that subscription is cancelled.
 
 ### Extraction notes, so nobody repeats the work
