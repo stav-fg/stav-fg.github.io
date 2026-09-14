@@ -61,7 +61,7 @@ Told separately they are four AI features, which is a list. Told together they a
 
 | | Case study | The question | Where authority sits |
 |---|---|---|---|
-| 1 | Real-Time Semantic Classification | Which model do we trust, and what does it get to fill in? | A person **trains and chooses** |
+| 1 | Real-Time Semantic Classification | Do we trust the model, and what does it get to fill in? | A person **trains and chooses** |
 | 2 | KGER, multi-intent email reply | Will someone put their name on what a machine wrote? | The model drafts, a person **decides** |
 | 3 | A3 Registry / Record Companions | What is the machine allowed to touch at all? | People **govern** it up front |
 | 4 | My Service Journey | How do you persuade an organisation to change? | The range piece |

@@ -51,6 +51,16 @@ Multi-model, multi-variable training and comparison, then a decision about which
 runs, with each configuration determining what populates each field. The design problem is making
 a model comparison legible enough that a non-data-scientist can make that call and live with it.
 
+**Updated 14 September, from Stav.** The multi-model version above is the early design, not the
+final one. After the July review she reworked the flow to fit the engineering team's capacity for
+the release. The biggest change was supporting a single algorithm instead of selecting and training
+several. That is why the export shows one algorithm and no comparison view: nothing is missing from
+the export, the comparison was cut. The "which model do we trust" framing above, in the table and in
+the 8 September correction, describes the early scope. In the final design the admin decides whether
+to trust one model and how much it may do alone, per field. The scope cut belongs in the case study:
+what the first version did, what changed under capacity, and what the final design uses as evidence
+in place of a comparison.
+
 **Want, in order:**
 1. ~~PDF export of `RTC.fig`~~ **DONE, found 9 September.** `Projects/new export/rtc` in Drive holds
    24 frames as PNG and PDF: empty state, toggle-on with activation toast, a five-step configuration

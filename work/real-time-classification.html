@@ -8,13 +8,13 @@
      Until then, being indexed under her real name is all downside: the
      copy is not yet in her voice and the outcome numbers are missing. -->
 <title>Teaching a case to fill itself in — Stav Fisher Gross</title>
-<meta name="description" content="Setup UX for a classification model inside Salesforce Service Cloud, where an admin who is not a data scientist has to decide which model to trust and how much of the work to hand it.">
+<meta name="description" content="Setup UX for a classification model inside Salesforce Service Cloud, where an admin who is not a data scientist has to decide whether to trust a model and how much of the work to hand it.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://stav-fg.github.io/work/real-time-classification.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Stav Fisher Gross">
 <meta property="og:title" content="Teaching a case to fill itself in — Stav Fisher Gross">
-<meta property="og:description" content="Setup UX for a classification model inside Salesforce Service Cloud, where an admin who is not a data scientist has to decide which model to trust and how much of the work to hand it.">
+<meta property="og:description" content="Setup UX for a classification model inside Salesforce Service Cloud, where an admin who is not a data scientist has to decide whether to trust a model and how much of the work to hand it.">
 <meta property="og:url" content="https://stav-fg.github.io/work/real-time-classification.html">
 <meta property="og:image" content="https://stav-fg.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
@@ -51,7 +51,7 @@
       A support case arrives with its category, its reason and its priority all blank. Someone has
       to fill those in, on every case, before the case can be routed. A model can do it. The design
       problem is upstream of that: an administrator who has never trained a model has to decide
-      which one to trust, and how much of the work to hand it.
+      whether to trust it, and how much of the work to hand it.
     </p>
 
     <dl class="factbar">
@@ -81,6 +81,20 @@
       <blockquote class="pull">
         A model that is wrong quietly is worse than one that is wrong loudly.
       </blockquote>
+
+      <h2>The first version did more</h2>
+      <p>
+        The early design let an admin choose several algorithms, train them side by side, and
+        compare the results before picking one to run. After a review in July I reworked the flow
+        to fit what the engineering team could build for the release. The biggest change was
+        dropping to a single algorithm, trained once.
+      </p>
+      <p>
+        Comparison was the most natural way for an admin to build confidence in a model, and it was
+        the part that went. In the final design that evidence lives on the model's own page. Each
+        predicted field reports its own accuracy and coverage. There is a panel for testing the
+        model against a case. And the thresholds cap what it does without asking.
+      </p>
 
       <h2>Five steps, each one a decision</h2>
       <p>
