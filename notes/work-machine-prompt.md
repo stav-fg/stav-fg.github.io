@@ -59,7 +59,7 @@ In priority order:
 8. **Service Cloud / Service Catalog - Customer Research 2.0**
 9. **254 Research for MSJ: Gamification Ranks** (FigJam)
 10. **260 My Service Journey** and **256 + Vision - MSJ**
-11. **_SLDS vs Kondo** — the design system evaluation
+11. **The design-system comparison file** — the design system evaluation
 
 ## Task 2 — Documents. Export as PDF or copy into the shared Drive folder.
 

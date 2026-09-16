@@ -73,8 +73,8 @@
         decided what a model is allowed to do on its own.
       </p>
       <p>
-        Before any of this, reps filled those fields in by hand. Our own research put that at
-        fifteen to twenty per cent of their working time.
+        Before any of this, reps filled those fields in by hand. Our own research put that at four
+        to eight minutes a case, and fifteen to twenty per cent of their working time.
       </p>
       <p>
         Every hard question in the feature lands on that person. Which fields should the model
@@ -182,6 +182,11 @@
         against a held-out set of recent cases, and the admin sees the accuracy and the coverage it
         would get at each threshold value. Moving the line shows what it costs.
       </p>
+      <p>
+        The loudest complaint from the beta pilot was that automation still needed custom code. In
+        the next version it is set up entirely in clicks, down to the assignment rules that route a
+        case once its fields are filled.
+      </p>
 
       <figure>
         <svg viewBox="0 0 760 300" role="img" aria-labelledby="thTitle thDesc"
@@ -274,8 +279,10 @@
 
       <h2>The loop back</h2>
       <p>
-        The performance tab tracks how many cases were classified, how many went through
-        automatically, and how often a rep overrode the answer. Override rate is the honest metric
+        The beta shipped without any view of how the model was doing once it was switched on. An
+        admin could hand it authority and then see nothing. The performance tab, designed for the
+        next release, closes that gap. It tracks how many cases were classified, how many went
+        through automatically, and how often a rep overrode the answer. Override rate is the honest metric
         in that set. It is the only one measured against a human who looked at the same case and
         disagreed, and a rising override rate is the signal to pull a threshold back down.
       </p>
@@ -286,10 +293,13 @@
 
       <h2>About the numbers</h2>
       <p>
-        The figures on the screens are placeholders, so I have not quoted them as results.
-        Accuracy was measured in production against the system this replaced, and it was a large
-        improvement. Those figures are internal, so they are not on this page. I am happy to walk
-        through them in a conversation.
+        The figures on the screens are placeholders, so I have not quoted them as results. The
+        product is still in beta, and there are no production results for it yet.
+      </p>
+      <p>
+        The model underneath was proven first, in an internal deployment run by another team, where
+        it clearly beat the system it replaced. That result is why this product was built. The
+        setup, the thresholds and the monitoring described here came after it.
       </p>
     </div>
   </section>

@@ -141,7 +141,7 @@ What is in there:
 - `🍤 246 SOBA builder experience.fig` — a second builder experience, distinct from A3's
 - `Service Cloud _ Self Service Workshop Assets.fig` — workshop material
 - `250 - Catalog Item Access - UX review.fig` — a UX review
-- **`_SLDS vs Kondo.fig`** — an evaluation of the Salesforce design system against an alternative
+- **A design-system comparison file** — an evaluation of the Salesforce design system against an internal alternative
 - `Eligibility Rules.fig`, `250 CSP planing.fig`, `Service Catalog Demo - Alpha insurance.fig`
 
 The index excluded all of this as "old 2022-2024 initiatives, different owners", which is the same
