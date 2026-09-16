@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<!-- Not launched yet. Remove this tag and robots.txt on go-live day.
+     Until then, being indexed under her real name is all downside: the
+     copy is not yet in her voice and the screens are not placed. -->
+<title>One click, and the reasoning underneath it — Stav Fisher Gross</title>
+<meta name="description" content="Redesigning an AI email reply feature in Salesforce Service Cloud so one click answers every question in a customer's email, with the reasoning a second click away.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://stav-fg.github.io/work/service-reply-email.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stav Fisher Gross">
+<meta property="og:title" content="One click, and the reasoning underneath it — Stav Fisher Gross">
+<meta property="og:description" content="Redesigning an AI email reply feature in Salesforce Service Cloud so one click answers every question in a customer's email, with the reasoning a second click away.">
+<meta property="og:url" content="https://stav-fg.github.io/work/service-reply-email.html">
+<meta property="og:image" content="https://stav-fg.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stav Fisher Gross, Product Design Lead. Fourteen years making complicated software behave.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;620&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="shell">
+  <header class="site-head">
+    <a class="wordmark" href="/">Stav Fisher Gross</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/" aria-current="page">Work</a>
+      <a href="/about.html">About</a>
+      <a href="/cv.html">CV</a>
+    </nav>
+  </header>
+</div>
+
+<main id="main">
+<div class="shell">
+
+  <div class="case-head">
+    <p class="eyebrow">Case study 01</p>
+    <h1>One click, and the reasoning underneath it</h1>
+    <p class="lead">
+      A customer writes in with three questions. The feature I took over drafted a reply from the
+      company's knowledge articles, and it answered one of those questions well. The other two it
+      dropped without saying so. I redesigned it so a single click drafts a reply to all of them, and
+      a second click shows the rep exactly what the system understood.
+    </p>
+
+    <dl class="factbar">
+      <div><dt>Role</dt><dd>Product designer. The rep experience, managing intents and sources, admin setup.</dd></div>
+      <div><dt>Company</dt><dd>Salesforce, Service Cloud</dd></div>
+      <div><dt>Users</dt><dd>Support reps answering email, and the admins who turn it on</dd></div>
+      <div><dt>Dates</dt><dd>2025–2026</dd></div>
+    </dl>
+  </div>
+
+  <section>
+    <div class="prose">
+      <h2>What I inherited</h2>
+      <p>
+        The feature was built to find one intent per email. For a message that asked one thing, that
+        worked. Most customer emails ask more than one thing.
+      </p>
+      <p>
+        On those it produced a confident partial answer. One question handled properly, the rest
+        missing, and nothing in the draft to show that anything was missing. Whether the rep noticed
+        came down to how carefully they read, and in practice to how long they had been in the job.
+      </p>
+
+      <h2>Who was reading the draft</h2>
+      <p>
+        A support rep working several cases at once, measured on how quickly they close them and on
+        whether the customer has to write back. Fluent in the console. Not someone who writes
+        prompts, and not someone with time to.
+      </p>
+      <p>
+        Before this, a multi-part email meant reading the whole thread and the case, running a
+        separate knowledge search for each question, and writing the reply from an empty box.
+      </p>
+
+      <blockquote class="pull">
+        Reps will not trust a draft they cannot check quickly.
+      </blockquote>
+
+      <h2>One click to a draft</h2>
+      <p>
+        The redesigned flow does the splitting for the rep. The system reads the email, finds up to
+        three separate intents and scores its confidence in each. It searches the knowledge base once
+        per intent, then writes a single reply that covers all of them. The rep sees the draft, and a
+        count of the sources behind it.
+      </p>
+      <p>
+        We tried giving each intent its own draft button and dropped it. A rep answering a customer
+        wants one reply to send. Three partial replies to stitch together is the old job with extra
+        steps.
+      </p>
+      <p>
+        Nothing sends by itself. The rep always clicks to generate and always sends the reply
+        themselves. Product held that line firmly, partly to keep model costs predictable, and it
+        suited the design: the person who signs the email stays the person who decides to send it.
+      </p>
+
+      <h2>The reasoning, one click down</h2>
+      <p>
+        Most drafts do not need checking. Some do, and for those the rep needs to see what the system
+        thought the customer was asking before putting their name on the answer.
+      </p>
+      <p>
+        A second click opens that view. Each detected intent sits on its own row with its confidence,
+        a checkbox for whether it is in the draft, and the article it drew on. A rep can untick an
+        intent the system got wrong, swap the article for a better one, or put everything back the way
+        the system had it. The draft updates as they go.
+      </p>
+      <p>
+        Keeping this behind a click was deliberate. On the main surface a rep needs the draft and very
+        little else, and every extra control there costs attention on every email that was already
+        fine. The sources appear when the rep asks for them.
+      </p>
+      <p>
+        Showing which article belongs to which intent took a few rounds. Filter tiles looked like fixed
+        categories, but the intents change with every email, and controls that look permanent over
+        data that is different each time would have confused people. A row of toggle buttons had the
+        same problem in less space. Where it landed is simpler: a short intent label beside each
+        article title, which an admin can switch off.
+      </p>
+
+      <h2>When the model is wrong</h2>
+      <p>
+        Every recovery is a single step. A wrong intent gets unticked, and a weak source gets replaced
+        from a search. If a rep has made things worse, they restore the default.
+      </p>
+      <p>
+        When the system finds no intent at all, it says so and the rep writes the reply themselves.
+        Failures are split by cause, so a setup mistake, a permissions problem, a temporary outage and
+        a response the model got wrong each look different to the rep. If the problem is
+        configuration, the rep is told it is configuration. An empty reply with no explanation only
+        teaches them that the feature is unreliable.
+      </p>
+
+      <h2>Setting it up</h2>
+      <p>
+        Admins switch it on for their org, and it starts off. They choose which email domains it is
+        trusted to answer, and how many intents it may pull out of a single email: three by default,
+        up to five.
+      </p>
+
+      <h2>What came next</h2>
+      <p>
+        The larger question was whether to keep extending a fixed pipeline that detects, searches and
+        drafts, or to rebuild the whole thing as an agent that decides its own steps. We kept the
+        pipeline for now, and I designed the agent-based version alongside it so that the move would
+        not start from nothing.
+      </p>
+
+      <h2>What I would do differently</h2>
+      <p>
+        Start from one click. The first version product pushed for had reps choosing the articles
+        themselves, because it was quicker to build. What reps actually needed was a draft the moment
+        they clicked, with the sources there to change if they wanted to. We got there. I would have
+        argued for it as the starting point.
+      </p>
+
+      <h2>What was never measured</h2>
+      <p>
+        We never tracked how often reps sent a draft unchanged, or how much they edited it first. The
+        draft text is not stored, for privacy reasons, so there is nothing to compare the sent email
+        against.
+      </p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<div class="shell">
+  <footer class="site-foot">
+    <span><a href="/">All work</a></span>
+    <span><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a></span>
+  </footer>
+</div>
+
+</body>
+</html>

@@ -59,7 +59,7 @@ the export, the comparison was cut. The "which model do we trust" framing above,
 the 8 September correction, describes the early scope. In the final design the admin decides whether
 to trust one model and how much it may do alone, per field. The scope cut belongs in the case study:
 what the first version did, what changed under capacity, and what the final design uses as evidence
-in place of a comparison.
+in place of a comparison. Dates on the page: 2025 to 2026, confirmed by Stav on 16 September.
 
 **Want, in order:**
 1. ~~PDF export of `RTC.fig`~~ **DONE, found 9 September.** `Projects/new export/rtc` in Drive holds
@@ -83,7 +83,7 @@ tension between those two is the design problem.
 2023 pilot, the original launch and the single-intent pipeline all predate her, so none of their
 figures or decisions are hers to claim. That includes the pilot's helpfulness figure. Her part is
 the move to multi-intent, the expanded view for managing intents and sources, the admin setup page,
-and the design for the agent-based successor.
+and the design for the agent-based successor. Dates on the page: 2025 to 2026.
 
 The single-intent starting point is what she inherited, which makes this a takeover story: a
 feature built to answer one question in an email, redesigned to handle all of them. Her own answer
