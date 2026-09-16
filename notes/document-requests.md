@@ -153,12 +153,16 @@ through them rather than sit beside them.
 
 ## Two documents I want regardless of which studies get built
 
-1. **`Embedded Service AI Ongoing UX`** — a presentation she authored and last edited. Her own
-   framing of the whole area, in her own words. That is the single best source for getting the
-   portfolio into her voice, which is currently the largest quality gap in everything written.
-2. **`Copy of Work Handoff - Stav Fisher Gross`** — a spreadsheet she last edited in August 2026.
-   A handoff document is an inventory of everything she owned, written by her, at the end. It is
-   probably the fastest route to an accurate scope claim on the CV.
+1. ~~**`Embedded Service AI Ongoing UX`**~~ **WITHDRAWN 16 September, from Stav.** It was written
+   for her by another designer while she was away, and she updated it when she came back. Her
+   words in it are edits on someone else's document, so it is not a voice source. Do not chase it.
+   The voice problem needs a different answer: her own Slack messages and DMs, where she argued a
+   position in her own words, and her answers in conversation. Both are unedited and sound like
+   her, which is the property the deck was wanted for and does not have.
+2. ~~**`Copy of Work Handoff - Stav Fisher Gross`**~~ **DONE, received 16 September.** Ten products
+   and about thirty epics across four product managers, with a prototype link against seven of
+   them. It corrected the scope claim from six features to ten product areas across the site, the
+   CV and this file's own framing.
 
 ---
 
