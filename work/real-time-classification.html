@@ -55,7 +55,7 @@
     </p>
 
     <dl class="factbar">
-      <div><dt>Role</dt><dd>Product designer for the setup and monitoring surfaces</dd></div>
+      <div><dt>Role</dt><dd>Product designer. Setup flow, the rep experience, prototyping.</dd></div>
       <div><dt>Company</dt><dd>Salesforce, Service Cloud</dd></div>
       <div><dt>Users</dt><dd>Service admins, and the reps living with the result</dd></div>
       <div><dt>Dates</dt><dd>2022–2026</dd></div>
@@ -67,9 +67,14 @@
       <h2>Who ends up making the call</h2>
       <p>
         Classification itself is old. What changed is who gets to set it up. This runs inside the
-        admin console, so the person configuring it is a Salesforce administrator. They know their
-        org's data intimately. They have usually never chosen an algorithm, read an accuracy score,
-        or decided what a model is allowed to do without asking.
+        admin console, so the person configuring it is a Salesforce administrator. The persona we
+        designed against writes no code and has no data scientist to call on. They know their org's
+        data better than anyone. They have never chosen an algorithm, read an accuracy score, or
+        decided what a model is allowed to do on its own.
+      </p>
+      <p>
+        Before any of this, reps filled those fields in by hand. Our own research put that at
+        fifteen to twenty per cent of their working time.
       </p>
       <p>
         Every hard question in the feature lands on that person. Which fields should the model
@@ -85,9 +90,15 @@
       <h2>The first version did more</h2>
       <p>
         The early design let an admin choose several algorithms, train them side by side, and
-        compare the results before picking one to run. After a review in July I reworked the flow
-        to fit what the engineering team could build for the release. The biggest change was
-        dropping to a single algorithm, trained once.
+        compare the results before picking one to run. It did not survive the release. I argued
+        that mixing two kinds of model inside one configuration was too complex to set up and too
+        complex to reason about afterwards, and the scope came down to a single algorithm, trained
+        once.
+      </p>
+      <p>
+        The piece I argued for and lost was a fallback. An org with no usable history has nothing
+        to train on, and I wanted a language model to cover that case rather than hand the admin an
+        empty result. It was cut from the same release.
       </p>
       <p>
         Comparison was the most natural way for an admin to build confidence in a model, and it was
@@ -158,8 +169,12 @@
       </p>
       <p>
         The admin draws two lines. Above the higher one, the model fills the field in and nobody is
-        asked. Between the two, the prediction is offered to a rep who confirms or overrides it.
-        Below the lower one the model stays quiet and the field is left empty.
+        asked. Between the two, the top three predictions are offered to a rep, who picks one or
+        ignores them. Below the lower one the model stays quiet and the field is left empty.
+      </p>
+      <p>
+        One rule sits above all three. If a person has already filled the field in, the model
+        leaves it alone.
       </p>
 
       <figure>
@@ -263,12 +278,12 @@
         what it does with it, and takes some back.
       </p>
 
-      <h2>What is missing from this page</h2>
+      <h2>About the numbers</h2>
       <p>
-        No outcome numbers. The screens carry placeholder values, and quoting those as results
-        would be inventing them. Adoption, accuracy in production, and whether override rates fell
-        after launch are figures I am still chasing, and if they were never instrumented this
-        section will say so instead.
+        The figures on the screens are placeholders, so I have not quoted them as results.
+        Accuracy was measured in production against the system this replaced, and it was a large
+        improvement. Those figures are internal, so they are not on this page. I am happy to walk
+        through them in a conversation.
       </p>
     </div>
   </section>
