@@ -98,7 +98,8 @@
       <p>
         The piece I argued for and lost was a fallback. An org with no usable history has nothing
         to train on, and I wanted a language model to cover that case rather than hand the admin an
-        empty result. It was cut from the same release.
+        empty result. It was cut from the same release. It came back later as a flow of its own, for
+        orgs starting from nothing.
       </p>
       <p>
         Comparison was the most natural way for an admin to build confidence in a model, and it was
@@ -175,6 +176,11 @@
       <p>
         One rule sits above all three. If a person has already filled the field in, the model
         leaves it alone.
+      </p>
+      <p>
+        The admin is not guessing where to put those lines. After training, the model is scored
+        against a held-out set of recent cases, and the admin sees the accuracy and the coverage it
+        would get at each threshold value. Moving the line shows what it costs.
       </p>
 
       <figure>
