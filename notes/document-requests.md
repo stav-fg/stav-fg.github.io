@@ -79,6 +79,17 @@ sources. A second click opens every detected intent and the article behind it, a
 drop an intent or swap a source. Speed on the surface, inspectable reasoning underneath, and the
 tension between those two is the design problem.
 
+**Updated 16 September, from Stav.** She joined KGER partway through, after its first release. The
+2023 pilot, the original launch and the single-intent pipeline all predate her, so none of their
+figures or decisions are hers to claim. That includes the pilot's helpfulness figure. Her part is
+the move to multi-intent, the expanded view for managing intents and sources, the admin setup page,
+and the design for the agent-based successor.
+
+The single-intent starting point is what she inherited, which makes this a takeover story: a
+feature built to answer one question in an email, redesigned to handle all of them. Her own answer
+to what she would do differently: the real need was one click to a draft, and product pushed a
+faster solution with manual article selection first.
+
 **Want:** `260 KGER - Customer Intent Mapping PRD`, `EK Support for KGER & MKGER - PBD`,
 `264 Multi Intent Brainstorming - Chat`, `KGER/Service Replies Blitz` notes,
 `KGER Access Guard Issue`.
