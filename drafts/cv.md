@@ -51,11 +51,14 @@ in every current source. The CV stops at 2021 and LinkedIn has no role descripti
 
 Raw material for bullets, all already established and none of it invented:
 
-- Designed six shipped AI features across Service Cloud's Embedded AI area: real-time
-  classification, registry, article recommendations, service replies, work and handoff summaries,
-  and service reply for email.
-- At one point the sole product designer across all six projects and six engineering teams,
-  distributed across India, Israel and San Francisco.
+- Design owner for ten AI product areas in Service Cloud: real-time case classification, record
+  companion registry, article recommendations, service replies, service reply for email, work
+  summaries, enhanced summaries, case management, an AI adoption dashboard and SMS short-code
+  onboarding. Confirmed 16 September against her own handoff spreadsheet, which lists ten products
+  and about thirty epics across four product managers.
+- Sole designer on all ten, across six engineering teams distributed across India, Israel and San
+  Francisco. Confirmed by Stav on 16 September. Earlier work on My Service Journey and Service
+  Catalog was shared with another designer.
 - Owned accessibility for the area.
 
 Each of those needs a number attached to it, and the numbers are the September deadline.

@@ -86,8 +86,8 @@ with next year", which is the question a hiring manager is actually asking.
 1. **She builds design functions where none exist.** Pitched a UX practice, was refused, did it
    as a volunteer until it became her job, then founded and funded the wing. Hired and led three
    designers at Asperii. Replaced Figma handoff with running prototypes at Salesforce.
-2. **She has four years shipping production AI to enterprise customers.** Not tool fluency. Shipped
-   features, six engineering teams, three countries, at one point the only designer across all six.
+2. **She has four years shipping production AI to enterprise customers.** Not tool fluency. Ten
+   product areas, six engineering teams, three countries, the only designer on all ten.
 3. **She owned accessibility.** A differentiator most AI-focused designers lack.
 
 ## What we never do
