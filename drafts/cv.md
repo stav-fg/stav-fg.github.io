@@ -59,7 +59,9 @@ Raw material for bullets, all already established and none of it invented:
 - Sole designer on all ten, across six engineering teams distributed across India, Israel and San
   Francisco. Confirmed by Stav on 16 September. Earlier work on My Service Journey and Service
   Catalog was shared with another designer. MSJ was a co-design with a designer in San Francisco,
-  working closely across the time difference. Confirmed by Stav on 23 September.
+  working closely across the time difference. Within it she was the main designer of the
+  Capabilities Navigator; the other designer owned a different sub-product. Confirmed by Stav on
+  23 September.
 - Owned accessibility for the area.
 
 Each of those needs a number attached to it, and the numbers are the September deadline.

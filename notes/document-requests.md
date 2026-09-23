@@ -269,7 +269,10 @@ Five documents in Drive. Their contents stay out of this repo: they name custome
   with a principal designer, October 2023 to November 2024. **Confirmed by Stav, 23 September:**
   she was a co-designer. The two of them worked closely together so the work could keep moving
   across the time difference, since the other designer is in San Francisco. Describe it as
-  co-designed, never led alone. It has a 13-participant moderated
+  co-designed, never led alone. **Refined by Stav, 23 September:** within MSJ she was the main
+  designer of the Capabilities Navigator. The other designer owned a different sub-product. So MSJ
+  as a whole is a co-design, and the Navigator is hers. The usage dashboard tracks the Navigator
+  only, which means its numbers measure her part directly. It has a 13-participant moderated
   concept evaluation whose findings map to shipped decisions (entitlement lock icon, branded
   feature names, recommendations held back until personal), plus post-launch adoption numbers.
   No study of the gamification concept exists. Take that as settled.
