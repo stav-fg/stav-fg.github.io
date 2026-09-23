@@ -286,3 +286,10 @@ Five documents in Drive. Their contents stay out of this repo: they name custome
 
 Recommended line-up after this: RTC, KGER with the agentic successor folded in, A3 Registry, MSJ,
 Enhanced Summaries. Email Reply Automation stops being a separate study. Service Catalog stays out.
+
+**Also 23 September: usage dashboards** for MSJ, Service Email Assistant, KGER, MKGER, Work
+Summaries and Enhanced Summaries, as screenshots in Stav's Drive doc "missing metrics". The numbers
+are internal Salesforce data, so they are deliberately not copied into this public repo. Two things
+to know before using them: every chart shows zero until tracking began (about February 2026), and
+that ramp is not adoption growth. And for Enhanced Summaries, count summaries generated, not
+configuration views.
