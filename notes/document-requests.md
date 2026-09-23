@@ -266,7 +266,10 @@ Five documents in Drive. Their contents stay out of this repo: they name custome
 
 - **MSJ design and research record.** Settles the MSJ question. MSJ is an in-product feature
   discovery and adoption tool for Service Cloud admins. Stav co-designed it as an equal partner
-  with a principal designer, October 2023 to November 2024. It has a 13-participant moderated
+  with a principal designer, October 2023 to November 2024. **Confirmed by Stav, 23 September:**
+  she was a co-designer. The two of them worked closely together so the work could keep moving
+  across the time difference, since the other designer is in San Francisco. Describe it as
+  co-designed, never led alone. It has a 13-participant moderated
   concept evaluation whose findings map to shipped decisions (entitlement lock icon, branded
   feature names, recommendations held back until personal), plus post-launch adoption numbers.
   No study of the gamification concept exists. Take that as settled.
