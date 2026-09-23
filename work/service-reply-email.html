@@ -8,13 +8,13 @@
      Until then, being indexed under her real name is all downside: the
      copy is not yet in her voice and the screens are not placed. -->
 <title>One click, and the reasoning underneath it — Stav Fisher Gross</title>
-<meta name="description" content="Redesigning an AI email reply feature in Salesforce Service Cloud so one click answers every question in a customer's email, with the reasoning a second click away.">
+<meta name="description" content="The fourth version of an AI email reply feature in Salesforce Service Cloud: one click finds every question in a customer's email and drafts the answer, with the reasoning a second click away.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://stav-fg.github.io/work/service-reply-email.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Stav Fisher Gross">
 <meta property="og:title" content="One click, and the reasoning underneath it — Stav Fisher Gross">
-<meta property="og:description" content="Redesigning an AI email reply feature in Salesforce Service Cloud so one click answers every question in a customer's email, with the reasoning a second click away.">
+<meta property="og:description" content="The fourth version of an AI email reply feature in Salesforce Service Cloud: one click finds every question in a customer's email and drafts the answer, with the reasoning a second click away.">
 <meta property="og:url" content="https://stav-fg.github.io/work/service-reply-email.html">
 <meta property="og:image" content="https://stav-fg.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
@@ -48,14 +48,15 @@
     <p class="eyebrow">Case study 01</p>
     <h1>One click, and the reasoning underneath it</h1>
     <p class="lead">
-      A customer writes in with three questions. The feature I took over drafted a reply from the
-      company's knowledge articles, and it answered one of those questions well. The other two it
-      dropped without saying so. I redesigned it so a single click drafts a reply to all of them, and
-      a second click shows the rep exactly what the system understood.
+      A customer writes in with three questions. Over four versions, the feature that helps a support
+      rep answer them went from a fixed prompt, to articles the rep had to find, to a single click.
+      A colleague designed the first three while I was on maternity leave. I designed the fourth: one
+      click finds every question in the email, matches each to a knowledge article and drafts the
+      whole reply, and a second click shows the rep exactly what the system understood.
     </p>
 
     <dl class="factbar">
-      <div><dt>Role</dt><dd>Product designer. The rep experience, managing intents and sources, admin setup.</dd></div>
+      <div><dt>Role</dt><dd>Product designer for the fourth version. One-click drafting, managing intents and sources, admin setup.</dd></div>
       <div><dt>Company</dt><dd>Salesforce, Service Cloud</dd></div>
       <div><dt>Users</dt><dd>Support reps answering email, and the admins who turn it on</dd></div>
       <div><dt>Dates</dt><dd>2025–2026</dd></div>
@@ -64,15 +65,36 @@
 
   <section>
     <div class="prose">
-      <h2>What I inherited</h2>
+      <h2>Three versions before mine</h2>
       <p>
-        The feature was built to find one intent per email. For a message that asked one thing, that
-        worked. Most customer emails ask more than one thing.
+        Each version moved one more decision from the rep to the system. I came back from leave to the
+        third.
       </p>
+
+      <h3>1. A fixed prompt</h3>
       <p>
-        On those it produced a confident partial answer. One question handled properly, the rest
-        missing, and nothing in the draft to show that anything was missing. Whether the rep noticed
-        came down to how carefully they read, and in practice to how long they had been in the job.
+        The rep clicked, and the model drafted a reply from a standard prompt and the case details.
+        Quick, with nothing to draw on beyond the case itself.
+      </p>
+
+      <h3>2. One article</h3>
+      <p>
+        The rep picked a knowledge article, and the draft drew on it as well as the case. Replies were
+        now grounded in the company's own answers. Finding the right article became the rep's job.
+      </p>
+
+      <h3>3. Several articles</h3>
+      <p>
+        The rep could pick more than one article, which made room for emails that asked more than one
+        thing. It also meant more searching, one article for every question.
+      </p>
+
+      <p>
+        By the third version the drafting was good and the work around it had grown. On an email with
+        three questions, the rep read the thread, worked out what was being asked and searched for an
+        article per question, all before the system wrote a word. If they missed a question, the
+        draft missed it too, and nothing in it said so. Whether that got caught came down to how
+        carefully the rep read, and in practice to how long they had been in the job.
       </p>
 
       <h2>Who was reading the draft</h2>
@@ -81,10 +103,6 @@
         whether the customer has to write back. Fluent in the console. Not someone who writes
         prompts, and not someone with time to.
       </p>
-      <p>
-        Before this, a multi-part email meant reading the whole thread and the case, running a
-        separate knowledge search for each question, and writing the reply from an empty box.
-      </p>
 
       <blockquote class="pull">
         Reps will not trust a draft they cannot check quickly.
@@ -92,7 +110,8 @@
 
       <h2>One click to a draft</h2>
       <p>
-        The redesigned flow does the splitting for the rep. The system reads the email, finds up to
+        My version does the splitting for the rep, with no prompt to choose and no article to find.
+        The system reads the email, finds up to
         three separate intents and scores its confidence in each. It searches the knowledge base once
         per intent, then writes a single reply that covers all of them. The rep sees the draft, and a
         count of the sources behind it.
@@ -162,10 +181,10 @@
 
       <h2>What I would do differently</h2>
       <p>
-        Start from one click. The first version product pushed for had reps choosing the articles
-        themselves, because it was quicker to build. What reps actually needed was a draft the moment
-        they clicked, with the sources there to change if they wanted to. We got there. I would have
-        argued for it as the starting point.
+        Get to one click sooner. Choosing articles by hand came first because it was quicker to build,
+        and it lasted two versions. What reps needed all along was a draft the moment they clicked,
+        with the sources there to change if they wanted to. I would argue for that as the starting
+        point, even in a smaller first form.
       </p>
 
       <h2>What was never measured</h2>
