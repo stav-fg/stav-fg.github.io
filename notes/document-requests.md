@@ -257,3 +257,29 @@ the project as genuinely complex rather than a field being populated.
 **Conclusion:** PDF export from Figma is the only practical route, and it is a two-minute action
 per file. Downloading the `.fig` files locally would add the thumbnail and any embedded raster
 assets and nothing else, because the vector UI stays locked without zstd.
+
+---
+
+## Received 23 September, from Stav
+
+Five documents in Drive. Their contents stay out of this repo: they name customers and colleagues.
+
+- **MSJ design and research record.** Settles the MSJ question. MSJ is an in-product feature
+  discovery and adoption tool for Service Cloud admins. Stav co-designed it as an equal partner
+  with a principal designer, October 2023 to November 2024. It has a 13-participant moderated
+  concept evaluation whose findings map to shipped decisions (entitlement lock icon, branded
+  feature names, recommendations held back until personal), plus post-launch adoption numbers.
+  No study of the gamification concept exists. Take that as settled.
+- **Enhanced Summaries usability test.** Her own unmoderated study, 10 participants, October 2025,
+  two save/post workflows compared. The only task-based usability test in the whole body of work.
+  Makes Summaries a real case study candidate, not a reserve.
+- **UserTesting metrics export** behind the study above.
+- **Project handoff brief.** Users, before-state, ownership split, hardest decision and first
+  mistake for KGER, RTC, A3, MSJ and Service Catalog. Also shows the agentic email reply design is
+  hers, as KGER's successor.
+- **Adoption and metrics research.** KGER accept and edit rates were never instrumented, by design,
+  so they cannot be requested. Customer-facing RTC usage numbers are a known telemetry bug. No
+  CSAT or NPS exists for any of these features. Stop asking for all three.
+
+Recommended line-up after this: RTC, KGER with the agentic successor folded in, A3 Registry, MSJ,
+Enhanced Summaries. Email Reply Automation stops being a separate study. Service Catalog stays out.
