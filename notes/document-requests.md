@@ -302,3 +302,8 @@ MISSING FILES (email reply, A3, Enhanced Summaries). Use them uncropped: Stav ch
 A3 "Item Label" navigation, the "Faculties" column and the admin typo as they are. The open text
 gaps are listed as "Text updates on Figma" at the top of the screen-text doc
 (https://claude.ai/code/artifact/734553cd-cd4b-45e3-a43b-0f9e7769f479), parked on purpose.
+
+**Confirmed by Stav, 24 September:** drafts from her one-click email design are not counted as
+MKGER on the usage dashboard. So neither the KGER nor the MKGER usage figures measure her version.
+Do not use them as results for the email reply case study; at most they describe the earlier
+versions she inherited.
