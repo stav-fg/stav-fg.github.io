@@ -296,3 +296,9 @@ are internal Salesforce data, so they are deliberately not copied into this publ
 to know before using them: every chart shows zero until tracking began (about February 2026), and
 that ramp is not adoption growth. And for Enhanced Summaries, count summaries generated, not
 configuration views.
+
+**Screens, 24 September.** Re-exported screens with real text are in Stav's Drive under
+MISSING FILES (email reply, A3, Enhanced Summaries). Use them uncropped: Stav chose to leave the
+A3 "Item Label" navigation, the "Faculties" column and the admin typo as they are. The open text
+gaps are listed as "Text updates on Figma" at the top of the screen-text doc
+(https://claude.ai/code/artifact/734553cd-cd4b-45e3-a43b-0f9e7769f479), parked on purpose.
