@@ -307,3 +307,8 @@ gaps are listed as "Text updates on Figma" at the top of the screen-text doc
 MKGER on the usage dashboard. So neither the KGER nor the MKGER usage figures measure her version.
 Do not use them as results for the email reply case study; at most they describe the earlier
 versions she inherited.
+
+**Confirmed by Stav, 24 September:**
+- Enhanced Summaries shipped the **two-step** design (save, then separate Post to Comments / Post
+  to Feed buttons), although the October 2025 test leaned toward single action.
+- A3 Registry: **Revert to Default has not shipped yet.** Describe it as designed, not released.
