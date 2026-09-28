@@ -312,3 +312,12 @@ versions she inherited.
 - Enhanced Summaries shipped the **two-step** design (save, then separate Post to Comments / Post
   to Feed buttons), although the October 2025 test leaned toward single action.
 - A3 Registry: **Revert to Default has not shipped yet.** Describe it as designed, not released.
+
+**MSJ screens received 28 September.** 34 frames in Stav's Drive, in six flows: Entrance and
+Onboarding (8), Capabilities Navigator (8, including the lock icons, the "56 capabilities are
+available with other editions" line and the Capability Details panel), Gen Search (8), Contact AE
+(4), Feedback (6) and Completion Tracking (2: the My Progress panel with status breakdown and the
+"Don't Miss Out" upgrade list). The one-pager is the first frame of the Contact AE and Feedback
+flows. The UI says "My Salesforce Journey", the later multi-cloud name. Some one-pager and
+details-panel text is still placeholder; parked with the other Figma text gaps. All essential
+Salesforce files are now in.
