@@ -321,3 +321,9 @@ available with other editions" line and the Capability Details panel), Gen Searc
 flows. The UI says "My Salesforce Journey", the later multi-cloud name. Some one-pager and
 details-panel text is still placeholder; parked with the other Figma text gaps. All essential
 Salesforce files are now in.
+
+**MSJ screens final, 30 September.** Stav re-exported all 34 MSJ frames with real text (MSJ
+screen-text doc: https://claude.ai/code/artifact/8c6df803-fa41-4666-938b-b6ba52c0880c). The header
+now reads "My Service Journey". Left as is by choice: the one-pager tags (Einstein, New, Pilot)
+and its "Included In: Einstein 1" line. Every screen set is now final: RTC, email reply, A3,
+Enhanced Summaries and MSJ.
