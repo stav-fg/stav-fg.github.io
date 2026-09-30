@@ -128,7 +128,6 @@ SHOTS = [
      "record-page", None),
     ("1790246615630__CSR_4_-_draft_generated.pdf", "service-reply-email", "draft", None),
     ("1790246598569__CSR_5_-_manage_sources.png", "service-reply-email", "manage-sources", None),
-    ("1790236952059__Admin_3_-_Select_ADL.png", "service-reply-email", "admin-setup", None),
 ]
 
 
