@@ -361,3 +361,31 @@ figure.shot figcaption { max-width: 40rem; }
 /* The project's cover, under the title and facts, so a case study opens on the work. */
 .case-cover { margin: var(--s-4) 0 0; border-radius: 14px; overflow: hidden; background: var(--ground-sunk); }
 .case-cover img { width: 100%; }
+
+/* --- layout v2 ----------------------------------------------------
+   One centred reading column, wide enough to fill the page at desktop
+   sizes, with screens running the full width of the shell. The earlier
+   left-pinned 34rem column left half of every page empty. */
+
+:root { --measure: 46rem; --t-body: 1.125rem; }
+
+.prose { max-width: var(--measure); margin-inline: auto; }
+.lead  { max-width: var(--measure); }
+
+.case-head > .eyebrow,
+.case-head > h1,
+.case-head > .lead { max-width: var(--measure); margin-inline: auto; }
+.case-head h1 { max-width: var(--measure); }
+
+figure { max-width: 64rem; margin-inline: auto; }
+figure.shot { max-width: none; margin-inline: 0; }
+figure.shot figcaption,
+figure figcaption { max-width: var(--measure); margin-inline: auto; }
+.shot-pair { max-width: none; }
+.shot-pair figure.shot figcaption { max-width: none; }
+
+.hero h1 { max-width: 24ch; }
+.hero .lead { max-width: 52rem; }
+/* Dense enterprise screens need the full width to be legible, so pairs stack. */
+@media (min-width: 46rem) { .shot-pair { grid-template-columns: 1fr; gap: var(--s-5); } }
+.shot-pair figure.shot figcaption { max-width: var(--measure); margin-inline: auto; }

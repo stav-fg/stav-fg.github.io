@@ -62,7 +62,7 @@ def cover(src, box, bg, out, inset=(150, 130), width=1450, bleed=True):
         x, y = inset
         scale = max(width / shot.width, (COVER_H - y + 40) / shot.height)
     else:
-        scale = min(1300 / shot.width, 820 / shot.height)
+        scale = min(1440 / shot.width, 880 / shot.height)
     shot = shot.resize((round(shot.width * scale), round(shot.height * scale)), Image.LANCZOS)
     if not bleed:
         x, y = (COVER_W - shot.width) // 2, (COVER_H - shot.height) // 2
@@ -107,14 +107,13 @@ SAND = (242, 236, 226)
 SAGE = (228, 237, 230)
 
 COVERS = [
-    # slug, source, crop box, tint
-    ("real-time-classification", "1790758226522__19_-_Config_Rec9ord_Page_-_Models_&_Training.png",
-     (0.14, 0.305, 0.99, 0.83), LAVENDER),
-    ("service-reply-email", "1790246598569__CSR_5_-_manage_sources.png",
-     (0.185, 0.075, 0.83, 0.79), MIST),
+    # slug, source, crop box, tint, bleed. Whole screens, centred: a crop of a
+    # dense enterprise screen reads as a broken fragment at card size.
+    ("real-time-classification", "1790758224692__11_-_Modal__Step_4.png", (0, 0, 1, 1), LAVENDER, False),
+    ("service-reply-email", "1790246615630__CSR_4_-_draft_generated.pdf", (0, 0, 1, 1), MIST, False),
     ("aircraft-maintenance", ROOT / "assets/aircraft-maintenance/07-dK68mPKG46idV92eG6J9X7.jpg",
-     (0.0, 0.0, 1.0, 1.0), SAND),
-    ("founding-a-design-function", "aerial-defense-ellipses.svg", (0.0, 0.0, 1.0, 1.0), SAGE, False),
+     (0, 0, 1, 1), SAND, False),
+    ("founding-a-design-function", "aerial-defense-ellipses.svg", (0, 0, 1, 1), SAGE, False),
 ]
 
 SHOTS = [
