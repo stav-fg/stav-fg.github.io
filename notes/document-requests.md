@@ -327,3 +327,7 @@ screen-text doc: https://claude.ai/code/artifact/8c6df803-fa41-4666-938b-b6ba52c
 now reads "My Service Journey". Left as is by choice: the one-pager tags (Einstein, New, Pilot)
 and its "Included In: Einstein 1" line. Every screen set is now final: RTC, email reply, A3,
 Enhanced Summaries and MSJ.
+
+**Usage numbers on the site, decided by Stav 30 September:** no specific figures. Say
+"thousands" (for example "used by thousands of reps every month"), never a count like 3,000 or
+10.9K. Growth can be described in words, not as a number.
