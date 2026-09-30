@@ -305,3 +305,59 @@ ul.tight li + li { margin-top: var(--s-1); }
   padding: .15em .45em;
   white-space: nowrap;
 }
+
+/* --- work grid: image cards --------------------------------------
+   The index leads with the work itself. Each card is a real screen from
+   the project, set on a soft tint (tools/prepare_images.py), so the page
+   reads as one set and the first thing a reviewer sees is shipped UI. */
+
+.work-grid {
+  display: grid;
+  gap: var(--s-5) var(--s-4);
+  margin-top: var(--s-4);
+}
+@media (min-width: 52rem) {
+  .work-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.card { display: grid; gap: var(--s-3); text-decoration: none; align-content: start; }
+
+.card-media {
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--ground-sunk);
+  aspect-ratio: 16 / 10;
+}
+.card-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 420ms cubic-bezier(.2,.7,.2,1);
+}
+.card:hover .card-media img { transform: scale(1.025); }
+
+.card-body { display: grid; gap: var(--s-1); max-width: 34rem; }
+.card-meta { font-size: var(--t-small); color: var(--ink-faint); }
+.card h3 { font-size: var(--t-h3); transition: color 140ms ease; }
+.card:hover h3 { color: var(--accent); }
+.card-blurb { font-size: var(--t-small); color: var(--ink-soft); line-height: 1.6; }
+
+/* --- screens inside a case study ----------------------------------
+   Screens are the evidence, so they run wider than the text column. */
+
+figure.shot { margin: var(--s-5) 0; max-width: 60rem; }
+figure.shot img {
+  width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--ground-sunk);
+  box-shadow: 0 1px 2px rgb(20 18 30 / 4%), 0 12px 32px -12px rgb(20 18 30 / 14%);
+}
+figure.shot figcaption { max-width: 40rem; }
+
+.shot-pair { display: grid; gap: var(--s-3); max-width: 60rem; margin: var(--s-5) 0; }
+@media (min-width: 46rem) { .shot-pair { grid-template-columns: 1fr 1fr; } }
+.shot-pair figure.shot { margin: 0; }
+
+/* The project's cover, under the title and facts, so a case study opens on the work. */
+.case-cover { margin: var(--s-4) 0 0; border-radius: 14px; overflow: hidden; background: var(--ground-sunk); }
+.case-cover img { width: 100%; }

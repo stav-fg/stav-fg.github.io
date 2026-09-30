@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;620&display=swap">
-<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/site.css?v=2">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -60,6 +60,9 @@
       <div><dt>Users</dt><dd>Service admins, and the reps living with the result</dd></div>
       <div><dt>Dates</dt><dd>2025–2026</dd></div>
     </dl>
+    <figure class="case-cover">
+      <img src="../assets/covers/real-time-classification.jpg" width="1600" height="1000" alt="The model configuration page, with the two confidence threshold sliders and their accuracy and coverage.">
+    </figure>
   </div>
 
   <section>
@@ -138,6 +141,20 @@
           draft or start training.
         </li>
       </ul>
+    </div>
+    <div class="shot-pair">
+      <figure class="shot">
+        <img src="../assets/real-time-classification/input-fields.jpg" width="1600" height="903" loading="lazy"
+             alt="Step three of the setup modal: a list of the object's text fields, with Subject, Description, Priority and Case Reason selected as inputs.">
+        <figcaption>Step three. The admin picks up to ten text fields to learn from. Their knowledge of which fields carry the customer's problem beats any default.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/real-time-classification/review.jpg" width="1600" height="1036" loading="lazy"
+             alt="Step five: a review of every choice, with properties, prediction fields, input fields, the filters applied and a live count of matching records.">
+        <figcaption>Step five. Everything on one page before anything runs, including the record count against the thirty-thousand line.</figcaption>
+      </figure>
+    </div>
+    <div class="prose">
 
       <h2>The training-data step carries the whole feature</h2>
       <p>
@@ -157,6 +174,14 @@
         where accuracy becomes reliable. So the admin is not filtering blind and then discovering
         the problem after a training run. They watch the number cross the line, or fail to.
       </p>
+
+    </div>
+    <figure class="shot">
+      <img src="../assets/real-time-classification/training-data.jpg" width="1600" height="959" loading="lazy"
+           alt="Step four, training data: three routes (all records, filtered records, or metadata instead of history), a condition builder, a green line confirming 140,000 matching records, and an estimate of data processed and credits per retrain.">
+      <figcaption>The training-data step. The third route is for the admin whose honest answer is that their history is not good. The record count and the cost estimate sit next to the choice they describe.</figcaption>
+    </figure>
+    <div class="prose">
       <p>
         The same panel estimates what the run will cost, in data processed and in credits, with a
         sentence explaining how the metering works. Cost is part of the decision. Putting it two
@@ -182,6 +207,14 @@
         against a held-out set of recent cases, and the admin sees the accuracy and the coverage it
         would get at each threshold value. Moving the line shows what it costs.
       </p>
+
+    </div>
+    <figure class="shot">
+      <img src="../assets/real-time-classification/thresholds.jpg" width="1600" height="452" loading="lazy"
+           alt="Two confidence threshold sliders on the model page, one for filling a field automatically and one for recommending values to a rep, each with average accuracy and coverage beside it.">
+      <figcaption>The two thresholds as the admin sets them. Each slider has its accuracy and coverage next to it, so moving the line shows what the admin gains and what they give up.</figcaption>
+    </figure>
+    <div class="prose">
       <p>
         The loudest complaint from the beta pilot was that automation still needed custom code. In
         the next version it is set up entirely in clicks, down to the assignment rules that route a
@@ -265,6 +298,14 @@
         coverage sit in the header, and four tabs hold the rest: configuration details, models and
         training, optimisation, and performance.
       </p>
+
+    </div>
+    <figure class="shot">
+      <img src="../assets/real-time-classification/record-page.jpg" width="1600" height="1084" loading="lazy"
+           alt="The classification configuration record page: a header with status, threshold, accuracy and coverage, a four-step path, and details, prediction fields and input fields below.">
+      <figcaption>The configuration as a record. Status, threshold, accuracy and coverage in the header; the path across the top is the order an admin works through it.</figcaption>
+    </figure>
+    <div class="prose">
       <p>
         Accuracy and coverage are reported per predicted field rather than as one number for the
         model. A model can be strong on Priority and weak on Case Reason. Averaging those into a
