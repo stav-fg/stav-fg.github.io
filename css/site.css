@@ -227,3 +227,49 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
 main > .shell > section { padding-block: var(--s-4) var(--s-6); }
 
 .tag { display: inline-block; vertical-align: middle; margin-left: .5em; font-family: var(--face-mono); font-size: .62rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); background: var(--band-lavender); border-radius: 3px; padding: .15em .45em; }
+
+/* --- home v2: device-frame cards, photo, footer divider -------------
+   As in Figma: the card shows the top part of one screen, zoomed in,
+   inside a plain white device with a thick bezel, running off the
+   bottom edge of the card. */
+
+.poster { display: flex; flex-direction: column; }
+.poster .desc { margin-top: var(--s-2); font-size: 1rem; line-height: 1.5; color: var(--ink-soft); max-width: 30rem; }
+.poster .more { margin-top: var(--s-2); font-size: var(--t-small); font-weight: 600; color: var(--ink); }
+.poster:hover .more { color: var(--accent); }
+.poster .device {
+  position: relative; display: block;
+  margin-top: var(--s-4);
+  margin-bottom: calc(-1 * clamp(1.5rem, 3vw, 2.5rem) - 3rem);
+  width: 86%;
+  flex: 1 1 auto;
+  min-height: 12rem;
+  background: var(--white);
+  border-radius: 30px 30px 0 0;
+  padding: 14px 14px 0;
+  box-shadow: 0 20px 50px -6px rgb(30 26 50 / 14%);
+  overflow: hidden;
+  transition: transform 420ms cubic-bezier(.2,.7,.2,1);
+}
+.poster .device img {
+  position: static; width: 100%; height: 100%;
+  object-fit: cover; object-position: top left;
+  border-radius: 16px 16px 0 0;
+  border: 1px solid #eeedf2; border-bottom: 0;
+  box-shadow: none; transform: none;
+}
+.poster:hover .device { transform: translateY(-6px); }
+.poster:hover img { transform: none; }
+
+.photo {
+  width: 120px; height: 120px; border-radius: 50%;
+  background: var(--band-lavender);
+  border: 1.5px dashed var(--accent-on-dark);
+  display: grid; place-items: center;
+  color: var(--accent); font-size: var(--t-label); font-weight: 500;
+  margin-bottom: var(--s-4);
+}
+
+.site-foot { border-top: 1px solid var(--rule); }
+/* On a phone the fixed card shape leaves no room for the device, so the card grows instead. */
+@media (max-width: 51.99rem) { .poster { aspect-ratio: auto; min-height: 34rem; } }

@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 FONTS = ('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600'
          '&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap')
-CSS_VERSION = "4"
+CSS_VERSION = "6"
 
 # Order is the order on the home page; "next" follows it round.
 CASES = [
