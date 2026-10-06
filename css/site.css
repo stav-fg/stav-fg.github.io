@@ -228,7 +228,7 @@ main > .shell > section { padding-block: var(--s-4) var(--s-6); }
 
 .tag { display: inline-block; vertical-align: middle; margin-left: .5em; font-family: var(--face-mono); font-size: .62rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); background: var(--band-lavender); border-radius: 3px; padding: .15em .45em; }
 
-/* --- home v2: device-frame cards, photo, footer divider -------------
+/* --- home v2: device-frame cards, footer divider -------------
    As in Figma: the card shows the top part of one screen, zoomed in,
    inside a plain white device with a thick bezel, running off the
    bottom edge of the card. */
@@ -261,14 +261,6 @@ main > .shell > section { padding-block: var(--s-4) var(--s-6); }
 .poster:hover .device { transform: translateY(-6px); }
 .poster:hover img { transform: none; }
 
-.photo {
-  width: 120px; height: 120px; border-radius: 50%;
-  background: var(--band-lavender);
-  border: 1.5px dashed var(--accent-on-dark);
-  display: grid; place-items: center;
-  color: var(--accent); font-size: var(--t-label); font-weight: 500;
-  margin-bottom: var(--s-4);
-}
 
 .site-foot { border-top: 1px solid var(--rule); }
 /* On a phone the fixed card shape leaves no room for the device, so the card grows instead. */
