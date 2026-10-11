@@ -6,7 +6,8 @@ Two outputs, both driven by the manifest at the bottom of this file:
            soft tinted panel with rounded corners and a shadow, bleeding off the
            bottom-right edge. Every project uses the same recipe so the index reads
            as one set.
-  shots    assets/<slug>/<name>.jpg, at most 1600 px wide, for the case study pages.
+  shots    private/assets/<slug>/<name>.jpg, at most 1600 px wide, for the case study pages.
+           They are encrypted into assets/locked/ by tools/lock_cases.py, never published as is.
 
 Sources live in source-material/, which is gitignored: the raw exports never enter
 the public repo, only these resized copies do. PDFs are rendered at 2x with pymupdf,
@@ -92,7 +93,7 @@ def shot(src, slug, name, box=None):
         im = crop_frac(im, box)
     if im.width > SHOT_MAX_W:
         im = im.resize((SHOT_MAX_W, round(im.height * SHOT_MAX_W / im.width)), Image.LANCZOS)
-    out = ROOT / "assets" / slug / f"{name}.jpg"
+    out = ROOT / "private" / "assets" / slug / f"{name}.jpg"
     out.parent.mkdir(parents=True, exist_ok=True)
     im.save(out, quality=85, optimize=True, progressive=True)
     return out
@@ -135,7 +136,7 @@ SHOTS = [
 CARDS = [
     ("service-reply-email", "1790246598569__CSR_5_-_manage_sources.png", (0.186, 0.088, 0.66, 0.62)),
     ("real-time-classification", "1790758224692__11_-_Modal__Step_4.png", (0.035, 0.05, 0.62, 0.56)),
-    ("aircraft-maintenance", ROOT / "assets/aircraft-maintenance/07-dK68mPKG46idV92eG6J9X7.jpg",
+    ("aircraft-maintenance", ROOT / "private/assets/aircraft-maintenance/07-dK68mPKG46idV92eG6J9X7.jpg",
      (0.03, 0.075, 0.62, 0.52)),
     ("founding-a-design-function", ROOT / "source-material/aerial-diagram.png", (0.5, 0.04, 1.0, 0.96)),
 ]
@@ -154,7 +155,6 @@ def card(slug, src, box):
 if __name__ == "__main__":
     for slug, src, box in CARDS:
         print(card(slug, src, box).relative_to(ROOT))
-    for slug, src, box, bg, *rest in COVERS:
-        print(cover(src, box, bg, slug, bleed=rest[0] if rest else True).relative_to(ROOT))
+    # Covers are no longer published: they showed whole screens from the locked case studies.
     for src, slug, name, box in SHOTS:
         print(shot(src, slug, name, box).relative_to(ROOT))

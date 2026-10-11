@@ -32,3 +32,8 @@ env/
 # Archives of source material. A zip at the repo root is not covered by
 # source-material/, so one `git add -A` would publish it. Never commit these.
 *.zip
+
+# Plaintext case studies and their images. The published work/*.html pages are built from these
+# by tools/lock_cases.py and carry only ciphertext, because this repo is public. Never commit.
+# The passwords live in private/passwords.json for the same reason.
+private/

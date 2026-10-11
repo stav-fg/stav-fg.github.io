@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="noindex, nofollow" name="robots"/>
-<!-- Not launched yet. Remove this tag and robots.txt on go-live day.
-     Until then, being indexed under her real name is all downside: the
-     copy is not yet in her voice and the screens are not placed. -->
-<title>One click, and the reasoning underneath it — Stav Fisher Gross</title>
-<meta content="The fourth version of an AI email reply feature in Salesforce Service Cloud: one click finds every question in a customer's email and drafts the answer, with the reasoning a second click away." name="description"/>
+<title>AI Email Reply · Stav Fisher Gross</title>
+<meta content="One click drafts a reply to every question in a customer&#x27;s email." name="description"/>
 <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="https://stav-fg.github.io/work/service-reply-email.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="Stav Fisher Gross" property="og:site_name"/>
-<meta content="One click, and the reasoning underneath it — Stav Fisher Gross" property="og:title"/>
-<meta content="The fourth version of an AI email reply feature in Salesforce Service Cloud: one click finds every question in a customer's email and drafts the answer, with the reasoning a second click away." property="og:description"/>
+<meta content="AI Email Reply · Stav Fisher Gross" property="og:title"/>
+<meta content="One click drafts a reply to every question in a customer&#x27;s email." property="og:description"/>
 <meta content="https://stav-fg.github.io/work/service-reply-email.html" property="og:url"/>
 <meta content="https://stav-fg.github.io/assets/og-card.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="Stav Fisher Gross, Product Design Lead. Fourteen years making complicated software behave." property="og:image:alt"/>
+<meta content="Stav Fisher Gross, Product Design Lead" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <link href="../apple-touch-icon.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=6" rel="stylesheet"/>
+<link href="../css/site.css?v=7" rel="stylesheet"/>
+<script defer src="../js/unlock.js?v=1"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -42,183 +39,34 @@
 </div>
 <main id="main">
 <header class="case-hero" style="--tint: var(--tint-email)">
-<p class="meta">Salesforce · Service Cloud · 2025–2026</p>
-<h1>One click, and the reasoning underneath it</h1>
-<p class="lead">The fourth version of an email reply feature, and the one I designed.</p>
-<div class="hero-shot"><img alt="" src="../assets/service-reply-email/draft.jpg"/></div>
+<div class="band-inner">
+<p class="meta">Salesforce · Service Cloud · 2025-2026</p>
+<h1>AI Email Reply</h1>
+<p class="lead">One click drafts a reply to every question in a customer&#x27;s email.</p>
+<form class="gate" data-slug="service-reply-email" autocomplete="off">
+<label for="pw">This case study is password protected.</label>
+<div class="gate-row">
+<input id="pw" name="pw" type="password" placeholder="Password" required/>
+<button type="submit">View case study</button>
+</div>
+<p class="gate-msg" role="status" aria-live="polite"></p>
+<p class="gate-ask">Don't have it? Email <a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a>.</p>
+</form>
+</div>
 </header>
-<section class="band band--white">
-<div class="band-inner overview">
-<div>
-<p class="label">Overview</p>
-<p class="lead">A customer writes in with three questions. Over four versions, the feature that helps a support
-      rep answer them went from a fixed prompt, to articles the rep had to find, to a single click.
-      A colleague designed the first three while I was on maternity leave. I designed the fourth: one
-      click finds every question in the email, matches each to a knowledge article and drafts the
-      whole reply, and a second click shows the rep exactly what the system understood.</p>
-</div>
-<dl class="facts">
-<div><dt>Role</dt><dd>Product designer for the fourth version. One-click drafting, managing intents and sources, admin setup.</dd></div>
-<div><dt>Company</dt><dd>Salesforce, Service Cloud</dd></div>
-<div><dt>Users</dt><dd>Support reps answering email, and the admins who turn it on</dd></div>
-<div><dt>Dates</dt><dd>2025–2026</dd></div>
-</dl>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>Three versions before mine</h2><p>
-        Each version moved one more decision from the rep to the system. I came back from leave to the
-        third.
-      </p><h3>1. A fixed prompt</h3><p>
-        The rep clicked, and the model drafted a reply from a standard prompt and the case details.
-        Quick, with nothing to draw on beyond the case itself.
-      </p><h3>2. One article</h3><p>
-        The rep picked a knowledge article, and the draft drew on it as well as the case. Replies were
-        now grounded in the company's own answers. Finding the right article became the rep's job.
-      </p><h3>3. Several articles</h3><p>
-        The rep could pick more than one article, which made room for emails that asked more than one
-        thing. It also meant more searching, one article for every question.
-      </p><p>
-        By the third version the drafting was good and the work around it had grown. On an email with
-        three questions, the rep read the thread, worked out what was being asked and searched for an
-        article per question, all before the system wrote a word. If they missed a question, the
-        draft missed it too, and nothing in it said so. Whether that got caught came down to how
-        carefully the rep read, and in practice to how long they had been in the job.
-      </p></div>
-</div>
-</section>
-<section class="band band--white">
-<div class="band-inner">
-<div class="prose"><h2>Who was reading the draft</h2><p>
-        A support rep working several cases at once, measured on how quickly they close them and on
-        whether the customer has to write back. Fluent in the console. Not someone who writes
-        prompts, and not someone with time to.
-      </p></div>
-</div>
-</section>
-<section class="band band--dark">
-<div class="band-inner">
-<p class="label">The principle</p>
-<p class="statement">Reps will not trust a draft they cannot check quickly.</p>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>One click to a draft</h2><p>
-        My version does the splitting for the rep, with no prompt to choose and no article to find.
-        The system reads the email, finds up to
-        three separate intents and scores its confidence in each. It searches the knowledge base once
-        per intent, then writes a single reply that covers all of them. The rep sees the draft, and a
-        count of the sources behind it.
-      </p></div>
-<figure class="shot">
-<img alt="The Service Console with a generated reply to a customer whose split payment was declined. The draft explains the decline and how to fix it, with Regenerate, Revise and Manage Sources below it." height="900" loading="lazy" src="../assets/service-reply-email/draft.jpg" width="1600"/>
-<figcaption>One click to a draft. The reply covers each question in the customer's email, and Manage Sources sits under the draft for when the rep wants to check it.</figcaption>
-</figure>
-<div class="prose"><p>
-        We tried giving each intent its own draft button and dropped it. A rep answering a customer
-        wants one reply to send. Three partial replies to stitch together is the old job with extra
-        steps.
-      </p><p>
-        Nothing sends by itself. The rep always clicks to generate and always sends the reply
-        themselves. Product held that line firmly, partly to keep model costs predictable, and it
-        suited the design: the person who signs the email stays the person who decides to send it.
-      </p></div>
-</div>
-</section>
-<section class="band band--white">
-<div class="band-inner">
-<div class="prose"><h2>The reasoning, one click down</h2><p>
-        Most drafts do not need checking. Some do, and for those the rep needs to see what the system
-        thought the customer was asking before putting their name on the answer.
-      </p><p>
-        A second click opens that view. Each detected intent sits on its own row with its confidence,
-        a checkbox for whether it is in the draft, and the article it drew on. A rep can untick an
-        intent the system got wrong, swap the article for a better one, or put everything back the way
-        the system had it. The draft updates as they go.
-      </p></div>
-<figure class="shot">
-<img alt="The Manage Sources window: three detected intents on the left, and for the billing intent a switch to include it in the draft, with two recommended articles and their relevance scores." height="898" loading="lazy" src="../assets/service-reply-email/manage-sources.jpg" width="1600"/>
-<figcaption>The second click. Each intent the system found, whether it is in the draft, and the articles behind it. Save and Regenerate Draft applies the rep's changes.</figcaption>
-</figure>
-<div class="prose"><p>
-        Keeping this behind a click was deliberate. On the main surface a rep needs the draft and very
-        little else, and every extra control there costs attention on every email that was already
-        fine. The sources appear when the rep asks for them.
-      </p><p>
-        Showing which article belongs to which intent took a few rounds. Filter tiles looked like fixed
-        categories, but the intents change with every email, and controls that look permanent over
-        data that is different each time would have confused people. A row of toggle buttons had the
-        same problem in less space. Where it landed is simpler: a short intent label beside each
-        article title, which an admin can switch off.
-      </p></div>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>When the model is wrong</h2><p>
-        Every recovery is a single step. A wrong intent gets unticked, and a weak source gets replaced
-        from a search. If a rep has made things worse, they restore the default.
-      </p><p>
-        When the system finds no intent at all, it says so and the rep writes the reply themselves.
-        Failures are split by cause, so a setup mistake, a permissions problem, a temporary outage and
-        a response the model got wrong each look different to the rep. If the problem is
-        configuration, the rep is told it is configuration. An empty reply with no explanation only
-        teaches them that the feature is unreliable.
-      </p></div>
-</div>
-</section>
-<section class="band band--white">
-<div class="band-inner">
-<div class="prose"><h2>Setting it up</h2><p>
-        Admins switch it on for their org, and it starts off. They choose which email domains it is
-        trusted to answer, and how many intents it may pull out of a single email: three by default,
-        up to five.
-      </p></div>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>What came next</h2><p>
-        The larger question was whether to keep extending a fixed pipeline that detects, searches and
-        drafts, or to rebuild the whole thing as an agent that decides its own steps. We kept the
-        pipeline for now, and I designed the agent-based version alongside it so that the move would
-        not start from nothing.
-      </p></div>
-</div>
-</section>
-<section class="band band--white">
-<div class="band-inner">
-<div class="prose"><h2>What I would do differently</h2><p>
-        Get to one click sooner. Choosing articles by hand came first because it was quicker to build,
-        and it lasted two versions. What reps needed all along was a draft the moment they clicked,
-        with the sources there to change if they wanted to. I would argue for that as the starting
-        point, even in a smaller first form.
-      </p></div>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>What was never measured</h2><p>
-        We never tracked how often reps sent a draft unchanged, or how much they edited it first. The
-        draft text is not stored, for privacy reasons, so there is nothing to compare the sent email
-        against.
-      </p></div>
-</div>
-</section>
+<script type="application/json" id="locked">{"salt": "aMumARDPRgMukXL468RzyA==", "rounds": 250000, "data": "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"}</script>
 <section class="band band--grey next">
 <a href="/work/real-time-classification.html">
 <span class="label">Next case study</span><br/>
-<span class="title">Teaching a case to fill itself in →</span>
+<span class="title">Real-Time Classification →</span>
 </a>
 </section>
 </main>
-
 <footer class="site-foot" id="contact">
 <div class="shell">
 <h2>Let's talk</h2>
 <p><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a> · <a href="https://linkedin.com/in/stav-bsh">LinkedIn</a> · Tel Aviv, Israel</p>
 </div>
-</footer></body>
+</footer>
+</body>
 </html>

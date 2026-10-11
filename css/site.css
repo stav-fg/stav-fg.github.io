@@ -176,19 +176,42 @@ ul.tight li + li { margin-top: var(--s-1); }
 .band-inner > * + * { margin-top: var(--s-4); }
 .band h2 { margin-bottom: var(--s-1); }
 
-.case-hero { background: var(--tint, var(--band-lavender)); text-align: center; padding: var(--s-5) var(--gutter) 0; overflow: hidden; }
+/* Hero: text on the left edge of the reading column, and the screen starting at that same edge
+   and running off the right and bottom of the band, as on the home cards. */
+.case-hero { background: var(--tint, var(--band-lavender)); padding-top: var(--s-6); overflow: hidden; }
 .case-hero .meta { font-size: var(--t-label); font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
-.case-hero h1 { margin: var(--s-2) auto 0; max-width: 18ch; }
-.case-hero .lead { margin: var(--s-3) auto 0; max-width: 40rem; }
+.case-hero h1 { margin-top: var(--s-2); max-width: 20ch; }
+.case-hero .lead { margin-top: var(--s-3); max-width: 40rem; }
 .case-hero .hero-shot {
-  width: 100%; max-width: var(--wide);
-  margin: var(--s-5) auto 0;
-  max-height: clamp(14rem, 34vw, 30rem);
+  /* half the column plus half the viewport reaches the right edge of the screen */
+  width: calc(50% + 50vw);
+  margin-top: var(--s-5);
+  max-height: clamp(16rem, 38vw, 34rem);
   overflow: hidden;
-  border-radius: 14px 14px 0 0;
-  box-shadow: 0 20px 50px -12px rgb(30 26 50 / 18%);
+  background: var(--white);
+  padding: 14px 0 0 14px;
+  border-radius: 28px 0 0 0;
+  box-shadow: 0 20px 50px -8px rgb(30 26 50 / 16%);
 }
-.case-hero .hero-shot img { width: 100%; }
+.case-hero .hero-shot img { width: 100%; max-width: none; border-radius: 14px 0 0 0; border: 1px solid #eeedf2; border-right: 0; border-bottom: 0; }
+
+/* The password form, shown until the page is unlocked. */
+.gate { margin: var(--s-5) 0 var(--s-6); max-width: 32rem; }
+.gate label { display: block; font-size: var(--t-small); color: var(--ink-soft); margin-bottom: var(--s-2); }
+.gate-row { display: flex; gap: var(--s-1); flex-wrap: wrap; }
+.gate input {
+  flex: 1 1 14rem; min-width: 0; font: inherit; font-size: 1rem; padding: .8rem 1rem;
+  border: 1px solid var(--rule); border-radius: 10px; background: var(--white); color: var(--ink);
+}
+.gate input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.gate button {
+  font: inherit; font-size: 1rem; font-weight: 600; padding: .8rem 1.3rem; cursor: pointer;
+  border: 0; border-radius: 10px; background: var(--ink); color: var(--white);
+}
+.gate button:hover { background: var(--accent); }
+.gate button:disabled { opacity: .6; cursor: progress; }
+.gate-msg { min-height: 1.5em; margin-top: var(--s-1); font-size: var(--t-small); color: var(--ink); }
+.gate-ask { font-size: var(--t-small); color: var(--ink-faint); }
 
 .overview { display: grid; gap: var(--s-4); }
 @media (min-width: 56rem) { .overview { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--s-6); } }
@@ -211,6 +234,7 @@ ul.tight li + li { margin-top: var(--s-1); }
 figure { margin: 0; }
 figure img { width: 100%; border-radius: 14px; border: 1px solid var(--rule); background: var(--white); box-shadow: 0 20px 50px -14px rgb(30 26 50 / 16%); }
 figure svg { border-radius: 14px; }
+figcaption strong { color: var(--ink); font-weight: 600; }
 figcaption { font-size: var(--t-small); color: var(--ink-faint); line-height: 1.5; margin-top: var(--s-2); max-width: 46rem; }
 .shot-pair { display: grid; gap: var(--s-4); }
 
@@ -241,12 +265,12 @@ main > .shell > section { padding-block: var(--s-4) var(--s-6); }
   position: relative; display: block;
   margin-top: var(--s-4);
   margin-bottom: calc(-1 * clamp(1.5rem, 3vw, 2.5rem) - 3rem);
-  width: 86%;
+  margin-right: calc(-1 * clamp(1.5rem, 3vw, 2.5rem) - 3rem);
   flex: 1 1 auto;
   min-height: 12rem;
   background: var(--white);
-  border-radius: 30px 30px 0 0;
-  padding: 14px 14px 0;
+  border-radius: 28px 0 0 0;
+  padding: 14px 0 0 14px;
   box-shadow: 0 20px 50px -6px rgb(30 26 50 / 14%);
   overflow: hidden;
   transition: transform 420ms cubic-bezier(.2,.7,.2,1);
@@ -254,8 +278,8 @@ main > .shell > section { padding-block: var(--s-4) var(--s-6); }
 .poster .device img {
   position: static; width: 100%; height: 100%;
   object-fit: cover; object-position: top left;
-  border-radius: 16px 16px 0 0;
-  border: 1px solid #eeedf2; border-bottom: 0;
+  border-radius: 14px 0 0 0;
+  border: 1px solid #eeedf2; border-right: 0; border-bottom: 0;
   box-shadow: none; transform: none;
 }
 .poster:hover .device { transform: translateY(-6px); }
@@ -265,3 +289,8 @@ main > .shell > section { padding-block: var(--s-4) var(--s-6); }
 .site-foot { border-top: 1px solid var(--rule); }
 /* On a phone the fixed card shape leaves no room for the device, so the card grows instead. */
 @media (max-width: 51.99rem) { .poster { aspect-ratio: auto; min-height: 34rem; } }
+
+/* Case study sections: the same four headings on every project. */
+.band h2 + .prose, .band h2 + figure { margin-top: var(--s-3); }
+.prose ul { padding-left: 1.15rem; margin: 0; }
+.prose li + li { margin-top: var(--s-1); }

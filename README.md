@@ -53,9 +53,10 @@ Committed, because it is the published website:
 index.html              work index and positioning
 about.html
 cv.html                 single column, print-styled
-work/                   one file per case study
+work/                   one file per case study, encrypted (built, do not edit by hand)
 css/site.css            the whole design system, tokenised on :root
-assets/                 web-sized imagery
+js/unlock.js            decrypts a case study in the browser once the password is right
+assets/                 web-sized imagery; assets/locked/ holds the encrypted case study images
 ```
 
 Also committed, because the working record belongs with the work:
@@ -69,7 +70,21 @@ Local only, never committed:
 
 ```
 source-material/        every input
+private/                plaintext case studies, their images and the passwords
 ```
+
+### Editing a case study
+
+Every case study is password protected, one password per project, because this repo is public and
+a form in front of plain HTML protects nothing. Edit the plaintext in `private/cases/<slug>.html`
+(images in `private/assets/<slug>/`), then rebuild:
+
+```
+env\Scripts\python tools\lock_cases.py
+```
+
+The passwords are in `private/passwords.json`. Lose `private/` and the published pages can still
+be decrypted with those passwords, but nothing else can recover them.
 
 ### What stays out, and why
 

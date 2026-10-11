@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="noindex, nofollow" name="robots"/>
-<!-- Not launched yet. Remove this tag and robots.txt on go-live day.
-     Until then, being indexed under her real name is all downside: the
-     copy is not yet in her voice and the outcome numbers are missing. -->
-<title>Teaching a case to fill itself in — Stav Fisher Gross</title>
-<meta content="Setup UX for a classification model inside Salesforce Service Cloud, where an admin who is not a data scientist has to decide whether to trust a model and how much of the work to hand it." name="description"/>
+<title>Real-Time Classification · Stav Fisher Gross</title>
+<meta content="A model that fills in a support case&#x27;s fields, set up by admins who have never trained one." name="description"/>
 <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="https://stav-fg.github.io/work/real-time-classification.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="Stav Fisher Gross" property="og:site_name"/>
-<meta content="Teaching a case to fill itself in — Stav Fisher Gross" property="og:title"/>
-<meta content="Setup UX for a classification model inside Salesforce Service Cloud, where an admin who is not a data scientist has to decide whether to trust a model and how much of the work to hand it." property="og:description"/>
+<meta content="Real-Time Classification · Stav Fisher Gross" property="og:title"/>
+<meta content="A model that fills in a support case&#x27;s fields, set up by admins who have never trained one." property="og:description"/>
 <meta content="https://stav-fg.github.io/work/real-time-classification.html" property="og:url"/>
 <meta content="https://stav-fg.github.io/assets/og-card.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="Stav Fisher Gross, Product Design Lead. Fourteen years making complicated software behave." property="og:image:alt"/>
+<meta content="Stav Fisher Gross, Product Design Lead" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <link href="../apple-touch-icon.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=6" rel="stylesheet"/>
+<link href="../css/site.css?v=7" rel="stylesheet"/>
+<script defer src="../js/unlock.js?v=1"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -42,294 +39,34 @@
 </div>
 <main id="main">
 <header class="case-hero" style="--tint: var(--tint-rtc)">
-<p class="meta">Salesforce · Service Cloud · 2025–2026</p>
-<h1>Teaching a case to fill itself in</h1>
-<p class="lead">An administrator who has never trained a model decides whether to trust one, and how much of the work to hand it.</p>
-<div class="hero-shot"><img alt="" src="../assets/real-time-classification/training-data.jpg"/></div>
+<div class="band-inner">
+<p class="meta">Salesforce · Service Cloud · 2025-2026</p>
+<h1>Real-Time Classification</h1>
+<p class="lead">A model that fills in a support case&#x27;s fields, set up by admins who have never trained one.</p>
+<form class="gate" data-slug="real-time-classification" autocomplete="off">
+<label for="pw">This case study is password protected.</label>
+<div class="gate-row">
+<input id="pw" name="pw" type="password" placeholder="Password" required/>
+<button type="submit">View case study</button>
+</div>
+<p class="gate-msg" role="status" aria-live="polite"></p>
+<p class="gate-ask">Don't have it? Email <a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a>.</p>
+</form>
+</div>
 </header>
-<section class="band band--white">
-<div class="band-inner overview">
-<div>
-<p class="label">Overview</p>
-<p class="lead">A support case arrives with its category, its reason and its priority all blank. Someone has
-      to fill those in, on every case, before the case can be routed. A model can do it. The design
-      problem is upstream of that: an administrator who has never trained a model has to decide
-      whether to trust it, and how much of the work to hand it.</p>
-</div>
-<dl class="facts">
-<div><dt>Role</dt><dd>Product designer. Setup flow, the rep experience, prototyping.</dd></div>
-<div><dt>Company</dt><dd>Salesforce, Service Cloud</dd></div>
-<div><dt>Users</dt><dd>Service admins, and the reps living with the result</dd></div>
-<div><dt>Dates</dt><dd>2025–2026</dd></div>
-</dl>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>Who ends up making the call</h2><p>
-        Classification itself is old. What changed is who gets to set it up. This runs inside the
-        admin console, so the person configuring it is a Salesforce administrator. The persona we
-        designed against writes no code and has no data scientist to call on. They know their org's
-        data better than anyone. They have never chosen an algorithm, read an accuracy score, or
-        decided what a model is allowed to do on its own.
-      </p><p>
-        Before any of this, reps filled those fields in by hand. Our own research put that at four
-        to eight minutes a case, and fifteen to twenty per cent of their working time.
-      </p><p>
-        Every hard question in the feature lands on that person. Which fields should the model
-        predict. Which fields should it read. Is the historical data good enough to learn from. Is
-        the accuracy score good, and good enough for what. The interface either makes those
-        answerable or it produces confident nonsense at scale.
-      </p></div>
-</div>
-</section>
-<section class="band band--dark">
-<div class="band-inner">
-<p class="label">The principle</p>
-<p class="statement">A model that is wrong quietly is worse than one that is wrong loudly.</p>
-</div>
-</section>
-<section class="band band--white">
-<div class="band-inner">
-<div class="prose"><h2>The first version did more</h2><p>
-        The early design let an admin choose several algorithms, train them side by side, and
-        compare the results before picking one to run. It did not survive the release. I argued
-        that mixing two kinds of model inside one configuration was too complex to set up and too
-        complex to reason about afterwards, and the scope came down to a single algorithm, trained
-        once.
-      </p><p>
-        The piece I argued for and lost was a fallback. An org with no usable history has nothing
-        to train on, and I wanted a language model to cover that case rather than hand the admin an
-        empty result. It was cut from the same release. It came back later as a flow of its own, for
-        orgs starting from nothing.
-      </p><p>
-        Comparison was the most natural way for an admin to build confidence in a model, and it was
-        the part that went. In the final design that evidence lives on the model's own page. Each
-        predicted field reports its own accuracy and coverage. There is a panel for testing the
-        model against a case. And the thresholds cap what it does without asking.
-      </p></div>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>Five steps, each one a decision</h2><p>
-        Setup is a five-step flow rather than a settings page. The sequence matters, because each
-        step narrows what the next one can be, and because it lets the interface explain a decision
-        at the moment it is being made.
-      </p><ul class="tight">
-<li>
-<strong>Model properties.</strong> Name it, pick the object being classified, pick the
-          data space. Deliberately dull. The first screen of a hard flow should be one nobody can
-          get wrong.
-        </li>
-<li>
-<strong>Fields to predict.</strong> Up to five, and only picklist or lookup fields. The
-          table shows a controlling-field column, so a four-level category hierarchy reads as a
-          hierarchy rather than four unrelated fields.
-        </li>
-<li>
-<strong>Input fields.</strong> Up to ten, text only. This is the step where an admin's own
-          knowledge is worth more than any default, because they know which of their fields actually
-          carry the customer's problem and which are boilerplate.
-        </li>
-<li>
-<strong>Training data.</strong> The heaviest screen, and the one below.
-        </li>
-<li>
-<strong>Review.</strong> Everything chosen, on one page, before anything runs. Save as a
-          draft or start training.
-        </li>
-</ul></div>
-<div class="shot-pair">
-<figure class="shot">
-<img alt="Step three of the setup modal: a list of the object's text fields, with Subject, Description, Priority and Case Reason selected as inputs." height="903" loading="lazy" src="../assets/real-time-classification/input-fields.jpg" width="1600"/>
-<figcaption>Step three. The admin picks up to ten text fields to learn from. Their knowledge of which fields carry the customer's problem beats any default.</figcaption>
-</figure>
-<figure class="shot">
-<img alt="Step five: a review of every choice, with properties, prediction fields, input fields, the filters applied and a live count of matching records." height="1036" loading="lazy" src="../assets/real-time-classification/review.jpg" width="1600"/>
-<figcaption>Step five. Everything on one page before anything runs, including the record count against the thirty-thousand line.</figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section class="band band--white">
-<div class="band-inner">
-<div class="prose"><h2>The training-data step carries the whole feature</h2><p>
-        Three routes out of it. Use every record on the object. Filter down to a subset. Or skip
-        historical data entirely and train from metadata, which is the option for an admin whose
-        own answer is "my historical data is not good."
-      </p><p>
-        That third option matters more than it looks. Most orgs have years of cases classified
-        inconsistently by people who were guessing. Offering only the first two routes would train
-        a model to reproduce that mess and present the result as intelligence. Naming the bad-data
-        case in the interface makes it a supported choice rather than a failure to hide.
-      </p><p>
-        Filtering is a condition builder, and it counts as you go. A live record count sits under
-        the rules with the quality line next to it: thirty thousand well-classified records is
-        where accuracy becomes reliable. So the admin is not filtering blind and then discovering
-        the problem after a training run. They watch the number cross the line, or fail to.
-      </p></div>
-<figure class="shot">
-<img alt="Step four, training data: three routes (all records, filtered records, or metadata instead of history), a condition builder, a green line confirming 140,000 matching records, and an estimate of data processed and credits per retrain." height="959" loading="lazy" src="../assets/real-time-classification/training-data.jpg" width="1600"/>
-<figcaption>The training-data step. The third route is for the admin whose honest answer is that their history is not good. The record count and the cost estimate sit next to the choice they describe.</figcaption>
-</figure>
-<div class="prose"><p>
-        The same panel estimates what the run will cost, in data processed and in credits, with a
-        sentence explaining how the metering works. Cost is part of the decision. Putting it two
-        screens away from the decision would be a choice to hide it.
-      </p></div>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>Two thresholds, three behaviours</h2><p>
-        Training produces a confidence score per prediction. What happens next is the part I care
-        most about, because it is where authority actually gets divided.
-      </p><p>
-        The admin draws two lines. Above the higher one, the model fills the field in and nobody is
-        asked. Between the two, the top three predictions are offered to a rep, who picks one or
-        ignores them. Below the lower one the model stays quiet and the field is left empty.
-      </p><p>
-        One rule sits above all three. If a person has already filled the field in, the model
-        leaves it alone.
-      </p><p>
-        The admin is not guessing where to put those lines. After training, the model is scored
-        against a held-out set of recent cases, and the admin sees the accuracy and the coverage it
-        would get at each threshold value. Moving the line shows what it costs.
-      </p></div>
-<figure class="shot">
-<img alt="Two confidence threshold sliders on the model page, one for filling a field automatically and one for recommending values to a rep, each with average accuracy and coverage beside it." height="452" loading="lazy" src="../assets/real-time-classification/thresholds.jpg" width="1600"/>
-<figcaption>The two thresholds as the admin sets them. Each slider has its accuracy and coverage next to it, so moving the line shows what the admin gains and what they give up.</figcaption>
-</figure>
-<div class="prose"><p>
-        The loudest complaint from the beta pilot was that automation still needed custom code. In
-        the next version it is set up entirely in clicks, down to the assignment rules that route a
-        case once its fields are filled.
-      </p></div>
-<figure>
-<svg aria-labelledby="thTitle thDesc" role="img" style="width:100%;height:auto;background:var(--ground-sunk);border:1px solid var(--rule);border-radius:3px;" viewbox="0 0 760 300">
-<title id="thTitle">Two thresholds, three behaviours</title>
-<desc id="thDesc">
-            A horizontal confidence scale from zero to one hundred per cent, divided by two
-            thresholds an administrator sets. Above the higher threshold the prediction is applied
-            automatically. Between the two thresholds it is routed to a support rep to confirm.
-            Below the lower threshold nothing happens and the field is left empty.
-          </desc>
-<g>
-<rect fill="var(--ink-faint)" fill-opacity="0.10" height="56" width="200" x="60" y="96"></rect>
-<rect fill="var(--accent)" fill-opacity="0.14" height="56" width="230" x="260" y="96"></rect>
-<rect fill="var(--accent)" fill-opacity="0.34" height="56" width="210" x="490" y="96"></rect>
-</g>
-<line stroke="var(--ink-soft)" stroke-width="1.5" x1="60" x2="700" y1="152" y2="152"></line>
-<g fill="var(--ink-faint)" font-family="var(--face-text)" font-size="11">
-<text x="60" y="172">0%</text>
-<text text-anchor="end" x="700" y="172">100%</text>
-<text letter-spacing="1.4" text-anchor="middle" x="380" y="190">MODEL CONFIDENCE</text>
-</g>
-<g stroke="var(--accent)" stroke-dasharray="4 3" stroke-width="2">
-<line x1="260" x2="260" y1="88" y2="160"></line>
-<line x1="490" x2="490" y1="88" y2="160"></line>
-</g>
-<g fill="var(--accent)" font-family="var(--face-text)" font-size="11" font-weight="600" text-anchor="middle">
-<text x="260" y="80">triage threshold</text>
-<text x="490" y="80">automation threshold</text>
-</g>
-<g font-family="var(--face-text)" text-anchor="middle">
-<text fill="var(--ink-soft)" font-size="14" font-weight="600" x="160" y="122">Left alone</text>
-<text fill="var(--ink-faint)" font-size="11.5" x="160" y="140">field stays empty</text>
-<text fill="var(--ink)" font-size="14" font-weight="600" x="375" y="122">Routed to a rep</text>
-<text fill="var(--ink-soft)" font-size="11.5" x="375" y="140">suggested, a person confirms</text>
-<text fill="var(--ink)" font-size="14" font-weight="600" x="595" y="122">Applied automatically</text>
-<text fill="var(--ink-soft)" font-size="11.5" x="595" y="140">no one is asked</text>
-</g>
-<g fill="var(--ink-faint)" font-family="var(--face-text)" font-size="10.5" letter-spacing="1.2" text-anchor="middle">
-<text x="160" y="228">NOBODY</text>
-<text x="375" y="228">A PERSON</text>
-<text x="595" y="228">THE MODEL</text>
-</g>
-<g stroke="var(--rule)" stroke-width="1">
-<line x1="160" x2="160" y1="206" y2="214"></line>
-<line x1="375" x2="375" y1="206" y2="214"></line>
-<line x1="595" x2="595" y1="206" y2="214"></line>
-</g>
-<text fill="var(--ink-faint)" font-family="var(--face-text)" font-size="10.5" letter-spacing="1.2" text-anchor="middle" x="380" y="256">WHO DECIDES</text>
-<text fill="var(--ink)" font-family="var(--face-text)" font-size="16" font-weight="600" x="60" y="40">
-            The administrator draws both lines
-          </text>
-<text fill="var(--ink-soft)" font-family="var(--face-text)" font-size="12" x="60" y="58">
-            Per field, not once for the whole system.
-          </text>
-</svg>
-<figcaption>
-          The thresholds are set per field, which is the detail that makes them usable. Priority and
-          Case Reason do not carry the same cost when they are wrong, so they should not share a
-          setting. An admin can automate the cheap field and keep a person on the expensive one.
-        </figcaption>
-</figure>
-</div>
-</section>
-<section class="band band--white">
-<div class="band-inner">
-<div class="prose"><h2>What the admin sees after training</h2><p>
-        The configuration becomes a record with its own page. Status, threshold, accuracy and
-        coverage sit in the header, and four tabs hold the rest: configuration details, models and
-        training, optimisation, and performance.
-      </p></div>
-<figure class="shot">
-<img alt="The classification configuration record page: a header with status, threshold, accuracy and coverage, a four-step path, and details, prediction fields and input fields below." height="1084" loading="lazy" src="../assets/real-time-classification/record-page.jpg" width="1600"/>
-<figcaption>The configuration as a record. Status, threshold, accuracy and coverage in the header; the path across the top is the order an admin works through it.</figcaption>
-</figure>
-<div class="prose"><p>
-        Accuracy and coverage are reported per predicted field rather than as one number for the
-        model. A model can be strong on Priority and weak on Case Reason. Averaging those into a
-        single score would hide exactly the thing the admin needs to act on, and the action it
-        points to is specific: raise the threshold on the weak field, or leave that field to people.
-      </p><p>
-        There is a test panel on the same tab. Type a subject and a description, run it, see what
-        the model says. It is the smallest feature on the page and I would defend it hardest.
-        Nobody trusts a percentage. People trust a thing they poked at with a case they remember.
-      </p></div>
-</div>
-</section>
-<section class="band band--grey">
-<div class="band-inner">
-<div class="prose"><h2>The loop back</h2><p>
-        The beta shipped without any view of how the model was doing once it was switched on. An
-        admin could hand it authority and then see nothing. The performance tab, designed for the
-        next release, closes that gap. It tracks how many cases were classified, how many went
-        through automatically, and how often a rep overrode the answer. Override rate is the honest metric
-        in that set. It is the only one measured against a human who looked at the same case and
-        disagreed, and a rising override rate is the signal to pull a threshold back down.
-      </p><p>
-        That closes the loop the thresholds opened. An admin grants the model authority, watches
-        what it does with it, and takes some back.
-      </p></div>
-</div>
-</section>
-<section class="band band--white">
-<div class="band-inner">
-<div class="prose"><h2>About the numbers</h2><p>
-        The figures on the screens are placeholders, so I have not quoted them as results. The
-        product is still in beta, and there are no production results for it yet.
-      </p><p>
-        The model underneath was proven first, in an internal deployment run by another team, where
-        it clearly beat the system it replaced. That result is why this product was built. The
-        setup, the thresholds and the monitoring described here came after it.
-      </p></div>
-</div>
-</section>
+<script type="application/json" id="locked">{"salt": "oTEvnfuOndaK4cgAHUxEAg==", "rounds": 250000, "data": "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"}</script>
 <section class="band band--grey next">
 <a href="/work/aircraft-maintenance.html">
 <span class="label">Next case study</span><br/>
-<span class="title">Paperwork that outweighed the work →</span>
+<span class="title">Aircraft Maintenance →</span>
 </a>
 </section>
 </main>
-
 <footer class="site-foot" id="contact">
 <div class="shell">
 <h2>Let's talk</h2>
 <p><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a> · <a href="https://linkedin.com/in/stav-bsh">LinkedIn</a> · Tel Aviv, Israel</p>
 </div>
-</footer></body>
+</footer>
+</body>
 </html>

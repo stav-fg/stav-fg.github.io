@@ -5,4 +5,5 @@
 zstandard>=0.22      # reads the compressed document chunk inside .fig and .jam
 pymupdf>=1.24        # PDF text and page rendering, replaces macOS PDFKit
 pillow>=10.0         # image resizing, replaces macOS sips
-beautifulsoup4>=4.12   # tools/restructure_case.py rewrites case study pages into bands
+beautifulsoup4>=4.12   # tools/lock_cases.py reads the private case study fragments
+cryptography>=42      # tools/lock_cases.py encrypts the case studies (AES-GCM)
