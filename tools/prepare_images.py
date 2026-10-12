@@ -131,30 +131,12 @@ SHOTS = [
 ]
 
 
-# Home page cards: the top part of one screen, zoomed in so the UI is readable inside the
-# white device frame drawn in CSS. Crops come from the full-resolution originals.
-CARDS = [
-    ("service-reply-email", "1790246598569__CSR_5_-_manage_sources.png", (0.186, 0.088, 0.66, 0.62)),
-    ("real-time-classification", "1790758224692__11_-_Modal__Step_4.png", (0.035, 0.05, 0.62, 0.56)),
-    ("aircraft-maintenance", ROOT / "private/assets/aircraft-maintenance/07-dK68mPKG46idV92eG6J9X7.jpg",
-     (0.03, 0.075, 0.62, 0.52)),
-    ("founding-a-design-function", ROOT / "source-material/aerial-diagram.png", (0.5, 0.04, 1.0, 0.96)),
-]
-
-
-def card(slug, src, box):
-    im = crop_frac(load(src), box)
-    if im.width > 1400:
-        im = im.resize((1400, round(im.height * 1400 / im.width)), Image.LANCZOS)
-    out = ROOT / "assets" / "cards" / f"{slug}.jpg"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    im.save(out, quality=88, optimize=True, progressive=True)
-    return out
+# The home page cards in assets/cards/ are not built here any more. They are the images in the
+# Home frame of the Figma file "Portfolio 26" (Layout page), saved as they are, so the site shows
+# exactly what the design shows. To change one, replace it in Figma and copy it over again.
 
 
 if __name__ == "__main__":
-    for slug, src, box in CARDS:
-        print(card(slug, src, box).relative_to(ROOT))
     # Covers are no longer published: they showed whole screens from the locked case studies.
     for src, slug, name, box in SHOTS:
         print(shot(src, slug, name, box).relative_to(ROOT))
