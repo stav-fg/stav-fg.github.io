@@ -150,6 +150,7 @@ PAGE = """<!DOCTYPE html>
 """
 
 IMG_SRC = re.compile(r"(?:\.\./|/)?assets/([^/]+)/(.+)$")
+INCLUDE = re.compile(r"<!--include:([\w.-]+)(?:#([\w-]+))?-->")
 HOME_SLOT = re.compile(r"(<!--locked:home-->).*?(<!--/locked:home-->)", re.S)
 
 
@@ -195,6 +196,17 @@ def payload(salt, key, hero, body):
     return json.dumps({"salt": b64(salt), "rounds": ROUNDS, "data": b64(blob)})
 
 
+def include(m):
+    """<!--include:_name.svg--> pulls in a diagram kept in its own file next to the fragment.
+    A second copy on the same page is written <!--include:_name.svg#hero-->, which adds -hero to
+    every id in it so the two copies do not share ids."""
+    text = (PRIVATE / "cases" / m.group(1)).read_text(encoding="utf-8")
+    if m.group(2):
+        for name in set(re.findall(r'\bid="([^"]+)"', text)):
+            text = re.sub(rf"\b{re.escape(name)}\b", f"{name}-{m.group(2)}", text)
+    return text
+
+
 def split_fragment(text):
     soup = BeautifulSoup(text, "html.parser")
     tops = [c for c in soup.children if isinstance(c, Tag)]
@@ -208,9 +220,7 @@ def split_fragment(text):
 def build(case, nxt, password, used):
     slug = case["slug"]
     text = (PRIVATE / "cases" / f"{slug}.html").read_text(encoding="utf-8")
-    # <!--include:_name.svg--> pulls in a diagram kept in its own file next to the fragment.
-    text = re.sub(r"<!--include:([\w.-]+)-->",
-                  lambda m: (PRIVATE / "cases" / m.group(1)).read_text(encoding="utf-8"), text)
+    text = INCLUDE.sub(include, text)
     soup, hero, rest = split_fragment(text)
     salt, key = new_key(password)
     lock_images(soup, key, used)

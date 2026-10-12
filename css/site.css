@@ -218,7 +218,7 @@ a.poster:hover .device { transform: translateY(-6px); }
   border-radius: 28px 0 0 0;
   box-shadow: 0 20px 50px -8px rgb(30 26 50 / 16%);
 }
-.case-hero .hero-shot img { width: 100%; max-width: none; border-radius: 14px 0 0 0; border: 1px solid #eeedf2; border-right: 0; border-bottom: 0; }
+.case-hero .hero-shot img, .case-hero .hero-shot svg { width: 100%; max-width: none; border-radius: 14px 0 0 0; border: 1px solid #eeedf2; border-right: 0; border-bottom: 0; }
 
 /* The password form, shown until the page is unlocked. */
 .gate { margin: var(--s-5) 0 var(--s-6); max-width: 32rem; }
@@ -262,7 +262,8 @@ a.poster:hover .device { transform: translateY(-6px); }
 
 figure { margin: 0; }
 figure img { width: 100%; border-radius: 14px; border: 1px solid var(--rule); background: var(--white); box-shadow: 0 20px 50px -14px rgb(30 26 50 / 16%); }
-figure svg { border-radius: 14px; }
+/* Diagrams are inline SVG, drawn straight on the band with a thin frame. */
+figure svg { width: 100%; border: 1px solid var(--rule); border-radius: 3px; }
 figcaption strong { color: var(--ink); font-weight: 600; }
 figcaption { font-size: var(--t-small); color: var(--ink-faint); line-height: 1.5; margin-top: var(--s-2); max-width: 46rem; }
 .shot-pair { display: grid; gap: var(--s-4); }
