@@ -26,7 +26,9 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="css/site.css?v=8" rel="stylesheet"/>
+<link href="css/site.css?v=10" rel="stylesheet"/>
+<script>try{if(sessionStorage.getItem("unlock:pw"))document.documentElement.className="unlocking"}catch(e){}</script>
+<script defer src="js/unlock.js?v=2"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -44,40 +46,19 @@
 <section class="intro shell">
 <h1>I'm Stav, a product design lead with 14 years of experience in complex software.</h1>
 <p class="lead">For the last four years I designed AI features for Salesforce Service Cloud. Before that I led a design team at Asperii, worked at Webiks, and was the first UX designer in the Israeli Air Force.</p>
-</section>
-<section aria-labelledby="work-h" class="work shell">
-<p class="label" id="work-h">Selected work</p>
-<div class="posters">
-<a class="poster" href="/work/service-reply-email.html" style="--tint: var(--tint-email)">
-<span class="meta">Salesforce · 2025-2026</span>
-<h2>AI Email Reply</h2>
-        <p class="desc">One click drafts a reply to every question in a customer's email.</p>
-        <span class="more">View case study <span aria-hidden="true">→</span></span>
-        <span class="device"><img src="/assets/cards/service-reply-email.jpg" alt="The Manage Sources window: detected intents, and the articles behind the billing intent." loading="lazy"></span>
-</a>
-<a class="poster" href="/work/real-time-classification.html" style="--tint: var(--tint-rtc)">
-<span class="meta">Salesforce · 2025-2026</span>
-<h2>Real-Time Classification</h2>
-        <p class="desc">A model that fills in a support case's fields, set up by admins who have never trained one.</p>
-        <span class="more">View case study <span aria-hidden="true">→</span></span>
-        <span class="device"><img src="/assets/cards/real-time-classification.jpg" alt="The training-data step: three routes, a live record count and a cost estimate." loading="lazy"></span>
-</a>
-<a class="poster" href="/work/aircraft-maintenance.html" style="--tint: var(--tint-aircraft)">
-<span class="meta">Webiks, Air Force · 2018</span>
-<h2>Aircraft Maintenance</h2>
-        <p class="desc">A tablet app that replaced paper reporting in Air Force aircraft maintenance.</p>
-        <span class="more">View case study <span aria-hidden="true">→</span></span>
-        <span class="device"><img src="/assets/cards/aircraft-maintenance.jpg" alt="The maintenance tablet app's Reviews page, with each review task shown as a card." loading="lazy"></span>
-</a>
-<a class="poster" href="/work/founding-a-design-function.html" style="--tint: var(--tint-founding)">
-<span class="meta">Israeli Air Force · 2012-2017</span>
-<h2>Founding the IAF UX Wing</h2>
-        <p class="desc">The first UX designer in the Israeli Air Force, and the aerial defense project that came out of it.</p>
-        <span class="more">View case study <span aria-hidden="true">→</span></span>
-        <span class="device"><img src="/assets/cards/founding-a-design-function.jpg" alt="Six impact areas drawn identically before, and split into live and past threats after." loading="lazy"></span>
-</a>
+<form class="gate" data-slug="home" autocomplete="off">
+<label for="pw">Enter the password to see the projects.</label>
+<div class="gate-row">
+<input id="pw" name="pw" type="password" placeholder="Password" required/>
+<button type="submit">Sign in</button>
 </div>
+<p class="gate-msg" role="status" aria-live="polite"></p>
+<p class="gate-ask">Don't have it? Email <a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a>.</p>
+</form>
 </section>
+<!--locked:home-->
+<script type="application/json" id="locked">{"salt": "HebNP5ULgQwfzZSL8CRwmw==", "rounds": 250000, "data": "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"}</script>
+<!--/locked:home-->
 </main>
 
 <footer class="site-foot" id="contact">

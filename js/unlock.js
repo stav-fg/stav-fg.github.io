@@ -1,13 +1,16 @@
-// Decrypts a case study page built by tools/lock_cases.py.
+// Decrypts what tools/lock_cases.py locked: a case study, or the project list on the home page.
 // PBKDF2-SHA256 to an AES-256-GCM key; every blob is a 12-byte iv followed by the ciphertext.
-// A correct password is remembered for the browser session, per case study, as the derived key.
+// A correct password is remembered for the browser session: as this page's derived key, and as
+// the password itself, so the other pages open without asking again.
 (function () {
+  var root = document.documentElement;
   var form = document.querySelector('.gate');
   var holder = document.getElementById('locked');
-  if (!form || !holder || !window.crypto || !crypto.subtle) return;
+  function showForm() { root.classList.remove('unlocking'); }
+  if (!form || !holder || !window.crypto || !crypto.subtle) { showForm(); return; }
 
-  var slug = form.dataset.slug;
-  var store = 'unlock:' + slug;
+  var keyStore = 'unlock:' + form.dataset.slug;
+  var pwStore = 'unlock:pw';
   var payload = JSON.parse(holder.textContent);
   var msg = form.querySelector('.gate-msg');
 
@@ -21,6 +24,12 @@
     for (var i = 0; i < b.length; i++) s += String.fromCharCode(b[i]);
     return btoa(s);
   }
+  function saved(name) {
+    try { return sessionStorage.getItem(name); } catch (e) { return null; }
+  }
+  function save(name, value) {
+    try { sessionStorage.setItem(name, value); } catch (e) { /* fine without it */ }
+  }
   function open(key, blob) {
     return crypto.subtle.decrypt({ name: 'AES-GCM', iv: blob.slice(0, 12) }, key, blob.slice(12));
   }
@@ -33,18 +42,20 @@
       });
   }
 
+  // `hero` goes where the form was, `body` after the section the form was in.
   function reveal(key, page) {
-    var hero = form.closest('.case-hero');
+    var section = form.closest('.case-hero, .intro');
     var column = form.parentElement;
     form.remove();
-    column.insertAdjacentHTML('beforeend', page.hero);
-    hero.insertAdjacentHTML('afterend', page.body);
+    if (page.hero) column.insertAdjacentHTML('beforeend', page.hero);
+    section.insertAdjacentHTML('afterend', page.body);
     document.querySelectorAll('img[data-locked]').forEach(function (img) {
       fetch(img.dataset.locked)
         .then(function (r) { return r.arrayBuffer(); })
         .then(function (buf) { return open(key, new Uint8Array(buf)); })
         .then(function (plain) { img.src = URL.createObjectURL(new Blob([plain], { type: img.dataset.type })); });
     });
+    showForm();
   }
 
   function tryKey(key) {
@@ -53,29 +64,30 @@
       return key;
     });
   }
+  function remember(key, password) {
+    if (password) save(pwStore, password);
+    return crypto.subtle.exportKey('raw', key).then(function (raw) { save(keyStore, toB64(raw)); });
+  }
 
-  // Already unlocked earlier in this session.
-  try {
-    var saved = sessionStorage.getItem(store);
-    if (saved) {
-      crypto.subtle.importKey('raw', bytes(saved), 'AES-GCM', true, ['decrypt'])
-        .then(tryKey)
-        .catch(function () { sessionStorage.removeItem(store); });
-    }
-  } catch (e) { /* storage blocked: ask for the password as usual */ }
+  // Signed in earlier in this session: on this page, or on another one with the same password.
+  var key = saved(keyStore), password = saved(pwStore);
+  (key ? crypto.subtle.importKey('raw', bytes(key), 'AES-GCM', true, ['decrypt']).then(tryKey)
+       : Promise.reject())
+    .catch(function () {
+      if (!password) throw new Error('not signed in');
+      return derive(password).then(tryKey).then(remember);
+    })
+    .catch(showForm);
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var button = form.querySelector('button');
+    var typed = form.pw.value;
     button.disabled = true;
     msg.textContent = 'Checking…';
-    derive(form.pw.value)
+    derive(typed)
       .then(tryKey)
-      .then(function (key) {
-        return crypto.subtle.exportKey('raw', key).then(function (raw) {
-          try { sessionStorage.setItem(store, toB64(raw)); } catch (e2) { /* fine without it */ }
-        });
-      })
+      .then(function (k) { return remember(k, typed); })
       .catch(function () {
         msg.textContent = "That password didn't work. Try again.";
         button.disabled = false;

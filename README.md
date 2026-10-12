@@ -56,7 +56,7 @@ cv.html                 single column, print-styled
 work/                   one file per case study, encrypted (built, do not edit by hand)
 css/site.css            the whole design system, tokenised on :root
 js/unlock.js            decrypts a case study in the browser once the password is right
-assets/                 web-sized imagery; assets/locked/ holds the encrypted case study images
+assets/                 web-sized imagery; assets/locked/ holds the encrypted screens
 ```
 
 Also committed, because the working record belongs with the work:
@@ -70,14 +70,20 @@ Local only, never committed:
 
 ```
 source-material/        every input
-private/                plaintext case studies, their images and the passwords
+private/                plaintext project list and case studies, their images and the passwords
 ```
 
-### Editing a case study
+### Editing the project list or a case study
 
-Every case study is password protected (the same password opens all four), because this repo is public and
-a form in front of plain HTML protects nothing. Edit the plaintext in `private/cases/<slug>.html`
-(images in `private/assets/<slug>/`), then rebuild:
+The project list on the home page and every case study are password protected (one password opens
+all of them), because this repo is public and a form in front of plain HTML protects nothing. A
+visitor signs in on the home page, or on a case study if they open its link directly, and the
+rest opens without asking again for that browser session.
+
+Edit the plaintext, then rebuild:
+
+- the project list: `private/home-work.html`, with the card screens in `private/assets/cards/`
+- a case study: `private/cases/<slug>.html`, with its images in `private/assets/<slug>/`
 
 ```
 env\Scripts\python tools\lock_cases.py

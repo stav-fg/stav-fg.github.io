@@ -131,9 +131,9 @@ SHOTS = [
 ]
 
 
-# The home page cards in assets/cards/ are not built here any more. They are the images in the
-# Home frame of the Figma file "Portfolio 26" (Layout page), saved as they are, so the site shows
-# exactly what the design shows. To change one, replace it in Figma and copy it over again.
+# The home page cards are not built here. Their screens are in private/assets/cards/: the images
+# in the Home frame of the Figma file "Portfolio 26", cropped the way the frame crops them and
+# saved at twice the size they are shown. tools/lock_cases.py encrypts them with the project list.
 
 
 if __name__ == "__main__":
