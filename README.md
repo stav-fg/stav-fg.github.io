@@ -75,7 +75,7 @@ private/                plaintext case studies, their images and the passwords
 
 ### Editing a case study
 
-Every case study is password protected, one password per project, because this repo is public and
+Every case study is password protected (the same password opens all four), because this repo is public and
 a form in front of plain HTML protects nothing. Edit the plaintext in `private/cases/<slug>.html`
 (images in `private/assets/<slug>/`), then rebuild:
 
