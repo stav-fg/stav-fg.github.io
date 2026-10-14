@@ -261,6 +261,10 @@ a.poster:hover .device { transform: translateY(-6px); }
 @media (min-width: 56rem) { .overview { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--s-6); } }
 .overview .label { color: var(--accent); margin-bottom: var(--s-2); }
 .overview p.lead { color: var(--ink-soft); }
+/* The overview in three lines: the problem, what she did, where it is now. */
+.summary { display: grid; gap: 1.125rem; margin: 0; }
+.summary dt { font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); }
+.summary dd { margin: .25rem 0 0; font-size: 1.125rem; line-height: 1.55; color: var(--ink); max-width: 40rem; }
 /* "Who uses it": one card per kind of user, under the overview paragraph. */
 .users-block { margin-top: var(--s-4); }
 .users-label { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
