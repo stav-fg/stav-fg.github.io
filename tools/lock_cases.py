@@ -112,8 +112,8 @@ PAGE = """<!DOCTYPE html>
 <header class="site-head">
 <a class="wordmark" href="/">Stav Fisher Gross</a>
 <nav aria-label="Primary" class="site-nav">
+<a href="/">About</a>
 <a aria-current="page" href="/#work">Work</a>
-<a href="/cv.html">CV</a>
 <a href="#contact">Contact</a></nav>
 </header>
 </div>
