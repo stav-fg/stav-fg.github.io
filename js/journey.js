@@ -48,14 +48,27 @@
     var clip = el("clipPath", { id: "journey-drawn" }, defs);
     clipRect = el("rect", { x: 0, y: 0, width: W, height: 0 }, clip);
 
-    var lines = [
-      ["#3F7D5A", [[x0, ys[0]], [x0, ys[4]]]],
-      ["#3B6FB6", [[x0, ys[1]], [x1, ys[1] + d], [x1, ys[4] - d], [x0, ys[4]]]],
-      ["#6B4EA8", [[x0, ys[4]], [x0, ys[8]]]],
-      ["#6B4EA8", [[x0, ys[8]], [x0, end - 8]], true],
-      ["#E07A5F", [[x0, ys[4]], [x1, ys[4] + d], [x1, ys[9]]]],
-      ["#E07A5F", [[x1, ys[9]], [x1, end - 8]], true]
-    ];
+    // The lines are worked out from the stops. The trunk runs through every stop on it, each
+    // segment in the colour of the station it leaves (so the Air Force line turns into Industry
+    // at the interchange), and dotted into a stop marked data-future. The branch leaves the trunk
+    // at the last interchange before its first stop and runs beside it. Both trail off dotted.
+    var trunk = [], branch = [], lines = [];
+    stops.forEach(function (s, i) { (s.getAttribute("data-line") === "branch" ? branch : trunk).push(i); });
+    trunk.forEach(function (a, k) {
+      var b = trunk[k + 1];
+      if (b === undefined) return;
+      lines.push([stops[a].getAttribute("data-color"), [[x0, ys[a]], [x0, ys[b]]], stops[b].hasAttribute("data-future")]);
+    });
+    var lastT = trunk[trunk.length - 1];
+    lines.push([stops[lastT].getAttribute("data-color"), [[x0, ys[lastT]], [x0, end - 8]], true]);
+    if (branch.length) {
+      var first = branch[0], lastB = branch[branch.length - 1];
+      var from = trunk.filter(function (t) { return t < first && stops[t].hasAttribute("data-interchange"); }).pop();
+      if (from === undefined) from = trunk.filter(function (t) { return t < first; }).pop();
+      var bc = stops[first].getAttribute("data-color");
+      lines.push([bc, [[x0, ys[from]], [x1, ys[from] + d], [x1, ys[lastB]]]]);
+      lines.push([bc, [[x1, ys[lastB]], [x1, end - 8]], true]);
+    }
     var pale = el("g", { fill: "none", stroke: PALE, "stroke-width": 7, "stroke-linecap": "round", "stroke-linejoin": "round" }, svg);
     var drawn = el("g", { fill: "none", "stroke-width": 7, "stroke-linecap": "round", "stroke-linejoin": "round", "clip-path": "url(#journey-drawn)" }, svg);
     lines.forEach(function (l) {

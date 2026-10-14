@@ -156,6 +156,7 @@ ul.tight li + li { margin-top: var(--s-1); }
 .work, .work-gate { padding-bottom: var(--s-7); scroll-margin-top: var(--s-4); }
 .work-title { font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem); line-height: 1.15; margin-bottom: var(--s-4); }
 .work-gate .gate { margin: 0; }
+.gate-intro { max-width: 36rem; margin-bottom: var(--s-3); font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
 /* Project cards, as in the Figma Home frame: one wide card per project, the text on the left
    and one whole screen on the right inside a white device. Measurements are the frame's. */
 .posters { display: grid; gap: var(--s-4); }
@@ -278,6 +279,9 @@ a.poster:hover .device { transform: translateY(-6px); }
 .next a { text-decoration: none; }
 .next .title { font-family: var(--face-head); font-weight: 600; font-size: var(--t-h2); letter-spacing: -0.02em; display: inline-block; margin-top: var(--s-1); }
 .next a:hover .title { color: var(--accent); }
+.next .next-lead { display: inline-block; max-width: 36rem; margin-top: var(--s-1); font-size: 1rem; line-height: 1.5; color: var(--ink-soft); }
+.next-all { margin-top: var(--s-3); font-size: var(--t-small); }
+.next-all a { color: var(--ink-soft); text-decoration: underline; }
 
 /* --- screens -------------------------------------------------------- */
 
@@ -367,6 +371,11 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
 @media (min-width: 48rem) { .do-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem var(--s-4); } }
 .do-grid h3 { font-size: 1.3125rem; line-height: 1.25; letter-spacing: -0.01em; }
 .do-grid p { margin-top: var(--s-1); max-width: 35rem; font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
+/* "How I design AI features": a line per principle, each pointing to the case that shows it. */
+.do-grid .do-wide { grid-column: 1 / -1; }
+.do-grid ul { margin: var(--s-1) 0 0; padding-left: 1.15rem; max-width: 52rem; font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
+.do-grid li + li { margin-top: .375rem; }
+.do-grid li a { margin-left: .25rem; color: var(--ink); font-weight: 500; white-space: nowrap; }
 
 .about-facts { display: grid; gap: var(--s-3) var(--s-6); margin: 0; }
 @media (min-width: 40rem) { .about-facts { grid-template-columns: repeat(2, minmax(0, 25rem)); } }

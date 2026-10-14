@@ -42,13 +42,13 @@ ROOT = Path(__file__).resolve().parent.parent
 PRIVATE = ROOT / "private"
 LOCKED = ROOT / "assets" / "locked"
 ROUNDS = 250_000
-CSS_VERSION = "13"
+CSS_VERSION = "14"
 JS_VERSION = "3"
 
 # Public parts of each page, in home page order. "next" goes round the listed pages in this order.
 # A page with listed=False is still built, but nothing links to it and its "next" is the first
-# listed page: Record Companions has no card on the Figma Home yet. Founding the Air Force UX wing
-# is not a project at all since 14 October 2026: it is the key milestone on the home page timeline.
+# listed page. Founding the Air Force UX wing is not a project at all since 14 October 2026: it is
+# a key milestone on the home page timeline.
 CASES = [
     dict(slug="service-reply-email", tint="--tint-email",
          title="AI Email Reply",
@@ -58,6 +58,10 @@ CASES = [
          title="Real-Time Classification",
          meta="Salesforce · Service Cloud · 2025-2026",
          lead="A model that fills in a support case's fields as soon as the case comes in."),
+    dict(slug="record-companions", tint="--tint-rc",
+         title="Record Companions",
+         meta="Salesforce · Service Cloud · 2026",
+         lead="The setup page where admins decide which AI assistants run on their records."),
     dict(slug="clinic-management", tint="--tint-clinic",
          title="Clinic Management",
          meta="Asperii, for a top US healthcare enterprise (S&P 500) · 2020-2021",
@@ -66,11 +70,6 @@ CASES = [
          title="Aircraft Maintenance",
          meta="Webiks, for the Israeli Air Force · 2018",
          lead="A tablet app that replaced paper reporting in Air Force aircraft maintenance."),
-    dict(slug="record-companions", tint="--tint-rc",
-         title="Record Companions",
-         meta="Salesforce · Service Cloud · 2026",
-         lead="The setup page where admins decide which AI assistants run on their records.",
-         listed=False),
 ]
 
 # Hides the password form while a password from earlier in the session is being tried, so a
@@ -138,8 +137,10 @@ PAGE = """<!DOCTYPE html>
 <section class="band band--grey next">
 <a href="/work/{next_slug}.html">
 <span class="label">Next case study</span><br/>
-<span class="title">{next_title} →</span>
+<span class="title">{next_title} →</span><br/>
+<span class="next-lead">{next_lead}</span>
 </a>
+<p class="next-all"><a href="/#work">All work</a></p>
 </section>
 </main>
 <footer class="site-foot" id="contact">
@@ -232,7 +233,7 @@ def build(case, nxt, password, used):
                       title=case["title"], lead=html.escape(case["lead"]),
                       payload=payload(salt, key, str(hero), "\n".join(str(t) for t in rest)),
                       css=CSS_VERSION, js=JS_VERSION, no_flash=NO_FLASH,
-                      next_slug=nxt["slug"], next_title=nxt["title"])
+                      next_slug=nxt["slug"], next_title=nxt["title"], next_lead=html.escape(nxt["lead"]))
     (ROOT / "work" / f"{slug}.html").write_text(out, encoding="utf-8")
 
 
