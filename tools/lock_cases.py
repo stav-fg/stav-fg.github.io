@@ -42,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PRIVATE = ROOT / "private"
 LOCKED = ROOT / "assets" / "locked"
 ROUNDS = 250_000
-CSS_VERSION = "14"
+CSS_VERSION = "15"
 JS_VERSION = "3"
 
 # Public parts of each page, in home page order. "next" goes round the listed pages in this order.
@@ -119,6 +119,7 @@ PAGE = """<!DOCTYPE html>
 <main id="main">
 <header class="case-hero" style="--tint: var({tint})">
 <div class="band-inner">
+<a class="back-link" href="/#work"><span aria-hidden="true">←</span> All work</a>
 <p class="meta">{meta}</p>
 <h1>{title}</h1>
 <p class="lead">{lead}</p>
