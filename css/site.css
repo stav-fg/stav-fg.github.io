@@ -291,7 +291,7 @@ a.poster:hover .device { transform: translateY(-6px); }
 /* --- screens -------------------------------------------------------- */
 
 figure { margin: 0; }
-figure img { width: 100%; border-radius: 14px; border: 1px solid var(--rule); background: var(--white); box-shadow: 0 20px 50px -14px rgb(30 26 50 / 16%); }
+figure img { width: auto; max-width: 100%; border-radius: 14px; border: 1px solid var(--rule); background: var(--white); box-shadow: 0 20px 50px -14px rgb(30 26 50 / 16%); }
 /* Diagrams are inline SVG, drawn straight on the band with a thin frame. */
 figure svg { width: 100%; border: 1px solid var(--rule); border-radius: 3px; }
 figcaption strong { color: var(--ink); font-weight: 600; }
