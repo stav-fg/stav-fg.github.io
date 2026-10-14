@@ -42,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PRIVATE = ROOT / "private"
 LOCKED = ROOT / "assets" / "locked"
 ROUNDS = 250_000
-CSS_VERSION = "11"
+CSS_VERSION = "12"
 JS_VERSION = "3"
 
 # Public parts of each page, in home page order. "next" goes round the listed pages in this order.

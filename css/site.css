@@ -300,51 +300,57 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
 
 .stop-when { font-size: var(--t-label); font-weight: 500; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
 
-/* The timeline as a vertical subway map. js/journey.js draws the line into the left gutter
-   from where each stop sits, and draws it in as the page scrolls. */
+/* The timeline as a vertical subway map. js/journey.js draws the line into the left gutter from
+   where each stop sits, and draws it in as the page scrolls. Everything reads at a glance: career
+   stops get a line or two, study and life stops a single line, and nothing waits for the scroll. */
 .journey-key { display: flex; flex-wrap: wrap; gap: var(--s-1) 2rem; font-size: .75rem; color: var(--ink-soft); }
 .journey-key span::before { content: ""; display: inline-block; vertical-align: middle; width: 24px; height: 6px; border-radius: 3px; margin-right: .625rem; background: var(--c); }
-.journey-hint { margin-top: .75rem; font-size: .75rem; color: var(--ink-faint); }
-.journey-track { --x0: 60px; --x1: 112px; --parallax: .22; position: relative; isolation: isolate; margin-top: var(--s-5); padding-left: 200px; }
+.journey-track { --x0: 60px; --x1: 112px; --parallax: .15; position: relative; isolation: isolate; margin-top: var(--s-4); padding-left: 200px; }
 .journey-svg { position: absolute; left: 0; top: 0; overflow: visible; }
 .journey-stops { list-style: none; margin: 0; padding: 0; }
-.jstop { position: relative; min-height: 16rem; padding-bottom: clamp(5rem, 14vh, 8.5rem); }
-.jstop > :not(.jyear) { max-width: 37.5rem; }
-.jstop h3 { font-size: 1.75rem; line-height: 1.2; letter-spacing: -0.02em; margin-top: var(--s-1); }
-.jstop h3 + p { margin-top: .75rem; font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
+.jstop { --gap: 2.5rem; position: relative; padding-bottom: var(--gap); }
+.jstop > :not(.jyear) { max-width: 38.75rem; }
+.jstop .stop-when { font-size: .75rem; }
+.jstop h3 { font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.02em; margin-top: .375rem; }
+.jstop h3 ~ p:not(.actions) { margin-top: .375rem; font-size: 1rem; line-height: 1.55; color: var(--ink-soft); }
+/* Study and life: one line, a small station. */
+.jstop--minor { --gap: 2.25rem; }
+.jstop--minor h3 { font-family: var(--face-text); font-size: 1rem; font-weight: 600; letter-spacing: 0; line-height: 1.4; margin-top: 0; }
+.jdate { margin-left: .5rem; font-weight: 400; font-size: .875rem; color: var(--ink-faint); white-space: nowrap; }
+.jstop--minor h3 ~ p:not(.actions) { margin-top: .125rem; font-size: .9375rem; }
 .jyear {
-  position: absolute; right: 0; top: -1.75rem; z-index: -1;
-  font-family: var(--face-head); font-weight: 600; font-size: clamp(4rem, 1.5rem + 7vw, 8rem);
+  position: absolute; right: 0; top: -.5rem; z-index: -1;
+  font-family: var(--face-head); font-weight: 600; font-size: clamp(3rem, 1.5rem + 3vw, 4.5rem);
   line-height: 1; letter-spacing: -0.03em; color: #f1f0f5;
   pointer-events: none; user-select: none; will-change: transform;
 }
-.journey-track.is-live .jstop > :not(.jyear) { opacity: .32; transition: opacity 450ms ease; }
-.journey-track.is-live .jstop.is-reached > :not(.jyear) { opacity: 1; }
 .journey-current { transition: transform 300ms cubic-bezier(.2,.7,.2,1), opacity 200ms ease; }
-/* The key milestone: founding the Air Force UX wing. A stop on the timeline, never a project. */
+/* Key milestones: founding the Air Force UX wing (never a project, a milestone), the promotion to
+   team lead and Salesforce, so the route reads as climbing. Each takes its line's colour. */
+.jstop[data-milestone] { --gap: 3.75rem; margin-top: 1.5rem; }
 .jstop[data-milestone]::before {
-  content: ""; position: absolute; z-index: -1; inset: -1.75rem auto auto -1.75rem;
-  width: calc(min(37.5rem, 100%) + 3.5rem); height: calc(100% - clamp(5rem, 14vh, 8.5rem) + 3.5rem);
-  border-radius: 20px; background: var(--tint-founding);
+  content: ""; position: absolute; z-index: -1; inset: -1.5rem auto auto -1.5rem;
+  width: calc(min(38.75rem, 100%) + 3rem); height: calc(100% - var(--gap) + 3rem);
+  border-radius: 20px; background: var(--m-tint, var(--tint-founding));
 }
 .milestone-tag {
-  display: inline-block; margin-bottom: .75rem; padding: .2rem .65rem; border-radius: 999px;
-  background: #3F7D5A; color: var(--white);
+  display: inline-block; margin-bottom: .625rem; padding: .2rem .65rem; border-radius: 999px;
+  background: var(--m-color, #3F7D5A); color: var(--white);
   font-size: .6875rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; line-height: 1.5;
 }
-.jstop[data-milestone] h3 { font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.125rem); }
-.jstop[data-milestone] .jyear { color: #dce8df; }
-/* Without the script: a plain rule beside the list, every stop at full strength. */
+.jstop[data-milestone] h3 { font-size: clamp(1.6rem, 1.3rem + .9vw, 1.875rem); }
+.jstop[data-milestone] .jyear { color: var(--m-year, #dce8df); }
+/* Without the script: a plain rule beside the list. */
 .journey-track:not(.is-live)::before {
-  content: ""; position: absolute; left: calc(var(--x0) - 4px); top: .75rem; bottom: 0; width: 8px; border-radius: 4px;
+  content: ""; position: absolute; left: calc(var(--x0) - 4px); top: .75rem; bottom: 0; width: 7px; border-radius: 4px;
   background: linear-gradient(#3F7D5A, #3F7D5A 35%, #6B4EA8 45%, #6B4EA8);
 }
 @media (max-width: 47.99rem) {
-  .journey-track { --x0: 14px; --x1: 44px; --parallax: .1; padding-left: 72px; margin-top: var(--s-4); }
-  .jstop { min-height: 12rem; }
-  .jstop h3 { font-size: 1.4rem; }
-  .jyear { font-size: 3.5rem; top: -1.25rem; }
-  .jstop[data-milestone]::before { inset: -1.25rem auto auto -1rem; width: calc(100% + 1.75rem); height: calc(100% - clamp(5rem, 14vh, 8.5rem) + 2.5rem); }
+  .journey-track { --x0: 14px; --x1: 44px; --parallax: .08; padding-left: 72px; }
+  .jstop h3 { font-size: 1.25rem; }
+  .jstop--minor h3 { font-size: 1rem; }
+  .jyear { font-size: 2.75rem; }
+  .jstop[data-milestone]::before { inset: -1.25rem auto auto -1rem; width: calc(100% + 1.75rem); height: calc(100% - var(--gap) + 2.5rem); }
 }
 
 .do-grid { display: grid; gap: var(--s-4) var(--s-4); }

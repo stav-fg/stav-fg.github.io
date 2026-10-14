@@ -1,8 +1,8 @@
 // The vertical subway map on the About page (Figma: "About · get to know me (vertical scroll)").
 // The line runs down the left of the stops. It is drawn from where each stop actually sits on
 // the page, so it follows the text as it wraps. As the page scrolls, the line draws itself down
-// to the middle of the screen, the stop there becomes the current one, stops further down stay
-// faded until they are reached, and the big years drift at a slower speed than the page.
+// to the middle of the screen, the stop there becomes the current one, and the big years drift
+// at a slower speed than the page. All of that is decoration: every stop is readable without it.
 // Without this script the stops are a plain list with a thin rule beside them.
 (function () {
   var track = document.querySelector("[data-journey]");
@@ -33,13 +33,13 @@
     var css = getComputedStyle(track);
     var x0 = parseFloat(css.getPropertyValue("--x0"));
     var x1 = parseFloat(css.getPropertyValue("--x1"));
-    var d = 40;
+    var d = 32;
     var top = track.getBoundingClientRect().top;
     ys = stops.map(function (s) {
       var h = s.querySelector("h3").getBoundingClientRect();
       return Math.round(h.top + h.height / 2 - top);
     });
-    end = ys[ys.length - 1] + 140;
+    end = ys[ys.length - 1] + 100;
     var W = x1 + 24;
 
     if (svg) svg.remove();
@@ -56,8 +56,8 @@
       ["#E07A5F", [[x0, ys[4]], [x1, ys[4] + d], [x1, ys[9]]]],
       ["#E07A5F", [[x1, ys[9]], [x1, end - 8]], true]
     ];
-    var pale = el("g", { fill: "none", stroke: PALE, "stroke-width": 8, "stroke-linecap": "round", "stroke-linejoin": "round" }, svg);
-    var drawn = el("g", { fill: "none", "stroke-width": 8, "stroke-linecap": "round", "stroke-linejoin": "round", "clip-path": "url(#journey-drawn)" }, svg);
+    var pale = el("g", { fill: "none", stroke: PALE, "stroke-width": 7, "stroke-linecap": "round", "stroke-linejoin": "round" }, svg);
+    var drawn = el("g", { fill: "none", "stroke-width": 7, "stroke-linecap": "round", "stroke-linejoin": "round", "clip-path": "url(#journey-drawn)" }, svg);
     lines.forEach(function (l) {
       var a = { d: path(l[1]) };
       if (l[2]) a["stroke-dasharray"] = "1 15";
@@ -78,7 +78,9 @@
         el("circle", { cx: x, cy: ys[i], r: 17, fill: c, "fill-opacity": 0.3, stroke: "none" }, g);
         return el("circle", { cx: x, cy: ys[i], r: 13, fill: c, stroke: "#fff", "data-color": "#fff", "data-milestone": "" }, g);
       }
-      return el("circle", { cx: x, cy: ys[i], r: inter ? 12 : 9, stroke: inter ? INK : PALE, "data-color": inter ? INK : s.getAttribute("data-color") }, g);
+      var minor = s.classList.contains("jstop--minor");
+      return el("circle", { cx: x, cy: ys[i], r: inter ? 11 : minor ? 6 : 8.5, "stroke-width": minor ? 3 : 4,
+        stroke: inter ? INK : PALE, "data-color": inter ? INK : s.getAttribute("data-color") }, g);
     });
     // The current stop's ring and dot sit above the stations.
     el("circle", { r: 13, fill: "#fff", stroke: INK, "stroke-width": 4 }, current);
@@ -114,13 +116,13 @@
     }
 
     // Parallax: each year drifts against the page around its own stop, by --parallax of the
-    // distance from the middle of the screen, never more than 140px, so it stays by its stop
+    // distance from the middle of the screen, never more than 48px, so it stays by its stop
     // (less on a phone, where the column is narrow).
     var k = parseFloat(getComputedStyle(track).getPropertyValue("--parallax")) || 0;
     years.forEach(function (y) {
       if (still || !k) { y.style.transform = ""; return; }
       var r = y.parentNode.getBoundingClientRect();
-      var off = Math.max(-140, Math.min(140, (r.top + r.height / 2 - vh / 2) * -k));
+      var off = Math.max(-48, Math.min(48, (r.top + r.height / 2 - vh / 2) * -k));
       y.style.transform = "translate3d(0," + off.toFixed(1) + "px,0)";
     });
   }
