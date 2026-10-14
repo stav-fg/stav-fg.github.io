@@ -14,26 +14,22 @@ what is not in this repo and where to get it, and the rules that are not negotia
 is still open. `notes/strategy.md` argues where the plan is wrong. `notes/open-questions.md` sorts
 every open item by who can answer it.
 
-## Where things stand, 7 September 2026
+## Where things stand, 14 October 2026
 
-Scaffolded in one session, from the handoff brief plus the source material it pointed at.
-Two case studies are written from real material. Two are listed but unwritten, because the
-interviews behind them have not happened.
+The visual design is decided in the Figma file "Portfolio 26" first and then built here. On 14
+October the site was brought up to date with Figma (local only, nothing pushed):
 
 | Page | State |
 |---|---|
-| `index.html` | Lists four case studies. The two Salesforce ones are marked "in writing" and are not linked. |
-| `work/aircraft-maintenance.html` | Drafted from the live Carbonmade copy. Needs her edit for voice. |
-| `work/founding-a-design-function.html` | Drafted from the Portfolio Panel deck. Needs her edit for voice. |
-| `about.html` | Drafted. The most voice-dependent page on the site. |
-| `cv.html` | Drafted, single column, print-styled. |
-
-The two Salesforce case studies have no pages yet, on purpose: a case study that is only a list
-of unanswered questions is worse than no page. Their scaffolding is in
-`notes/interview-scaffold.md` and gets rebuilt into pages once the interview has run.
+| `index.html` | Intro and sign-in; behind it, four project cards: AI Email Reply, Real-Time Classification, Clinic Management, Aircraft Maintenance. |
+| `work/service-reply-email.html`, `real-time-classification.html`, `aircraft-maintenance.html`, `clinic-management.html` | Written. Each overview has a "Who uses it" block before the users are named anywhere else. |
+| `work/record-companions.html` | New, from the Figma frame of the same name. Built but not listed: it has no card on the Figma Home yet. |
+| `work/founding-a-design-function.html` | Taken out of the portfolio (the story is on About now). Built but not listed. |
+| `about.html` | "Get to know me": the cover letter told as an interactive subway map (`js/route-map.js`), one paragraph per stop. |
+| `cv.html` | Dry and factual, single column, print-styled. |
 
 Everything still unresolved is written down rather than shipped. `notes/drafting-gaps.md` holds
-every gap that used to sit inline in the pages; `notes/open-questions.md` sorts every open item
+the gaps that used to sit inline in the pages; `notes/open-questions.md` sorts every open item
 by who can answer it.
 
 ## Deployment
@@ -56,6 +52,7 @@ cv.html                 single column, print-styled
 work/                   one file per case study, encrypted (built, do not edit by hand)
 css/site.css            the whole design system, tokenised on :root
 js/unlock.js            decrypts a case study in the browser once the password is right
+js/route-map.js         the clickable subway map on the About page
 assets/                 web-sized imagery; assets/locked/ holds the encrypted screens
 ```
 
@@ -88,6 +85,10 @@ Edit the plaintext, then rebuild:
 ```
 env\Scripts\python tools\lock_cases.py
 ```
+
+A new case study also needs an entry in `CASES` at the top of `tools/lock_cases.py` and a password
+under its slug in `private/passwords.json`. An entry with `listed=False` is built but left out of
+the "Next case study" links; add its card to `private/home-work.html` when it should be listed.
 
 The passwords are in `private/passwords.json`. Lose `private/` and the published pages can still
 be decrypted with those passwords, but nothing else can recover them.

@@ -42,10 +42,13 @@ ROOT = Path(__file__).resolve().parent.parent
 PRIVATE = ROOT / "private"
 LOCKED = ROOT / "assets" / "locked"
 ROUNDS = 250_000
-CSS_VERSION = "10"
+CSS_VERSION = "11"
 JS_VERSION = "2"
 
-# Public parts of each page, in home page order. "next" follows this order round.
+# Public parts of each page, in home page order. "next" goes round the listed pages in this order.
+# A page with listed=False is still built, but nothing links to it and its "next" is the first
+# listed page: Founding was taken out of the portfolio on 14 October 2026 (it is on the Figma
+# "Archive" page), and Record Companions has no card on the Figma Home yet.
 CASES = [
     dict(slug="service-reply-email", tint="--tint-email",
          title="AI Email Reply",
@@ -54,7 +57,7 @@ CASES = [
     dict(slug="real-time-classification", tint="--tint-rtc",
          title="Real-Time Classification",
          meta="Salesforce · Service Cloud · 2025-2026",
-         lead="A model that fills in a support case's fields, set up by admins who have never trained one."),
+         lead="A model that fills in a support case's fields as soon as the case comes in."),
     dict(slug="clinic-management", tint="--tint-clinic",
          title="Clinic Management",
          meta="Asperii, for a top US healthcare enterprise (S&P 500) · 2020-2021",
@@ -66,7 +69,13 @@ CASES = [
     dict(slug="founding-a-design-function", tint="--tint-founding",
          title="Founding the Air Force UX Wing",
          meta="Israeli Air Force · 2012-2017",
-         lead="How I became the first UX designer in the Israeli Air Force, and the aerial defense project that came out of it."),
+         lead="How I became the first UX designer in the Israeli Air Force, and the aerial defense project that came out of it.",
+         listed=False),
+    dict(slug="record-companions", tint="--tint-rc",
+         title="Record Companions",
+         meta="Salesforce · Service Cloud · 2026",
+         lead="The setup page where admins decide which AI assistants run on their records.",
+         listed=False),
 ]
 
 # Hides the password form while a password from earlier in the session is being tried, so a
@@ -250,9 +259,11 @@ def main():
     passwords = json.loads((PRIVATE / "passwords.json").read_text(encoding="utf-8"))
     LOCKED.mkdir(parents=True, exist_ok=True)
     used = set()
-    for i, case in enumerate(CASES):
-        build(case, CASES[(i + 1) % len(CASES)], passwords[case["slug"]], used)
-        print("locked", case["slug"])
+    listed = [c for c in CASES if c.get("listed", True)]
+    for case in CASES:
+        nxt = listed[(listed.index(case) + 1) % len(listed)] if case in listed else listed[0]
+        build(case, nxt, passwords[case["slug"]], used)
+        print("locked", case["slug"], "->", nxt["slug"])
     build_home(passwords["home"], used)
     print("locked home")
     for stale in LOCKED.glob("*.bin"):

@@ -26,6 +26,7 @@
   --tint-aircraft:#f2ece2;
   --tint-founding:#e4ede6;
   --tint-clinic:  #ededed;
+  --tint-rc:      #e4ede6;   /* Record Companions; the green Founding used before it was archived */
   --tint-rtc-card:#f8ebf8;   /* the Real-Time Classification card is pink in Figma; its hero keeps --tint-rtc */
 
   --face-head: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -246,6 +247,14 @@ a.poster:hover .device { transform: translateY(-6px); }
 @media (min-width: 56rem) { .overview { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--s-6); } }
 .overview .label { color: var(--accent); margin-bottom: var(--s-2); }
 .overview p.lead { color: var(--ink-soft); }
+/* "Who uses it": one card per kind of user, under the overview paragraph. */
+.users-block { margin-top: var(--s-4); }
+.users-label { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+.users { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); gap: 1.25rem; margin-top: .875rem; }
+.user { background: var(--band-grey); border-radius: 16px; padding: 1.25rem 1.375rem 1.375rem; }
+.user h3 { font-size: 1.1875rem; line-height: 1.25; letter-spacing: -0.01em; }
+.user p { margin-top: var(--s-1); font-size: var(--t-small); line-height: 1.5; color: var(--ink-soft); }
+.user strong { color: var(--ink); font-weight: 600; }
 .facts { display: grid; gap: var(--s-3); margin: 0; align-content: start; }
 .facts dt { font-size: var(--t-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
 .facts dd { margin: .3rem 0 0; font-size: 1.0625rem; line-height: 1.5; color: var(--ink); }
@@ -269,6 +278,69 @@ figcaption { font-size: var(--t-small); color: var(--ink-faint); line-height: 1.
 .shot-pair { display: grid; gap: var(--s-4); }
 
 blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3px solid var(--accent); font-family: var(--face-head); font-weight: 600; font-size: var(--t-h3); color: var(--ink); max-width: 40rem; }
+
+/* --- About: the Figma frame "About · get to know me (interactive map)" ------------ */
+
+.about-head { padding-top: var(--s-5); }
+.about-head h1 { font-size: clamp(2.3rem, 1.5rem + 2.6vw, 3.5rem); line-height: 1.1; margin-top: var(--s-2); }
+.about-head .lead { margin-top: var(--s-2); max-width: 51.25rem; }
+.about > .about-section { padding-block: 4.5rem 0; }
+.about > .about-section:last-child { padding-bottom: var(--s-7); }
+.about-section > h2 { font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem); line-height: 1.15; }
+.about-section > h2 + * { margin-top: var(--s-3); }
+
+/* The map sits in a grey panel with the selected stop's card under it. On a narrow screen the
+   map keeps its size and scrolls sideways, so the station names stay readable. */
+.route { background: var(--band-grey); border-radius: var(--radius); padding: var(--s-3); }
+.route-scroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.route-map { position: relative; min-width: 50rem; }
+.route-svg { width: 100%; height: auto; }
+.route-selected { transition: transform 280ms cubic-bezier(.2,.7,.2,1); }
+.route-hotspots button {
+  position: absolute;
+  left: calc(var(--x) / 1152 * 100%); top: calc(var(--y) / 423 * 100%);
+  width: calc(48 / 1152 * 100%); aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 0; border-radius: 50%; padding: 0; background: transparent; cursor: pointer;
+  color: transparent; font-size: 0; overflow: hidden;
+}
+.route-hotspots button:hover { background: rgb(23 22 26 / 7%); }
+.route-hotspots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
+.route.is-live .route-labels text { cursor: pointer; }
+.route:not(.is-live) .route-hotspots, .route:not(.is-live) .route-selected, .route:not(.is-live) .stop-pager { display: none; }
+
+.stop-card {
+  display: flex; gap: 1.25rem; margin-top: var(--s-2);
+  background: var(--white); border: 1px solid var(--rule); border-radius: 16px; padding: var(--s-3);
+}
+.stop-bar { flex: none; width: 6px; border-radius: 3px; background: #3F7D5A; transition: background-color 280ms ease; }
+.stop-body { flex: 1; min-width: 0; max-width: 47.5rem; }
+.stop-when { font-size: var(--t-label); font-weight: 500; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.stop h3 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.02em; margin-top: var(--s-1); }
+.stop p:not(.stop-when) { margin-top: var(--s-1); font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
+.route:not(.is-live) .stop + .stop { margin-top: var(--s-4); }
+/* Every paragraph shares one cell, so the card is as tall as the longest and doesn't jump. */
+.route.is-live .stop-texts { display: grid; }
+.route.is-live .stop { grid-area: 1 / 1; }
+.route.is-live .stop[hidden] { display: block; visibility: hidden; }
+.stop-pager { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1) 1.75rem; margin-top: var(--s-2); }
+.stop-pager button {
+  font: inherit; font-size: .875rem; font-weight: 600; line-height: 1.5; color: var(--ink);
+  background: none; border: 0; padding: 0; cursor: pointer; white-space: pre;
+}
+.stop-pager button:hover { color: var(--accent); }
+.stop-pager button:disabled { color: var(--ink-faint); opacity: .55; cursor: default; }
+.stop-count { font-size: var(--t-label); color: var(--ink-faint); }
+
+.do-grid { display: grid; gap: var(--s-4) var(--s-4); }
+@media (min-width: 48rem) { .do-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem var(--s-4); } }
+.do-grid h3 { font-size: 1.3125rem; line-height: 1.25; letter-spacing: -0.01em; }
+.do-grid p { margin-top: var(--s-1); max-width: 35rem; font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
+
+.about-facts { display: grid; gap: var(--s-3) var(--s-6); margin: 0; }
+@media (min-width: 40rem) { .about-facts { grid-template-columns: repeat(2, minmax(0, 25rem)); } }
+.about-facts dt { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+.about-facts dd { margin: .375rem 0 0; font-size: 1.0625rem; line-height: 1.5; color: var(--ink); }
 
 /* --- pages that keep the simple layout (About, CV) ------------------ */
 
