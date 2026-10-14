@@ -16,17 +16,22 @@ every open item by who can answer it.
 
 ## Where things stand, 14 October 2026
 
-The visual design is decided in the Figma file "Portfolio 26" first and then built here. On 14
-October the site was brought up to date with Figma (local only, nothing pushed):
+The visual design is decided in the Figma file "Portfolio 26" first and then built here.
 
 | Page | State |
 |---|---|
-| `index.html` | Intro and sign-in; behind it, four project cards: AI Email Reply, Real-Time Classification, Clinic Management, Aircraft Maintenance. |
-| `work/service-reply-email.html`, `real-time-classification.html`, `aircraft-maintenance.html`, `clinic-management.html` | Written. Each overview has a "Who uses it" block before the users are named anywhere else. |
-| `work/record-companions.html` | New, from the Figma frame of the same name. Built but not listed: it has no card on the Figma Home yet. |
-| `work/founding-a-design-function.html` | Taken out of the portfolio (the story is on About now). Built but not listed. |
-| `about.html` | "Get to know me": the cover letter told as an interactive subway map (`js/route-map.js`), one paragraph per stop. |
-| `cv.html` | Dry and factual, single column, print-styled. |
+| `index.html` | The landing page is "Get to know me" (Figma Page 9, "Home · get to know me (landing)"): the intro with Download CV and See my work, the timeline as a vertical subway map that draws itself as you scroll (`js/journey.js`), What I do, then Selected work behind the password. Founding the Air Force UX wing is the key milestone on the timeline, not a project. |
+| `work/service-reply-email.html`, `real-time-classification.html`, `clinic-management.html`, `aircraft-maintenance.html` | The four listed case studies. Each overview has a "Who uses it" block. |
+| `work/record-companions.html` | Built but not listed: it has no card on the Figma Home yet. |
+| `cv.html` | Dry and factual. Printed, it is the one-page PDF the Download CV links point to. |
+| `about.html` | Forwards to the timeline on the home page. |
+
+The CV PDF is the CV page printed. After changing `cv.html`, run the local server and print it
+again (Microsoft Edge, which is on every Windows machine):
+
+```
+"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless=new --no-pdf-header-footer --print-to-pdf="%CD%ssets\stav-fisher-gross-cv.pdf" http://localhost:8321/cv.html
+```
 
 Everything still unresolved is written down rather than shipped. `notes/drafting-gaps.md` holds
 the gaps that used to sit inline in the pages; `notes/open-questions.md` sorts every open item
@@ -46,13 +51,13 @@ Nothing here needs a build step, so there is no workflow to configure.
 Committed, because it is the published website:
 
 ```
-index.html              work index and positioning
-about.html
-cv.html                 single column, print-styled
+index.html              the landing page: get to know me, then the work
+about.html              forwards to the timeline on the home page
+cv.html                 single column; printed, it is assets/stav-fisher-gross-cv.pdf
 work/                   one file per case study, encrypted (built, do not edit by hand)
 css/site.css            the whole design system, tokenised on :root
 js/unlock.js            decrypts a case study in the browser once the password is right
-js/route-map.js         the clickable subway map on the About page
+js/journey.js           the timeline on the home page, drawn as you scroll
 assets/                 web-sized imagery; assets/locked/ holds the encrypted screens
 ```
 

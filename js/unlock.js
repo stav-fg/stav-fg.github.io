@@ -42,13 +42,19 @@
       });
   }
 
-  // `hero` goes where the form was, `body` after the section the form was in.
+  // On a case study, `hero` goes where the form was and `body` after the section the form was in.
+  // On the home page the project list takes the place of the whole "Selected work" sign-in section.
   function reveal(key, page) {
-    var section = form.closest('.case-hero, .intro');
-    var column = form.parentElement;
-    form.remove();
-    if (page.hero) column.insertAdjacentHTML('beforeend', page.hero);
-    section.insertAdjacentHTML('afterend', page.body);
+    var gate = form.closest('.work-gate');
+    if (gate) {
+      gate.outerHTML = page.body;
+    } else {
+      var section = form.closest('.case-hero, .intro');
+      var column = form.parentElement;
+      form.remove();
+      if (page.hero) column.insertAdjacentHTML('beforeend', page.hero);
+      section.insertAdjacentHTML('afterend', page.body);
+    }
     document.querySelectorAll('img[data-locked]').forEach(function (img) {
       fetch(img.dataset.locked)
         .then(function (r) { return r.arrayBuffer(); })

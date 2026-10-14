@@ -43,12 +43,12 @@ PRIVATE = ROOT / "private"
 LOCKED = ROOT / "assets" / "locked"
 ROUNDS = 250_000
 CSS_VERSION = "11"
-JS_VERSION = "2"
+JS_VERSION = "3"
 
 # Public parts of each page, in home page order. "next" goes round the listed pages in this order.
 # A page with listed=False is still built, but nothing links to it and its "next" is the first
-# listed page: Founding was taken out of the portfolio on 14 October 2026 (it is on the Figma
-# "Archive" page), and Record Companions has no card on the Figma Home yet.
+# listed page: Record Companions has no card on the Figma Home yet. Founding the Air Force UX wing
+# is not a project at all since 14 October 2026: it is the key milestone on the home page timeline.
 CASES = [
     dict(slug="service-reply-email", tint="--tint-email",
          title="AI Email Reply",
@@ -66,11 +66,6 @@ CASES = [
          title="Aircraft Maintenance",
          meta="Webiks, for the Israeli Air Force · 2018",
          lead="A tablet app that replaced paper reporting in Air Force aircraft maintenance."),
-    dict(slug="founding-a-design-function", tint="--tint-founding",
-         title="Founding the Air Force UX Wing",
-         meta="Israeli Air Force · 2012-2017",
-         lead="How I became the first UX designer in the Israeli Air Force, and the aerial defense project that came out of it.",
-         listed=False),
     dict(slug="record-companions", tint="--tint-rc",
          title="Record Companions",
          meta="Salesforce · Service Cloud · 2026",
@@ -117,8 +112,7 @@ PAGE = """<!DOCTYPE html>
 <header class="site-head">
 <a class="wordmark" href="/">Stav Fisher Gross</a>
 <nav aria-label="Primary" class="site-nav">
-<a aria-current="page" href="/">Work</a>
-<a href="/about.html">About</a>
+<a aria-current="page" href="/#work">Work</a>
 <a href="/cv.html">CV</a>
 <a href="#contact">Contact</a></nav>
 </header>
@@ -151,7 +145,7 @@ PAGE = """<!DOCTYPE html>
 <footer class="site-foot" id="contact">
 <div class="shell">
 <h2>Let's talk</h2>
-<p><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a> · <a href="https://linkedin.com/in/stav-bsh">LinkedIn</a> · Tel Aviv, Israel</p>
+<p><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a> · <a href="https://linkedin.com/in/stav-bsh">LinkedIn</a> · <a download="" href="/assets/stav-fisher-gross-cv.pdf">Download CV</a> · Tel Aviv, Israel</p>
 </div>
 </footer>
 </body>

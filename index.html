@@ -28,7 +28,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="css/site.css?v=11" rel="stylesheet"/>
 <script>try{if(sessionStorage.getItem("unlock:pw"))document.documentElement.className="unlocking"}catch(e){}</script>
-<script defer src="js/unlock.js?v=2"></script>
+<script defer src="js/unlock.js?v=3"></script>
+<script defer src="js/journey.js?v=2"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -36,8 +37,7 @@
 <header class="site-head">
 <a class="wordmark" href="/">Stav Fisher Gross</a>
 <nav aria-label="Primary" class="site-nav">
-<a aria-current="page" href="/">Work</a>
-<a href="/about.html">About</a>
+<a href="/#work">Work</a>
 <a href="/cv.html">CV</a>
 <a href="#contact">Contact</a></nav>
 </header>
@@ -46,25 +46,148 @@
 <section class="intro shell">
 <h1>I'm Stav, a product design lead with 14 years of experience in complex software.</h1>
 <p class="lead">For the last four years I designed AI features for Salesforce Service Cloud. Before that I led a design team at Asperii, worked at Webiks, and was the first UX designer in the Israeli Air Force.</p>
+<p class="actions">
+<a class="btn btn--primary" download="" href="/assets/stav-fisher-gross-cv.pdf">Download CV</a>
+<a class="btn" href="#work">See my work <span aria-hidden="true">↓</span></a>
+</p>
+</section>
+<div class="shell about">
+<section aria-labelledby="route-title" class="about-section journey" id="get-to-know-me">
+<p class="eyebrow">Get to know me</p>
+<h2 id="route-title">How I got here</h2>
+<!-- Figma: Page 9, "Home · get to know me (landing)". The line is drawn by
+     js/journey.js from where each stop sits on the page, and draws itself as you scroll. -->
+<div class="journey-key" aria-hidden="true">
+<span style="--c:#3F7D5A">Air Force</span><span style="--c:#3B6FB6">Study</span><span style="--c:#6B4EA8">Industry</span><span style="--c:#E07A5F">Life</span>
+</div>
+<p class="journey-hint" aria-hidden="true">Scroll to travel the line</p>
+<div class="journey-track" data-journey>
+<ol class="journey-stops">
+<li class="jstop" data-color="#3F7D5A" data-line="trunk">
+<span aria-hidden="true" class="jyear">2010</span>
+<p class="stop-when">2010-2012 · IDF</p>
+<h3>IDF</h3>
+<p>I did my army service in the IDF, first in project management and then in training and standards.</p>
+</li>
+<li class="jstop" data-color="#3F7D5A" data-line="trunk" data-interchange>
+<span aria-hidden="true" class="jyear">2012</span>
+<p class="stop-when">2012 · Israeli Air Force</p>
+<h3>Israeli Air Force</h3>
+<p>In 2012 I was serving in a software unit of the Israeli Air Force, with about a thousand developers and no designers. Most people there saw UX as graphic design. I taught myself the practice and pitched a UX function to the head of the unit. The answer was no, so I started anyway, as a volunteer after hours, under a title I gave myself. Within months it was about 80% of my time.</p>
+</li>
+<li class="jstop" data-color="#3B6FB6" data-line="branch">
+<p class="stop-when">2012-2017 · HIT</p>
+<h3>B.Sc. in Technology Management</h3>
+<p>Alongside my service I studied for a B.Sc. in Technology Management at HIT, from 2012 to 2017.</p>
+</li>
+<li class="jstop" data-color="#3F7D5A" data-line="trunk" data-milestone="">
+<span aria-hidden="true" class="jyear">2015</span>
+<p class="milestone-tag">Key milestone</p>
+<p class="stop-when">2015 · Israeli Air Force</p>
+<h3>Founded the UX wing</h3>
+<p>The clearest result of those years was the aerial defense support software, which operators in a field command centre used to track incoming threats. Operator response times improved during the 2014 operation, and the project received a unit commendation. Looking back, those screens needed much more whitespace. In 2015 my role became official. I ran the first UX conference in the IDF and founded the Air Force UX wing, with funding in the millions to staff it.</p>
+</li>
+<li class="jstop" data-color="#6B4EA8" data-line="trunk" data-interchange>
+<span aria-hidden="true" class="jyear">2017</span>
+<p class="stop-when">2017-2018 · Webiks</p>
+<h3>Webiks</h3>
+<p>At Webiks I was the only designer on a maintenance app for Air Force technicians, and I did the research on the bases myself.</p>
+</li>
+<li class="jstop" data-color="#E07A5F" data-line="branch">
+<span aria-hidden="true" class="jyear">2018</span>
+<p class="stop-when">2018-2019</p>
+<h3>Twenty countries</h3>
+<p>Then I took a year off and travelled through twenty countries.</p>
+</li>
+<li class="jstop" data-color="#6B4EA8" data-line="trunk">
+<span aria-hidden="true" class="jyear">2020</span>
+<p class="stop-when">2020 · Asperii</p>
+<h3>Asperii</h3>
+<p>At Asperii I designed a clinic management system for a top US healthcare enterprise.</p>
+</li>
+<li class="jstop" data-color="#6B4EA8" data-line="trunk">
+<p class="stop-when">December 2020 · Asperii</p>
+<h3>Team lead</h3>
+<p>Four months in I was promoted to team lead. I hired and trained a design team of three.</p>
+</li>
+<li class="jstop" data-color="#6B4EA8" data-line="trunk">
+<span aria-hidden="true" class="jyear">2022</span>
+<p class="stop-when">2022-2026 · Salesforce</p>
+<h3>Salesforce</h3>
+<p>At Salesforce I spent four years as the only designer on ten AI product areas in Service Cloud, working with six engineering teams in India, Israel and San Francisco.</p>
+</li>
+<li class="jstop" data-color="#E07A5F" data-line="branch">
+<span aria-hidden="true" class="jyear">2024</span>
+<p class="stop-when">2024</p>
+<h3>Became a mother</h3>
+<p>In 2024 I became a mother. I live in Tel Aviv with my family, a dog and a cat.</p>
+</li>
+<li class="jstop" data-color="#6B4EA8" data-line="trunk">
+<span aria-hidden="true" class="jyear">2026</span>
+<p class="stop-when">2026</p>
+<h3>Next stop</h3>
+<p>This stop is still open. If it could be your team, write to me at <a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a>.</p>
+<p class="actions"><a class="btn btn--primary" download="" href="/assets/stav-fisher-gross-cv.pdf">Download CV</a></p>
+</li>
+</ol>
+</div>
+</section>
+
+<section aria-labelledby="do-title" class="about-section">
+<h2 id="do-title">What I do</h2>
+<div class="do-grid">
+<div>
+<h3>Design AI features</h3>
+<p>Four years at Salesforce as the only designer on ten AI product areas in Service Cloud, working with six engineering teams in India, Israel and San Francisco. My work there covered training a model and choosing which one runs, drafting text for a person to approve, letting AI act on its own, and deciding what it's allowed to touch.</p>
+</div>
+<div>
+<h3>Build design teams</h3>
+<p>I was the first UX designer in the Israeli Air Force, first as a volunteer and three years later officially. I founded the Air Force UX wing and secured funding in the millions to staff it. At Asperii I built a design team of three.</p>
+</div>
+<div>
+<h3>Prototype in code</h3>
+<p>My last projects at Salesforce went to engineering as working prototypes built on the design system, in place of Figma files.</p>
+</div>
+<div>
+<h3>VIsioning for the long term</h3>
+<p>My last projects at Salesforce went to engineering as working prototypes built on the design system, in place of Figma files.</p>
+</div>
+<div>
+<h3>Accessibility</h3>
+<p>I owned accessibility for my product area at Salesforce.</p>
+</div>
+</div>
+</section>
+
+<section aria-label="Education and languages" class="about-section">
+<dl class="about-facts">
+<div><dt>Education</dt><dd>B.Sc. in Technology Management, HIT.</dd></div>
+<div><dt>Languages</dt><dd>Hebrew (native), English (fluent)</dd></div>
+</dl>
+</section>
+
+</div>
+<section aria-labelledby="work-h" class="work-gate shell" id="work">
+<h2 class="work-title" id="work-h">Selected work</h2>
 <form class="gate" data-slug="home" autocomplete="off">
-<label for="pw">Enter the password to see the projects.</label>
+<label for="pw">To view my work please enter the password</label>
 <div class="gate-row">
 <input id="pw" name="pw" type="password" placeholder="Password" required/>
-<button type="submit">Sign in</button>
+<button type="submit">View</button>
 </div>
 <p class="gate-msg" role="status" aria-live="polite"></p>
 <p class="gate-ask">Don't have it? Email <a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a>.</p>
 </form>
 </section>
 <!--locked:home-->
-<script type="application/json" id="locked">{"salt": "yGbnZ6BB6rv9HUXbHnuamA==", "rounds": 250000, "data": "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"}</script>
+<script type="application/json" id="locked">{"salt": "f6fFhFx5TC0E2gfo1FL4Kw==", "rounds": 250000, "data": "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"}</script>
 <!--/locked:home-->
 </main>
 
 <footer class="site-foot" id="contact">
 <div class="shell">
 <h2>Let's talk</h2>
-<p><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a> · <a href="https://linkedin.com/in/stav-bsh">LinkedIn</a> · Tel Aviv, Israel</p>
+<p><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a> · <a href="https://linkedin.com/in/stav-bsh">LinkedIn</a> · <a download="" href="/assets/stav-fisher-gross-cv.pdf">Download CV</a> · Tel Aviv, Israel</p>
 </div>
 </footer></body>
 </html>

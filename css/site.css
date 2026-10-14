@@ -140,8 +140,22 @@ ul.tight li + li { margin-top: var(--s-1); }
 .intro h1 { font-size: var(--t-statement); max-width: 21ch; line-height: 1.12; }
 .intro .lead { margin-top: var(--s-3); max-width: 46rem; }
 
-.work { padding-bottom: var(--s-7); }
-.work .label { margin-bottom: var(--s-4); }
+.intro .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: var(--s-4); }
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.3rem;
+  border: 1.5px solid var(--ink); border-radius: 10px; background: transparent; color: var(--ink);
+  font-size: 1rem; font-weight: 600; line-height: 1.2; text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn--primary { background: var(--ink); color: var(--white); }
+.btn--primary:hover { background: var(--accent); color: var(--white); }
+.jstop .actions { margin-top: var(--s-3); }
+
+/* "Selected work": the sign-in form, and after it the project list in its place. */
+.work, .work-gate { padding-bottom: var(--s-7); scroll-margin-top: var(--s-4); }
+.work-title { font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem); line-height: 1.15; margin-bottom: var(--s-4); }
+.work-gate .gate { margin: 0; }
 /* Project cards, as in the Figma Home frame: one wide card per project, the text on the left
    and one whole screen on the right inside a white device. Measurements are the frame's. */
 .posters { display: grid; gap: var(--s-4); }
@@ -238,8 +252,6 @@ a.poster:hover .device { transform: translateY(-6px); }
 .gate button:disabled { opacity: .6; cursor: progress; }
 .gate-msg { min-height: 1.5em; margin-top: var(--s-1); font-size: var(--t-small); color: var(--ink); }
 .gate-ask { font-size: var(--t-small); color: var(--ink-faint); }
-/* On the home page the form sits under the intro, where the project list will appear. */
-.intro .gate { margin: var(--s-4) 0 0; }
 /* A password from earlier in the session is being tried: keep the form out of sight meanwhile. */
 .unlocking .gate { visibility: hidden; }
 
@@ -279,58 +291,61 @@ figcaption { font-size: var(--t-small); color: var(--ink-faint); line-height: 1.
 
 blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3px solid var(--accent); font-family: var(--face-head); font-weight: 600; font-size: var(--t-h3); color: var(--ink); max-width: 40rem; }
 
-/* --- About: the Figma frame "About · get to know me (interactive map)" ------------ */
+/* --- Get to know me: the landing page (Figma Page 9, "Home · get to know me (landing)") ---- */
 
-.about-head { padding-top: var(--s-5); }
-.about-head h1 { font-size: clamp(2.3rem, 1.5rem + 2.6vw, 3.5rem); line-height: 1.1; margin-top: var(--s-2); }
-.about-head .lead { margin-top: var(--s-2); max-width: 51.25rem; }
 .about > .about-section { padding-block: 4.5rem 0; }
 .about > .about-section:last-child { padding-bottom: var(--s-7); }
 .about-section > h2 { font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem); line-height: 1.15; }
 .about-section > h2 + * { margin-top: var(--s-3); }
 
-/* The map sits in a grey panel with the selected stop's card under it. On a narrow screen the
-   map keeps its size and scrolls sideways, so the station names stay readable. */
-.route { background: var(--band-grey); border-radius: var(--radius); padding: var(--s-3); }
-.route-scroll { overflow-x: auto; overscroll-behavior-x: contain; }
-.route-map { position: relative; min-width: 50rem; }
-.route-svg { width: 100%; height: auto; }
-.route-selected { transition: transform 280ms cubic-bezier(.2,.7,.2,1); }
-.route-hotspots button {
-  position: absolute;
-  left: calc(var(--x) / 1152 * 100%); top: calc(var(--y) / 423 * 100%);
-  width: calc(48 / 1152 * 100%); aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  border: 0; border-radius: 50%; padding: 0; background: transparent; cursor: pointer;
-  color: transparent; font-size: 0; overflow: hidden;
-}
-.route-hotspots button:hover { background: rgb(23 22 26 / 7%); }
-.route-hotspots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
-.route.is-live .route-labels text { cursor: pointer; }
-.route:not(.is-live) .route-hotspots, .route:not(.is-live) .route-selected, .route:not(.is-live) .stop-pager { display: none; }
-
-.stop-card {
-  display: flex; gap: 1.25rem; margin-top: var(--s-2);
-  background: var(--white); border: 1px solid var(--rule); border-radius: 16px; padding: var(--s-3);
-}
-.stop-bar { flex: none; width: 6px; border-radius: 3px; background: #3F7D5A; transition: background-color 280ms ease; }
-.stop-body { flex: 1; min-width: 0; max-width: 47.5rem; }
 .stop-when { font-size: var(--t-label); font-weight: 500; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
-.stop h3 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.02em; margin-top: var(--s-1); }
-.stop p:not(.stop-when) { margin-top: var(--s-1); font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
-.route:not(.is-live) .stop + .stop { margin-top: var(--s-4); }
-/* Every paragraph shares one cell, so the card is as tall as the longest and doesn't jump. */
-.route.is-live .stop-texts { display: grid; }
-.route.is-live .stop { grid-area: 1 / 1; }
-.route.is-live .stop[hidden] { display: block; visibility: hidden; }
-.stop-pager { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1) 1.75rem; margin-top: var(--s-2); }
-.stop-pager button {
-  font: inherit; font-size: .875rem; font-weight: 600; line-height: 1.5; color: var(--ink);
-  background: none; border: 0; padding: 0; cursor: pointer; white-space: pre;
+
+/* The timeline as a vertical subway map. js/journey.js draws the line into the left gutter
+   from where each stop sits, and draws it in as the page scrolls. */
+.journey-key { display: flex; flex-wrap: wrap; gap: var(--s-1) 2rem; font-size: .75rem; color: var(--ink-soft); }
+.journey-key span::before { content: ""; display: inline-block; vertical-align: middle; width: 24px; height: 6px; border-radius: 3px; margin-right: .625rem; background: var(--c); }
+.journey-hint { margin-top: .75rem; font-size: .75rem; color: var(--ink-faint); }
+.journey-track { --x0: 60px; --x1: 112px; --parallax: .22; position: relative; isolation: isolate; margin-top: var(--s-5); padding-left: 200px; }
+.journey-svg { position: absolute; left: 0; top: 0; overflow: visible; }
+.journey-stops { list-style: none; margin: 0; padding: 0; }
+.jstop { position: relative; min-height: 16rem; padding-bottom: clamp(5rem, 14vh, 8.5rem); }
+.jstop > :not(.jyear) { max-width: 37.5rem; }
+.jstop h3 { font-size: 1.75rem; line-height: 1.2; letter-spacing: -0.02em; margin-top: var(--s-1); }
+.jstop h3 + p { margin-top: .75rem; font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
+.jyear {
+  position: absolute; right: 0; top: -1.75rem; z-index: -1;
+  font-family: var(--face-head); font-weight: 600; font-size: clamp(4rem, 1.5rem + 7vw, 8rem);
+  line-height: 1; letter-spacing: -0.03em; color: #f1f0f5;
+  pointer-events: none; user-select: none; will-change: transform;
 }
-.stop-pager button:hover { color: var(--accent); }
-.stop-pager button:disabled { color: var(--ink-faint); opacity: .55; cursor: default; }
-.stop-count { font-size: var(--t-label); color: var(--ink-faint); }
+.journey-track.is-live .jstop > :not(.jyear) { opacity: .32; transition: opacity 450ms ease; }
+.journey-track.is-live .jstop.is-reached > :not(.jyear) { opacity: 1; }
+.journey-current { transition: transform 300ms cubic-bezier(.2,.7,.2,1), opacity 200ms ease; }
+/* The key milestone: founding the Air Force UX wing. A stop on the timeline, never a project. */
+.jstop[data-milestone]::before {
+  content: ""; position: absolute; z-index: -1; inset: -1.75rem auto auto -1.75rem;
+  width: calc(min(37.5rem, 100%) + 3.5rem); height: calc(100% - clamp(5rem, 14vh, 8.5rem) + 3.5rem);
+  border-radius: 20px; background: var(--tint-founding);
+}
+.milestone-tag {
+  display: inline-block; margin-bottom: .75rem; padding: .2rem .65rem; border-radius: 999px;
+  background: #3F7D5A; color: var(--white);
+  font-size: .6875rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; line-height: 1.5;
+}
+.jstop[data-milestone] h3 { font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.125rem); }
+.jstop[data-milestone] .jyear { color: #dce8df; }
+/* Without the script: a plain rule beside the list, every stop at full strength. */
+.journey-track:not(.is-live)::before {
+  content: ""; position: absolute; left: calc(var(--x0) - 4px); top: .75rem; bottom: 0; width: 8px; border-radius: 4px;
+  background: linear-gradient(#3F7D5A, #3F7D5A 35%, #6B4EA8 45%, #6B4EA8);
+}
+@media (max-width: 47.99rem) {
+  .journey-track { --x0: 14px; --x1: 44px; --parallax: .1; padding-left: 72px; margin-top: var(--s-4); }
+  .jstop { min-height: 12rem; }
+  .jstop h3 { font-size: 1.4rem; }
+  .jyear { font-size: 3.5rem; top: -1.25rem; }
+  .jstop[data-milestone]::before { inset: -1.25rem auto auto -1rem; width: calc(100% + 1.75rem); height: calc(100% - clamp(5rem, 14vh, 8.5rem) + 2.5rem); }
+}
 
 .do-grid { display: grid; gap: var(--s-4) var(--s-4); }
 @media (min-width: 48rem) { .do-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem var(--s-4); } }
