@@ -340,6 +340,16 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
 }
 .jstop[data-milestone] h3 { font-size: clamp(1.6rem, 1.3rem + .9vw, 1.875rem); }
 .jstop[data-milestone] .jyear { color: var(--m-year, #dce8df); }
+/* A 2D line sketch beside each milestone, in its line's colour. Only where there is room for it
+   next to the panel; on narrower screens the panel has the width to itself. */
+.jsketch { display: none; }
+@media (min-width: 75rem) {
+  .jsketch {
+    display: block; position: absolute; z-index: -1; right: 1.5rem;
+    top: calc((100% - var(--gap)) / 2 - 75px); width: 150px; height: 150px; pointer-events: none;
+  }
+  .jsketch svg { display: block; will-change: transform; }
+}
 /* Without the script: a plain rule beside the list. */
 .journey-track:not(.is-live)::before {
   content: ""; position: absolute; left: calc(var(--x0) - 4px); top: .75rem; bottom: 0; width: 7px; border-radius: 4px;

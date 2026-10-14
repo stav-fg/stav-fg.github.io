@@ -12,7 +12,7 @@
   var PALE = "#E4E2EA";
   var INK = "#17161A";
   var stops = [].slice.call(track.querySelectorAll(".jstop"));
-  var years = [].slice.call(track.querySelectorAll(".jyear"));
+  var years = [].slice.call(track.querySelectorAll(".jyear, .jsketch svg"));
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
   var svg, clipRect, stations = [], current, halo, ys = [], end = 0, ticking = false, now = -1;
 
@@ -115,7 +115,7 @@
       halo.setAttribute("fill", stops[cur].getAttribute("data-color"));
     }
 
-    // Parallax: each year drifts against the page around its own stop, by --parallax of the
+    // Parallax: each year (and each milestone sketch) drifts against the page around its own stop, by --parallax of the
     // distance from the middle of the screen, never more than 48px, so it stays by its stop
     // (less on a phone, where the column is narrow).
     var k = parseFloat(getComputedStyle(track).getPropertyValue("--parallax")) || 0;
