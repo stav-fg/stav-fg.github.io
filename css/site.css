@@ -370,6 +370,7 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
 @media (min-width: 48rem) { .do-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem var(--s-4); } }
 .do-grid h3 { font-size: 1.3125rem; line-height: 1.25; letter-spacing: -0.01em; }
 .do-grid p { margin-top: var(--s-1); max-width: 35rem; font-size: 1.0625rem; line-height: 1.55; color: var(--ink-soft); }
+.do-grid p a { color: var(--ink); }
 /* "How I design AI features", right under the intro: a line per principle, each pointing to
    the case that shows it. */
 .principles ul { margin: 0; padding-left: 1.2rem; max-width: 56rem; font-size: 1.125rem; line-height: 1.55; color: var(--ink-soft); }
