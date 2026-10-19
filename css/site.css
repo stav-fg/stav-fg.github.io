@@ -306,6 +306,7 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
 .about > .about-section:last-child { padding-bottom: var(--s-7); }
 .about-section > h2 { font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem); line-height: 1.15; }
 .about-section > h2 + * { margin-top: var(--s-3); }
+.journey { scroll-margin-top: var(--s-3); }
 
 .stop-when { font-size: var(--t-label); font-weight: 500; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
 
@@ -314,11 +315,11 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
    stops get a line or two, study and life stops a single line, and nothing waits for the scroll. */
 .journey-key { display: flex; flex-wrap: wrap; gap: var(--s-1) 2rem; font-size: .75rem; color: var(--ink-soft); }
 .journey-key span::before { content: ""; display: inline-block; vertical-align: middle; width: 24px; height: 6px; border-radius: 3px; margin-right: .625rem; background: var(--c); }
-.journey-track { --x0: 60px; --x1: 112px; --parallax: .15; position: relative; isolation: isolate; margin-top: var(--s-4); padding-left: 200px; }
+.journey-track { --x0: 60px; --x1: 112px; position: relative; isolation: isolate; margin-top: var(--s-4); padding-left: 200px; }
 .journey-svg { position: absolute; left: 0; top: 0; overflow: visible; }
 .journey-stops { list-style: none; margin: 0; padding: 0; }
 .jstop { --gap: 2.5rem; position: relative; padding-bottom: var(--gap); }
-.jstop > :not(.jyear) { max-width: 38.75rem; }
+.jstop > :not(.jsketch) { max-width: 38.75rem; }
 .jstop .stop-when { font-size: .75rem; }
 .jstop h3 { font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.02em; margin-top: .375rem; }
 .jstop h3 ~ p:not(.actions) { margin-top: .375rem; font-size: 1rem; line-height: 1.55; color: var(--ink-soft); }
@@ -327,19 +328,13 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
 .jstop--minor h3 { font-family: var(--face-text); font-size: 1rem; font-weight: 600; letter-spacing: 0; line-height: 1.4; margin-top: 0; }
 .jdate { margin-left: .5rem; font-weight: 400; font-size: .875rem; color: var(--ink-faint); white-space: nowrap; }
 .jstop--minor h3 ~ p:not(.actions) { margin-top: .125rem; font-size: .9375rem; }
-.jyear {
-  position: absolute; right: 0; top: -.5rem; z-index: -1;
-  font-family: var(--face-head); font-weight: 600; font-size: clamp(3rem, 1.5rem + 3vw, 4.5rem);
-  line-height: 1; letter-spacing: -0.03em; color: #f1f0f5;
-  pointer-events: none; user-select: none; will-change: transform;
-}
 .journey-current { transition: transform 300ms cubic-bezier(.2,.7,.2,1), opacity 200ms ease; }
 /* Key milestones: founding the Air Force UX wing (never a project, a milestone), the promotion to
    team lead and Salesforce, so the route reads as climbing. Each takes its line's colour. */
-.jstop[data-milestone] { --gap: 3.75rem; margin-top: 1.5rem; }
+.jstop[data-milestone] { --gap: 3.75rem; margin-top: 1.5rem; max-width: 49.75rem; }
 .jstop[data-milestone]::before {
   content: ""; position: absolute; z-index: -1; inset: -1.5rem auto auto -1.5rem;
-  width: calc(min(38.75rem, 100%) + 3rem); height: calc(100% - var(--gap) + 3rem);
+  width: calc(100% + 3rem); height: calc(100% - var(--gap) + 3rem);
   border-radius: 20px; background: var(--m-tint, var(--tint-founding));
 }
 .milestone-tag {
@@ -348,16 +343,16 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
   font-size: .6875rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; line-height: 1.5;
 }
 .jstop[data-milestone] h3 { font-size: clamp(1.6rem, 1.3rem + .9vw, 1.875rem); }
-.jstop[data-milestone] .jyear { color: var(--m-year, #dce8df); }
-/* A 2D line sketch beside each milestone, in its line's colour. Only where there is room for it
-   next to the panel; on narrower screens the panel has the width to itself. */
+/* A 2D line sketch inside each milestone panel, on its right, centred on the panel. Only where the
+   panel is wide enough to hold it beside the text; on narrower screens the text has the width. */
 .jsketch { display: none; }
 @media (min-width: 75rem) {
   .jsketch {
-    display: block; position: absolute; z-index: -1; right: 1.5rem;
-    top: calc((100% - var(--gap)) / 2 - 75px); width: 150px; height: 150px; pointer-events: none;
+    display: block; position: absolute; right: .5rem;
+    top: calc((100% - var(--gap)) / 2 - 55px); width: 110px; height: 110px; pointer-events: none;
   }
-  .jsketch svg { display: block; will-change: transform; }
+  .jsketch svg { display: block; width: 110px; height: 110px; }
+}
 }
 /* Without the script: a plain rule beside the list. */
 .journey-track:not(.is-live)::before {
@@ -365,10 +360,9 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
   background: linear-gradient(#3F7D5A, #3F7D5A 35%, #6B4EA8 45%, #6B4EA8);
 }
 @media (max-width: 47.99rem) {
-  .journey-track { --x0: 14px; --x1: 44px; --parallax: .08; padding-left: 72px; }
+  .journey-track { --x0: 14px; --x1: 44px; padding-left: 72px; }
   .jstop h3 { font-size: 1.25rem; }
   .jstop--minor h3 { font-size: 1rem; }
-  .jyear { font-size: 2.75rem; }
   .jstop[data-milestone]::before { inset: -1.25rem auto auto -1rem; width: calc(100% + 1.75rem); height: calc(100% - var(--gap) + 2.5rem); }
 }
 
@@ -380,6 +374,9 @@ blockquote.pull { margin: var(--s-4) 0; padding-left: var(--s-3); border-left: 3
    the case that shows it. */
 .principles ul { margin: 0; padding-left: 1.2rem; max-width: 56rem; font-size: 1.125rem; line-height: 1.55; color: var(--ink-soft); }
 .principles li + li { margin-top: .5rem; }
+.about > .principles:last-child { padding-bottom: var(--s-5); }
+.about > .principles { scroll-margin-top: var(--s-3); }
+.principles .eyebrow { margin-bottom: .5rem; }
 .principles li a { margin-left: .25rem; color: var(--ink); font-weight: 500; white-space: nowrap; }
 
 .about-facts { display: grid; gap: var(--s-3) var(--s-6); margin: 0; }

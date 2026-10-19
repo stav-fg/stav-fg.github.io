@@ -42,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PRIVATE = ROOT / "private"
 LOCKED = ROOT / "assets" / "locked"
 ROUNDS = 250_000
-CSS_VERSION = "17"
+CSS_VERSION = "20"
 JS_VERSION = "3"
 
 # Public parts of each page, in home page order. "next" goes round the listed pages in this order.
@@ -112,7 +112,7 @@ PAGE = """<!DOCTYPE html>
 <a class="wordmark" href="/">Stav Fisher Gross</a>
 <nav aria-label="Primary" class="site-nav">
 <a href="/">About</a>
-<a aria-current="page" href="/#work">Work</a>
+<a aria-current="page" href="/#my-work">Work</a>
 <a href="#contact">Contact</a></nav>
 </header>
 </div>

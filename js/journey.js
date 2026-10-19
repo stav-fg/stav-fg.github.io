@@ -1,8 +1,8 @@
 // The vertical subway map on the About page (Figma: "About · get to know me (vertical scroll)").
 // The line runs down the left of the stops. It is drawn from where each stop actually sits on
 // the page, so it follows the text as it wraps. As the page scrolls, the line draws itself down
-// to the middle of the screen, the stop there becomes the current one, and the big years drift
-// at a slower speed than the page. All of that is decoration: every stop is readable without it.
+// to the middle of the screen and the stop there becomes the current one. That is decoration
+// only: every stop is readable without it.
 // Without this script the stops are a plain list with a thin rule beside them.
 (function () {
   var track = document.querySelector("[data-journey]");
@@ -12,7 +12,6 @@
   var PALE = "#E4E2EA";
   var INK = "#17161A";
   var stops = [].slice.call(track.querySelectorAll(".jstop"));
-  var years = [].slice.call(track.querySelectorAll(".jyear, .jsketch svg"));
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
   var svg, clipRect, stations = [], current, halo, ys = [], end = 0, ticking = false, now = -1;
 
@@ -49,11 +48,18 @@
     clipRect = el("rect", { x: 0, y: 0, width: W, height: 0 }, clip);
 
     // The lines are worked out from the stops. The trunk runs through every stop on it, each
-    // segment in the colour of the station it leaves (so the Air Force line turns into Industry
-    // at the interchange), and dotted into a stop marked data-future. The branch leaves the trunk
-    // at the last interchange before its first stop and runs beside it. Both trail off dotted.
-    var trunk = [], branch = [], lines = [];
-    stops.forEach(function (s, i) { (s.getAttribute("data-line") === "branch" ? branch : trunk).push(i); });
+    // segment in the colour of the station it leaves, and dotted into a stop marked data-future.
+    // Each branch (stops on data-line="branch", grouped by colour) leaves the trunk at the last
+    // interchange before its first stop and runs beside it. If an interchange follows its last
+    // stop it rejoins the trunk there (Study at Webiks); if not, it trails off dotted (Life).
+    var trunk = [], branches = {}, order = [], lines = [];
+    stops.forEach(function (s, i) {
+      if (s.getAttribute("data-line") === "branch") {
+        var c = s.getAttribute("data-color");
+        if (!branches[c]) { branches[c] = []; order.push(c); }
+        branches[c].push(i);
+      } else trunk.push(i);
+    });
     trunk.forEach(function (a, k) {
       var b = trunk[k + 1];
       if (b === undefined) return;
@@ -61,14 +67,19 @@
     });
     var lastT = trunk[trunk.length - 1];
     lines.push([stops[lastT].getAttribute("data-color"), [[x0, ys[lastT]], [x0, end - 8]], true]);
-    if (branch.length) {
-      var first = branch[0], lastB = branch[branch.length - 1];
-      var from = trunk.filter(function (t) { return t < first && stops[t].hasAttribute("data-interchange"); }).pop();
+    order.forEach(function (c) {
+      var idx = branches[c], first = idx[0], last = idx[idx.length - 1];
+      var inter = trunk.filter(function (t) { return stops[t].hasAttribute("data-interchange"); });
+      var from = inter.filter(function (t) { return t < first; }).pop();
       if (from === undefined) from = trunk.filter(function (t) { return t < first; }).pop();
-      var bc = stops[first].getAttribute("data-color");
-      lines.push([bc, [[x0, ys[from]], [x1, ys[from] + d], [x1, ys[lastB]]]]);
-      lines.push([bc, [[x1, ys[lastB]], [x1, end - 8]], true]);
-    }
+      var to = inter.filter(function (t) { return t > last; })[0];
+      if (to !== undefined) {
+        lines.push([c, [[x0, ys[from]], [x1, ys[from] + d], [x1, ys[to] - d], [x0, ys[to]]]]);
+      } else {
+        lines.push([c, [[x0, ys[from]], [x1, ys[from] + d], [x1, ys[last]]]]);
+        lines.push([c, [[x1, ys[last]], [x1, end - 8]], true]);
+      }
+    });
     var pale = el("g", { fill: "none", stroke: PALE, "stroke-width": 7, "stroke-linecap": "round", "stroke-linejoin": "round" }, svg);
     var drawn = el("g", { fill: "none", "stroke-width": 7, "stroke-linecap": "round", "stroke-linejoin": "round", "clip-path": "url(#journey-drawn)" }, svg);
     lines.forEach(function (l) {
@@ -127,17 +138,6 @@
       current.style.opacity = stops[cur].hasAttribute("data-milestone") ? 0 : 1;
       halo.setAttribute("fill", stops[cur].getAttribute("data-color"));
     }
-
-    // Parallax: each year (and each milestone sketch) drifts against the page around its own stop, by --parallax of the
-    // distance from the middle of the screen, never more than 48px, so it stays by its stop
-    // (less on a phone, where the column is narrow).
-    var k = parseFloat(getComputedStyle(track).getPropertyValue("--parallax")) || 0;
-    years.forEach(function (y) {
-      if (still || !k) { y.style.transform = ""; return; }
-      var r = y.parentNode.getBoundingClientRect();
-      var off = Math.max(-48, Math.min(48, (r.top + r.height / 2 - vh / 2) * -k));
-      y.style.transform = "translate3d(0," + off.toFixed(1) + "px,0)";
-    });
   }
 
   function onScroll() {
