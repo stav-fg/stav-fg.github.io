@@ -3,25 +3,14 @@
 node_modules/
 
 
-# ---------------------------------------------------------------------
-# ALL source material stays local and is never published.
-#
-# A <user>.github.io Pages repo must be public, so anything tracked here
-# is world-readable. source-material/ contains the handoff brief (which
-# names the anchor customer that was explicitly decided against naming),
-# the Portfolio Panel deck (unredacted clinic screenshots), her LinkedIn
-# export, the full-resolution Carbonmade originals, and the Salesforce
-# internal prototype repo.
-#
-# None of that belongs on a public URL under her name.
-# ---------------------------------------------------------------------
+# Source material stays local and is never published: this repo is public.
 source-material/
 
 
-# notes/ and drafts/ ARE tracked: they are the operating record of how this was
-# built, and they belong with it. They are written on the assumption that this
-# repo is public, so they carry no employer-internal identifiers, no customer
-# names, and no contact details. Keep it that way when adding to them.
+# Working notes and drafts live in private/ (below), not in the repo.
+notes/
+drafts/
+HANDOFF.md
 
 # Local Python environment for tools/figextract.py. Rebuilt by tools/setup.sh.
 env/
