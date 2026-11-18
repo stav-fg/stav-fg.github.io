@@ -43,7 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PRIVATE = ROOT / "private"
 LOCKED = ROOT / "assets" / "locked"
 ROUNDS = 250_000
-CSS_VERSION = "31"
+CSS_VERSION = "35"
 JS_VERSION = "4"
 
 # Public parts of each page, in My work order. "next" goes round the listed pages in this order.
@@ -146,7 +146,7 @@ PAGE = """<!DOCTYPE html>
 <p class="next-all"><a href="/work/#projects">All work</a></p>
 </section>
 </main>
-<footer class="site-foot" id="contact">
+<footer class="site-foot site-foot--case" id="contact">
 <div class="wrap">
 <h2>Let’s talk</h2>
 <p class="contact"><a href="mailto:stav.bsh@gmail.com">stav.bsh@gmail.com</a><span aria-hidden="true">·</span><a href="https://linkedin.com/in/stav-bsh">LinkedIn</a><span aria-hidden="true">·</span><a download="" href="/assets/stav-fisher-gross-cv.pdf">Download CV</a><span aria-hidden="true">·</span><span>Tel Aviv, Israel</span></p>

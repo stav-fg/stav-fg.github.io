@@ -37,6 +37,7 @@
   --t-h2:      clamp(1.75rem, 1.35rem + 1.3vw, 2.375rem); /* 38 */
   --t-statement: clamp(1.75rem, 1.2rem + 1.9vw, 2.75rem); /* 44 */
   --t-project: clamp(1.5rem, 1.2rem + 1vw, 2rem);         /* 32 */
+  --t-foot:    clamp(2.25rem, 1.5rem + 2.4vw, 3.5rem);    /* 56: Let's talk on case studies */
 
   --gutter: clamp(1.25rem, 5vw, 7.5rem);
   --column: 75rem;        /* 1200 */
@@ -72,7 +73,7 @@ figure { margin: 0; }
 
 /* --- header and footer ---------------------------------------------------------------- */
 
-.site-head { border-bottom: 1px solid var(--hair); }
+.site-head { border-bottom: 0; }
 .site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 24px; }
 .wordmark { font-family: var(--face-head); font-weight: 600; font-size: 1.3125rem; line-height: 1.12; letter-spacing: -0.01em; text-decoration: none; }
 .site-nav { display: flex; gap: 2rem; }
@@ -90,6 +91,7 @@ figure { margin: 0; }
 
 .site-foot { background: var(--dark); color: var(--white); padding-block: 72px; }
 .site-foot h2 { font-size: var(--t-h2-big); color: var(--white); }
+.site-foot--case h2 { font-size: var(--t-foot); line-height: 1.16; }   /* case studies: 56, as on their frames */
 .site-foot .contact { display: flex; flex-wrap: wrap; gap: .5rem .75rem; margin-top: 1rem; font-size: 1rem; line-height: 1.2; }
 .site-foot .contact a { color: var(--on-dark); font-weight: 500; }
 .site-foot .contact a:hover { color: var(--white); }
@@ -142,8 +144,8 @@ figure { margin: 0; }
 .who-text h2 + p { margin-top: 18px; }
 .family { padding-bottom: 28px; }
 .family img { width: 100%; max-width: 630px; }
-/* The caption sits under the photo, like the captions of the other photos. */
-.family figcaption { margin: 12px 0 0 20px; }
+/* The caption sits under the photo, beside the shape that runs below it. */
+.family figcaption { position: relative; margin: -7.4% 0 0 24px; }
 .who figcaption { font-size: .875rem; line-height: 1.2; color: var(--ink-soft); }
 
 .interests {
@@ -221,7 +223,7 @@ figure { margin: 0; }
 .how-ai p { font-size: 1.125rem; line-height: 1.65; color: var(--ink-soft); }
 @media (max-width: 40rem) { .quote { padding: 24px; gap: 12px; } .quote p { font-size: 1.25rem; } }
 
-.projects { background: var(--grey); border-top: 1px solid var(--hair); padding-block: 72px; scroll-margin-top: 0; }
+.projects { background: var(--grey); padding-block: 72px; scroll-margin-top: 0; }
 .projects .label { font-size: .875rem; }
 .projects h2 { margin-top: 12px; font-size: var(--t-h2-big); }
 .projects h2 + * { margin-top: 36px; }
@@ -251,7 +253,6 @@ figure { margin: 0; }
   content: ""; position: absolute; top: 30px; right: -27px; width: 22px; height: 12px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' viewBox='0 0 24 12' fill='none'%3E%3Cpath d='M1 6H23M17 11.5L23 6L17 0.5' stroke='%238C8A96' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
 }
-.landing + .projects { border-top: 0; }
 .steps h3 { margin-top: 6px; font-family: var(--face-text); font-size: 1rem; font-weight: 600; line-height: 1.2; letter-spacing: 0; }
 .steps p { font-size: .9375rem; line-height: 1.5; color: var(--ink-soft); }
 .how-home .proof { margin-top: 40px; font-size: 1.0625rem; line-height: 1.6; color: var(--ink-soft); }
@@ -430,7 +431,7 @@ figcaption strong { color: var(--ink); font-weight: 600; }
   .role h3, .role .when, .role ul { grid-column: 1; grid-row: auto; }
   .role .when { margin-top: 4px; }
 }
-.cv-more { background: var(--grey); border-top: 1px solid var(--hair); padding-block: 72px; }
+.cv-more { background: var(--grey); padding-block: 72px; }
 .cv-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .cv-card { padding: 24px; border: 1px solid var(--hair); border-radius: 20px; background: var(--white); }
 .cv-card h2 { font-family: var(--face-text); font-size: .875rem; font-weight: 600; line-height: 1.2; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
